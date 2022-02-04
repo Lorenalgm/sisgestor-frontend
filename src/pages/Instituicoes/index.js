@@ -2,18 +2,87 @@ import React, {useEffect, useState} from 'react';
 import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-import imagem from '../../assets/loginimagem.png';
+import Menu from '../../components/Menu';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 
-export default function Login(){
+export default function Instituicoes(){
+    const [instituicoes, setInstituicoes] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+      try {
+        api
+          .get(`instituicoes`)
+          .then((response) => {
+            setInstituicoes(response.data);
+            setLoading(false);
+          })
+          .catch((err) => console.log(err));
+      } catch (error) {
+        alert(error);
+      }
+    }, []);
+
     return(
-        <div className="login-container">
-            <img src={imagem} alt="sisgestor" />
-            <div className="form-login">
-                <img src={logo} alt="sisgestor" />
-                <input type= "text" placeholder="Email" />
-                <input type= "text" placeholder="Senha" />
-                <Link to="login">Login</Link>
+        <div className="instituicoes-container">
+            <Menu />
+            <div className="instituicao-container">
+                <div className="instituicoes-header">
+                    <h1 className="instituicao-title">Instituicoes</h1>
+                    <Link className="button" to="login">Criar</Link>
+                </div>
+                <div className="principal">
+                    <div className="list-header">
+                        <p>Nome</p>
+                        <p>Sigla</p>
+                        <p>CNPJ</p>
+                        <p>UASG</p>
+                        <p>Logradouro</p>
+                        <p>Número</p>
+                        <p>Bairro</p>
+                        <p>Complemento</p>
+                        <p>Data início</p>
+                        <p>Data fim</p>
+                    </div>
+                    <div className="list">
+                    {!loading && (
+                        instituicoes.map((instituicao, index) => (
+                            <div className="instituicao-card" key={instituicao.id}>
+                                <p>{instituicao.sigla}</p>
+                                <p>{instituicao.cnpj}</p>
+                                <p>{instituicao.uasg}</p>
+                                <p>{instituicao.logradouro}</p>
+                                <p>{instituicao.numero}</p>
+                                <p>{instituicao.bairro}</p>
+                                <p>{instituicao.complemento}</p>
+                                <p>{instituicao.data_inicio}</p>
+                                <p>{instituicao.data_fim}</p>
+                                <div className="actions">
+                                    <FaEdit className="icon" />
+                                    <FaTrash className="icon" />
+                                </div>
+                            </div>
+                        ))
+                    )}
+                    
+                    {/* TODO: excluir mock depois */}
+                    <div className="instituicao-card" key="2022">
+                        <p>Nome do instituicao</p>
+                        <p>0000</p>
+                        <p>0000</p>
+                        <p>0000</p>
+                        <p>0000</p>
+                        <p>0000</p>
+                        <p>0000</p>
+                        <p>0000</p>
+                        <p>0000</p>
+                        <div className="actions">
+                            <FaEdit className="icon" />
+                            <FaTrash className="icon" />
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

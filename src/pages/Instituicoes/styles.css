@@ -1,3 +1,47 @@
 .login-container{
     background-color: red;
 }
+
+.instituicoes-container .instituicao-container{
+    padding: 2em;
+}
+
+.instituicoes-container .instituicoes-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.instituicoes-container .instituicao-title{
+    font-size: 30px;
+}
+
+.instituicoes-container .list-header{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+}
+
+.instituicoes-container .instituicao-card{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 0;
+    margin-bottom: 1em;
+}
+
+.instituicoes-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.instituicoes-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

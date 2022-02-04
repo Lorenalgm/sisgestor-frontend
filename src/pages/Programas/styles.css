@@ -1,3 +1,47 @@
 .login-container{
     background-color: red;
 }
+
+.programas-container .programa-container{
+    padding: 2em;
+}
+
+.programas-container .programas-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.programas-container .programa-title{
+    font-size: 30px;
+}
+
+.programas-container .list-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+}
+
+.programas-container .programa-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 0;
+    margin-bottom: 1em;
+}
+
+.programas-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.programas-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

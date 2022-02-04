@@ -1,3 +1,47 @@
 .login-container{
     background-color: red;
 }
+
+.fontes-container .fonte-container{
+    padding: 2em;
+}
+
+.fontes-container .fontes-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontes-container .fonte-title{
+    font-size: 30px;
+}
+
+.fontes-container .list-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+}
+
+.fontes-container .fonte-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 0;
+    margin-bottom: 1em;
+}
+
+.fontes-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.fontes-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

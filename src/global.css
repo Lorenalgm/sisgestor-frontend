@@ -15,3 +15,14 @@ body, *{
   --card: #ffff;
   --danger: #CF0000;
 }
+
+body{
+  background-color: var(--background);
+  font-family: 'Poppins', sans-serif;
+  color: var(--secondary);
+}
+
+.button{
+  background-color: var(--primary);
+  color: var(--background);
+}

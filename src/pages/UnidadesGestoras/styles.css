@@ -1,3 +1,47 @@
 .login-container{
     background-color: red;
 }
+
+.unidades-gestoras-container .unidade-gestora-container{
+    padding: 2em;
+}
+
+.unidades-gestoras-container .unidades-gestoras-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.unidades-gestoras-container .unidade-gestora-title{
+    font-size: 30px;
+}
+
+.unidades-gestoras-container .list-header{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+}
+
+.unidades-gestoras-container .unidade-gestora-card{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 0;
+    margin-bottom: 1em;
+}
+
+.unidades-gestoras-container .actions{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+}
+
+.unidades-gestoras-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
