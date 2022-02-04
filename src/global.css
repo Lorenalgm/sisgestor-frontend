@@ -2,3 +2,11 @@ body, *{
   margin: 0;
   padding: 0;
 }
+
+:root{
+  --background: #E9E8E8;
+  --primary: #730075;
+  --secondary: #40394A;
+  --card: #ffff;
+  --danger: #CF0000;
+}
