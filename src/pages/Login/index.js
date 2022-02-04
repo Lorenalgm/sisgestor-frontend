@@ -7,13 +7,15 @@ import imagem from '../../assets/loginimagem.png';
 
 export default function Login(){
     return(
-        <div className="login-container">
-            <img src={imagem} alt="sisgestor" />
-            <div className="form-login">
+        <div className="login_container">
                 <img src={logo} alt="sisgestor" />
-                <input type= "text" placeholder="Email" />
-                <input type= "text" placeholder="Senha" />
-                <Link to="login">Login</Link>
+            <div className="form-login">
+                <img src={imagem} alt="sisgestor" />
+                <form>
+                    <input className="input" type= "text" placeholder="Email" />
+                    <input className="input" type= "text" placeholder="Senha" />
+                    <Link to="login" className='button'>Entrar</Link>
+                </form>
             </div>
         </div>
     )
