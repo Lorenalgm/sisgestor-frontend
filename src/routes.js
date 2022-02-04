@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Exercicios from './pages/Exercicios'
@@ -11,39 +11,25 @@ import Instituicoes from './pages/Instituicoes'
 import UnidadesGestoras from './pages/UnidadesGestoras'
 import UnidadesAdministrativas from './pages/UnidadesAdministrativas'
 import Usuarios from './pages/Usuarios'
-import { UserProvider } from './contexts/UserProvider';
-import { isAuthorized } from './helpers/permission';
 
-const PrivateRoute = ({ component: Component, ...rest}) => (
-    <Route 
-        {...rest}
-        render={props => isAuthorized()? ( <Component {...props} />) : (
-            <Redirect to={{ pathname: "/", state: { from: props.location} }} />
-        )}  
-    />
-);
-
-function Routes(){
+function App(){
     return(
         <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/login" exact component={Login} />
-
-                <UserProvider>
-                    <PrivateRoute path="/exercicios" component={Exercicios} />
-                    <PrivateRoute path="/programas" component={Programas} />
-                    <PrivateRoute path="/fontes" component={Fontes} />
-                    <PrivateRoute path="/acoes" component={Acoes} />
-                    <PrivateRoute path="/naturezas_despesas" component={NaturezasDespesas} />
-                    <PrivateRoute path="/instituicoes" component={Instituicoes} />
-                    <PrivateRoute path="/unidades_gestoras" component={UnidadesGestoras} />
-                    <PrivateRoute path="/unidades_administrativas" component={UnidadesAdministrativas} />
-                    <PrivateRoute path="/usuarios" component={Usuarios} />
-                </UserProvider>
-            </Switch>
+            <Routes>
+                <Route path="/" exact element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/exercicios" element={<Exercicios />} />
+                <Route path="/programas" element={<Programas />} />
+                <Route path="/fontes" element={<Fontes />} />
+                <Route path="/acoes" element={<Acoes />} />
+                <Route path="/naturezas_despesas" element={<NaturezasDespesas />} />
+                <Route path="/instituicoes" element={<Instituicoes />} />
+                <Route path="/unidades_gestoras" element={<UnidadesGestoras />} />
+                <Route path="/unidades_administrativas" element={<UnidadesAdministrativas />} />
+                <Route path="/usuarios" element={<Usuarios />} />
+            </Routes>
         </BrowserRouter>
     )
 }
 
-export default Routes;
+export default App;
