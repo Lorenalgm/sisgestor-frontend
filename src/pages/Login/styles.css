@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.login_container > img {
+.login_container .hero-image {
     width: 60%;
     object-fit: cover;
 }
@@ -32,7 +32,7 @@
 }
 
 .form-login form .input {
-    width: 60%;
+    min-width: 280px;
     padding: 0.8rem;
     color: #727272;
     border-radius: 8px;
@@ -42,7 +42,7 @@
 }
 
 .button{
-    width: 60%;
+    min-width: 280px;
     padding: 0.8rem;
     text-align: center;
     border-radius: 8px;
@@ -55,4 +55,10 @@
 
 .button:hover{
     opacity: 90%;
+}
+
+@media (max-width: 740px) {
+    .hero-image {
+        display: none;
+    }
 }

@@ -8,7 +8,7 @@ import imagem from '../../assets/loginimagem.png';
 export default function Login(){
     return(
         <div className="login_container">
-                <img src={logo} alt="sisgestor" />
+                <img className="hero-image" src={logo} alt="sisgestor" />
             <div className="form-login">
                 <img src={imagem} alt="sisgestor" />
                 <form>
