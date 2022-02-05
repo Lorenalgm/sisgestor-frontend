@@ -14,7 +14,7 @@ export default function NaturezasDespesas(){
         api
           .get(`naturezas_despesas`)
           .then((response) => {
-            setNaturezasDespesas(response.data);
+            setNaturezasDespesas(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));
@@ -41,9 +41,10 @@ export default function NaturezasDespesas(){
                     <div className="list">
                     {!loading && (
                         naturezas_despesas.map((natureza_despesa, index) => (
-                            <div className="natureza-despesa-card" key={natureza_despesa.nome}>
+                            <div className="natureza-despesa-card" key={natureza_despesa.id}>
                                 <p>{natureza_despesa.nome}</p>
                                 <p>{natureza_despesa.codigo}</p>
+                                <p>{natureza_despesa.tipo}</p>
                                 <div className="actions">
                                     <FaEdit className="icon" />
                                     <FaTrash className="icon" />
@@ -56,7 +57,7 @@ export default function NaturezasDespesas(){
                     <div className="natureza-despesa-card" key="2022">
                         <p>Nome da natureza de despesa</p>
                         <p>0000</p>
-                        <p>Mãe</p>
+                        <p>0000</p>
                         <div className="actions">
                             <FaEdit className="icon" />
                             <FaTrash className="icon" />

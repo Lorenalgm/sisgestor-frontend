@@ -14,7 +14,7 @@ export default function Fontes(){
         api
           .get(`fontes_tipos`)
           .then((response) => {
-            setFontes(response.data);
+            setFontes(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));

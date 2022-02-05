@@ -14,7 +14,7 @@ export default function Instituicoes(){
         api
           .get(`instituicoes`)
           .then((response) => {
-            setInstituicoes(response.data);
+            setInstituicoes(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));

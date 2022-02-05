@@ -14,7 +14,7 @@ export default function UnidadesGestoras(){
         api
           .get(`unidades_gestoras`)
           .then((response) => {
-            setUnidadesGestoras(response.data);
+            setUnidadesGestoras(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));

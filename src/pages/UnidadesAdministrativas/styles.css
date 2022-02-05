@@ -1,9 +1,6 @@
-.login-container{
-    background-color: red;
-}
-
 .unidades-administrativas-container .unidade-administrativa-container{
     padding: 2em;
+    margin-left: 300px;
 }
 
 .unidades-administrativas-container .unidades-administrativas-header{
@@ -22,6 +19,7 @@
     justify-items: center;
     margin-bottom: 1em;
     margin-top: 5em;
+    padding: 0 1em;
 }
 
 .unidades-administrativas-container .unidade-administrativa-card{
@@ -32,6 +30,7 @@
     border-radius: .7em;
     padding: 2em 0;
     margin-bottom: 1em;
+    padding: 2em 1em;
 }
 
 .unidades-administrativas-container .actions{

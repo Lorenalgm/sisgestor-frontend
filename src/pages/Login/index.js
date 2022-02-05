@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './styles.css';
-import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import imagem from '../../assets/loginimagem.png';
@@ -14,7 +13,7 @@ export default function Login(){
                 <form>
                     <input className="input" type= "text" placeholder="Email" />
                     <input className="input" type= "text" placeholder="Senha" />
-                    <Link to="login" className='button'>Entrar</Link>
+                    <Link to="/exercicios" className='button'>Entrar</Link>
                 </form>
             </div>
         </div>

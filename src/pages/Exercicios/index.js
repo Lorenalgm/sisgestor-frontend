@@ -14,7 +14,7 @@ export default function Exercicios(){
         api
           .get(`exercicios`)
           .then((response) => {
-            setExercicios(response.data);
+            setExercicios(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));

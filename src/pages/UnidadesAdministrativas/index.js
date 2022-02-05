@@ -14,7 +14,7 @@ export default function UnidadesAdministrativas(){
         api
           .get(`unidades_administrativas`)
           .then((response) => {
-            setUnidadesAdministrativas(response.data);
+            setUnidadesAdministrativas(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));

@@ -14,7 +14,7 @@ export default function Programas(){
         api
           .get(`programas_tipos`)
           .then((response) => {
-            setProgramas(response.data);
+            setProgramas(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));

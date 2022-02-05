@@ -14,7 +14,7 @@ export default function Acoes(){
         api
           .get(`acoes_tipos`)
           .then((response) => {
-            setAcoes(response.data);
+            setAcoes(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));

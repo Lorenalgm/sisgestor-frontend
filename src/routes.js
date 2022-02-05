@@ -10,6 +10,9 @@ import NaturezasDespesas from './pages/NaturezasDespesas'
 import Instituicoes from './pages/Instituicoes'
 import UnidadesGestoras from './pages/UnidadesGestoras'
 import UnidadesAdministrativas from './pages/UnidadesAdministrativas'
+// import matrizesOrcamentariasInstituicao from './pages/matrizesOrcamentariasInstituicao'
+// import matrizesOrcamentariasGestora from './pages/matrizesOrcamentariasGestora'
+// import matrizesOrcamentariasAdministrativa from './pages/matrizesOrcamentariasAdministrativa'
 import Usuarios from './pages/Usuarios'
 
 function App(){
@@ -27,6 +30,10 @@ function App(){
                 <Route path="/unidades_gestoras" element={<UnidadesGestoras />} />
                 <Route path="/unidades_administrativas" element={<UnidadesAdministrativas />} />
                 <Route path="/usuarios" element={<Usuarios />} />
+                {/* <Route path="/matrizes_orcamentarias_instituicao" element={<matrizesOrcamentariasInstituicao />} />
+                <Route path="/matrizes_orcamentarias_gestora" element={<matrizesOrcamentariasGestora />} />
+                <Route path="/matrizes_orcamentarias_administrativa" element={<matrizesOrcamentariasAdministrativa />} /> */}
+
             </Routes>
         </BrowserRouter>
     )
