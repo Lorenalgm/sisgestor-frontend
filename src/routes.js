@@ -6,6 +6,7 @@ import Exercicios from './pages/Exercicios'
 import ExerciciosCreate from './pages/Exercicios/create'
 import ExerciciosEdit from './pages/Exercicios/edit'
 import Programas from './pages/Programas'
+import ProgramasCreate from './pages/Programas/create'
 import Fontes from './pages/Fontes'
 import Acoes from './pages/Acoes'
 import NaturezasDespesas from './pages/NaturezasDespesas'
@@ -31,6 +32,7 @@ function App(){
                 <Route path="/exercicios/criar" element={<ExerciciosCreate />} />
                 <Route path="/exercicios/editar/:id" element={<ExerciciosEdit />} />
                 <Route path="/programas" element={<Programas />} />
+                <Route path="/programas/criar" element={<ProgramasCreate />} />
                 <Route path="/fontes" element={<Fontes />} />
                 <Route path="/acoes" element={<Acoes />} />
                 <Route path="/naturezas_despesas" element={<NaturezasDespesas />} />

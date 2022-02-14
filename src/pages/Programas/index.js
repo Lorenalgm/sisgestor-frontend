@@ -23,13 +23,22 @@ export default function Programas(){
       }
     }, []);
 
+    async function handleDelete(programa) {
+        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir o programa ${programa.nome}?`);
+    
+        if (isDeleteConfirmed){
+            await api.delete(`/programas_tipos/${programa.id}`);
+            setProgramas(programas.filter(programaAntigo => programaAntigo.id !== programa.id))
+        }
+    }
+    
     return(
         <div className="programas-container">
             <Menu />
             <div className="programa-container">
                 <div className="programas-header">
                     <h1 className="programa-title">Programas</h1>
-                    <Link className="button" to="login">Criar</Link>
+                    <Link className="button" to="/programas/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">
@@ -40,26 +49,16 @@ export default function Programas(){
                     <div className="list">
                     {!loading && (
                         programas.map((programa, index) => (
-                            <div className="programa-card" key={programa.nome}>
+                            <div className="programa-card" key={programa.id}>
                                 <p>{programa.nome}</p>
                                 <p>{programa.codigo}</p>
                                 <div className="actions">
                                     <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
+                                    <FaTrash className="icon" onClick={() => handleDelete(programa)} />
                                 </div>
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="programa-card" key="2022">
-                        <p>Nome do programa</p>
-                        <p>0000</p>
-                        <div className="actions">
-                            <FaEdit className="icon" />
-                            <FaTrash className="icon" />
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
