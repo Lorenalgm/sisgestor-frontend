@@ -1,0 +1,45 @@
+.matrizes-orcamentarias-instituicoes-container .matriz-orcamentaria-instituicao-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.matrizes-orcamentarias-instituicoes-container .matrizes-orcamentarias-instituicoes-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.matrizes-orcamentarias-instituicoes-container .matriz-orcamentaria-instituicao-title{
+    font-size: 30px;
+}
+
+.matrizes-orcamentarias-instituicoes-container .list-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.matrizes-orcamentarias-instituicoes-container .matriz-orcamentaria-instituicao-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+}
+
+.matrizes-orcamentarias-instituicoes-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.matrizes-orcamentarias-instituicoes-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

@@ -1,0 +1,67 @@
+.fontes-instituicoes-container .fonte-instituicao-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.fontes-instituicoes-container .modal-nova-fonte{
+    background-color: var(--card);
+    border: 1px solid var(--secondary);
+    border-radius: .4em;
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    width: 40em;
+    height: 20em;
+    padding: 3em 2em;
+    display: flex;
+    transform: translate(-60%, -60%);
+}
+
+.fontes-instituicoes-container .modal-nova-fonte-ocultar{
+    display: none;
+}
+
+.fontes-instituicoes-container .modal-nova-fonte-mostrar{
+    display: block;
+}
+
+.fontes-instituicoes-container .fontes-instituicoes-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontes-instituicoes-container .fonte-instituicao-title{
+    font-size: 30px;
+}
+
+.fontes-instituicoes-container .list-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.fontes-instituicoes-container .fonte-instituicao-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+}
+
+.fontes-instituicoes-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.fontes-instituicoes-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

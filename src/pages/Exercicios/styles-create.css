@@ -1,0 +1,41 @@
+.exercicios-create-container .exercicio-create-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.exercicios-create-container .exercicios-create-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.exercicios-create-container .exercicio-create-title{
+    font-size: 30px;
+}
+
+.exercicio-create-container .exercicio-create-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.exercicio-create-container .exercicio-create-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.exercicio-create-container .exercicio-create-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.exercicio-create-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.exercicio-create-container .check-aprovado input{
+    width: 1.5em;
+}

@@ -1,0 +1,33 @@
+.barra-instituicao-container{
+    margin-top: 2em;
+}
+
+.barra-instituicao-container .opcao{
+    color: var(--secondary);
+    border: solid 1px var(--secondary);
+    padding: .6em 3em;
+}
+
+.barra-instituicao-container .opcao:hover{
+    background-color: var(--card);
+}
+
+.barra-instituicao-container .esquerda{
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.barra-instituicao-container .direita{
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.barra-instituicao-container .ativo{
+    background-color: var(--primary);
+    color: var(--card);
+    font-weight: bold;
+}
+
+.barra-instituicao-container .ativo:hover{
+    background-color: var(--secondary);
+}

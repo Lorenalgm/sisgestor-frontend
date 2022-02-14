@@ -1,0 +1,46 @@
+.unidades-administrativas-container .unidade-administrativa-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.unidades-administrativas-container .unidades-administrativas-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.unidades-administrativas-container .unidade-administrativa-title{
+    font-size: 30px;
+}
+
+.unidades-administrativas-container .list-header{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.unidades-administrativas-container .unidade-administrativa-card{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 0;
+    margin-bottom: 1em;
+    padding: 2em 1em;
+}
+
+.unidades-administrativas-container .actions{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+}
+
+.unidades-administrativas-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

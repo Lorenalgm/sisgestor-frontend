@@ -23,13 +23,22 @@ export default function Exercicios(){
       }
     }, []);
 
+    async function handleDelete(exercicio) {
+        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir o exercício ${exercicio.nome}?`);
+    
+        if (isDeleteConfirmed){
+            await api.delete(`/exercicios/${exercicio.id}`);
+            setExercicios(exercicios.filter(exercicioAntigo => exercicioAntigo.id !== exercicio.id))
+        }
+    }
+
     return(
         <div className="exercicios-container">
             <Menu />
             <div className="exercicio-container">
                 <div className="exercicios-header">
-                    <h1 className="exercicio-title">Exercicíos</h1>
-                    <Link className="button" to="login">Criar</Link>
+                    <h1 className="exercicio-title">Exercícios</h1>
+                    <Link className="button" to="/exercicios/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">
@@ -42,30 +51,18 @@ export default function Exercicios(){
                     <div className="list">
                     {!loading && (
                         exercicios.map((exercicio, index) => (
-                            <div className="exercicio-card" key={exercicio.nome}>
+                            <div className="exercicio-card" key={exercicio.id}>
                                 <p>{exercicio.nome}</p>
                                 <p>{exercicio.data_inicio}</p>
                                 <p>{exercicio.data_fim}</p>
                                 <p>{exercicio.aprovado?'Sim':'Não'}</p>
                                 <div className="actions">
-                                    <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
+                                    <Link to={'/exercicios/editar/'+exercicio.id} state={{exercicio: exercicio}}><FaEdit className="icon" /></Link>
+                                    <FaTrash className="icon" onClick={() => handleDelete(exercicio)} />
                                 </div>
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="exercicio-card" key="2022">
-                        <p>2022</p>
-                        <p>02/02/2022</p>
-                        <p>02/12/2022</p>
-                        <p>Sim</p>
-                        <div className="actions">
-                            <FaEdit className="icon" />
-                            <FaTrash className="icon" />
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
