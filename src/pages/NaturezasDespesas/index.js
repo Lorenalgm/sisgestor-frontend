@@ -23,13 +23,22 @@ export default function NaturezasDespesas(){
       }
     }, []);
 
+    async function handleDelete(natureza_despesa) {
+        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir a natureza de despesa ${natureza_despesa.nome}?`);
+    
+        if (isDeleteConfirmed){
+            await api.delete(`/naturezas_despesas/${natureza_despesa.id}`);
+            setNaturezasDespesas(naturezas_despesas.filter(naturezaDespesaAntigo => naturezaDespesaAntigo.id !== natureza_despesa.id))
+        }
+    }
+
     return(
         <div className="naturezas-despesas-container">
             <Menu />
             <div className="natureza-despesa-container">
                 <div className="naturezas-despesas-header">
                     <h1 className="natureza-despesa-title">Naturezas de Despesas</h1>
-                    <Link className="button" to="login">Criar</Link>
+                    <Link className="button" to="/naturezas_despesas/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">
@@ -47,22 +56,11 @@ export default function NaturezasDespesas(){
                                 <p>{natureza_despesa.tipo}</p>
                                 <div className="actions">
                                     <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
+                                    <FaTrash className="icon" onClick={() => handleDelete(natureza_despesa)} />
                                 </div>
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="natureza-despesa-card" key="2022">
-                        <p>Nome da natureza de despesa</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <div className="actions">
-                            <FaEdit className="icon" />
-                            <FaTrash className="icon" />
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

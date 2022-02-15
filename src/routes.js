@@ -5,11 +5,12 @@ import Login from './pages/Login'
 import Exercicios from './pages/Exercicios'
 import ExerciciosCreate from './pages/Exercicios/create'
 import ExerciciosEdit from './pages/Exercicios/edit'
-import Programas from './pages/Programas'
-import ProgramasCreate from './pages/Programas/create'
+import ProgramasTipos from './pages/ProgramasTipos'
+import ProgramasTiposCreate from './pages/ProgramasTipos/create'
 import Fontes from './pages/Fontes'
 import Acoes from './pages/Acoes'
 import NaturezasDespesas from './pages/NaturezasDespesas'
+// import NaturezasDespesasCreate from './pages/NaturezasDespesas/create'
 import Instituicoes from './pages/Instituicoes'
 import UnidadesGestoras from './pages/UnidadesGestoras'
 import UnidadesAdministrativas from './pages/UnidadesAdministrativas'
@@ -31,14 +32,27 @@ function App(){
                 <Route path="/exercicios" element={<Exercicios />} />
                 <Route path="/exercicios/criar" element={<ExerciciosCreate />} />
                 <Route path="/exercicios/editar/:id" element={<ExerciciosEdit />} />
-                <Route path="/programas" element={<Programas />} />
-                <Route path="/programas/criar" element={<ProgramasCreate />} />
+
+                <Route path="/programas_tipos" element={<ProgramasTipos />} />
+                <Route path="/programas_tipos/criar" element={<ProgramasTiposCreate />} />
+                
                 <Route path="/fontes" element={<Fontes />} />
+                {/* <Route path="/fontes/create" element={<FontesCreate />} /> */}
+
                 <Route path="/acoes" element={<Acoes />} />
+                {/* <Route path="/acoes/create" element={<AcoesCreate />} /> */}
+                
                 <Route path="/naturezas_despesas" element={<NaturezasDespesas />} />
+                {/* <Route path="/naturezas_despesas/create" element={<NaturezasDespesasCreate />} /> */}
+                
                 <Route path="/instituicoes" element={<Instituicoes />} />
+                
                 <Route path="/unidades_gestoras" element={<UnidadesGestoras />} />
+                {/* <Route path="/unidades_gestoras/create" element={<UnidadesGestorasCreate />} /> */}
+                
                 <Route path="/unidades_administrativas" element={<UnidadesAdministrativas />} />
+                {/* <Route path="/unidades_administrativas/create" element={<UnidadesAdministrativasCreate />} /> */}
+                
                 <Route path="/usuarios" element={<Usuarios />} />
                 
                 {/* Instituições */}

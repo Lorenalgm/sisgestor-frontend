@@ -15,7 +15,7 @@ export default function Menu(){
                             <p className="menu-group-title">Configuração</p>
                             <div className="submenus">
                                 <Link className="submenu" to="/exercicios">Exercícios</Link>
-                                <Link className="submenu" to="/programas">Programas</Link>
+                                <Link className="submenu" to="/programas_tipos">Programas Tipos</Link>
                                 <Link className="submenu" to="/fontes">Fontes</Link>
                                 <Link className="submenu" to="/acoes">Ações</Link>
                                 <Link className="submenu" to="/naturezas_despesas">Natureza de despesa</Link>

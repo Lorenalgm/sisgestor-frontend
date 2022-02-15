@@ -5,7 +5,7 @@ import Menu from '../../components/Menu';
 import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 
-export default function ProgramasCreate(){
+export default function ProgramasTiposCreate(){
     const [nome, setNome ] = useState('');
     const [codigo, setCodigo ] = useState('');
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ export default function ProgramasCreate(){
             const response = await api.post('programas_tipos', data);
             
             if(response){
-                navigate('/programas');
+                navigate('/programas_tipos');
             }
         } catch (error) {
             console.log(error.response.data.message);
@@ -32,14 +32,14 @@ export default function ProgramasCreate(){
     }
 
     return(
-        <div className="programas-create-container">
+        <div className="programas-tipos-create-container">
             <Menu />
-            <div className="programa-create-container">
-                <div className="programas-create-header">
-                    <h1 className="programa-create-title">Novo Programa</h1>
+            <div className="programa-tipo-create-container">
+                <div className="programas-tipos-create-header">
+                    <h1 className="programa-tipo-create-title">Novo Programa Tipo</h1>
                 </div>
                 <div className="principal">
-                    <form className="programa-create-form" onSubmit={e => handleCreatePrograma(e)}>
+                    <form className="programa-tipo-create-form" onSubmit={e => handleCreatePrograma(e)}>
                         <label>
                         Nome:
                             <input type="text" name="nome" value={nome} onChange={e => setNome(e.target.value)} placeholder="Escreva o nome" />

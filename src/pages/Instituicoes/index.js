@@ -29,7 +29,6 @@ export default function Instituicoes(){
             <div className="instituicao-container">
                 <div className="instituicoes-header">
                     <h1 className="instituicao-title">Instituicoes</h1>
-                    <Link className="button" to="login">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">
@@ -59,28 +58,10 @@ export default function Instituicoes(){
                                 <p>{instituicao.data_fim}</p>
                                 <div className="actions">
                                     <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
                                 </div>
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="instituicao-card" key="2022">
-                        <p>Nome do instituicao</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <div className="actions">
-                            <FaEdit className="icon" />
-                            <FaTrash className="icon" />
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,18 @@
-.programas-container .programa-container{
+.programas-tipos-container .programa-tipo-container{
     padding: 2em;
     margin-left: 300px;
 }
 
-.programas-container .programas-header{
+.programas-tipos-container .programas-tipos-header{
     display: flex;
     justify-content: space-between;
 }
 
-.programas-container .programa-title{
+.programas-tipos-container .programa-tipo-title{
     font-size: 30px;
 }
 
-.programas-container .list-header{
+.programas-tipos-container .list-header{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     font-weight: bold;
@@ -22,7 +22,7 @@
     padding: 0 1em;
 }
 
-.programas-container .programa-card{
+.programas-tipos-container .programa-tipo-card{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: var(--card);
@@ -32,13 +32,13 @@
     margin-bottom: 1em;
 }
 
-.programas-container .actions{
+.programas-tipos-container .actions{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
 }
 
-.programas-container .icon{
+.programas-tipos-container .icon{
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;
