@@ -1,20 +1,20 @@
-.fontes-container .fonte-container{
+.acoes-tipos-container .acao-tipo-container{
     padding: 2em;
     margin-left: 300px;
 }
 
-.fontes-container .fontes-header{
+.acoes-tipos-container .acoes-tipos-header{
     display: flex;
     justify-content: space-between;
 }
 
-.fontes-container .fonte-title{
+.acoes-tipos-container .acao-tipo-title{
     font-size: 30px;
 }
 
-.fontes-container .list-header{
+.acoes-tipos-container .list-header{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     font-weight: bold;
     justify-items: center;
     margin-bottom: 1em;
@@ -22,9 +22,9 @@
     padding: 0 1em;
 }
 
-.fontes-container .fonte-card{
+.acoes-tipos-container .acao-tipo-card{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: var(--card);
     justify-items: center;
     border-radius: .7em;
@@ -32,13 +32,13 @@
     margin-bottom: 1em;
 }
 
-.fontes-container .actions{
+.acoes-tipos-container .actions{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
 }
 
-.fontes-container .icon{
+.acoes-tipos-container .icon{
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;

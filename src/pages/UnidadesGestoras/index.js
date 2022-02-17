@@ -23,6 +23,15 @@ export default function UnidadesGestoras(){
       }
     }, []);
 
+    async function handleDelete(unidade_gestora) {
+        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir a unidade ${unidade_gestora.nome}?`);
+    
+        if (isDeleteConfirmed){
+            await api.delete(`/unidades_gestoras/${unidade_gestora.id}`);
+            setUnidadesGestoras(unidades_gestoras.filter(unidadeGestoraAntigo => unidadeGestoraAntigo.id !== unidade_gestora.id))
+        }
+    }
+
     return(
         <div className="unidades-gestoras-container">
             <Menu />
@@ -63,8 +72,8 @@ export default function UnidadesGestoras(){
                                 <p>{unidade_gestora.data_fim}</p>
                                 <p>{unidade_gestora.instituicao}</p>
                                 <div className="actions">
-                                    <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
+                                    {/* <FaEdit className="icon" /> */}
+                                    <FaTrash className="icon" onClick={() => handleDelete(unidade_gestora)} />
                                 </div>
                             </div>
                         ))
@@ -85,9 +94,9 @@ export default function UnidadesGestoras(){
                         <p>0000</p>
                         <p>0000</p>
                         <div className="actions">
-                            <FaEdit className="icon" />
+                            {/* <FaEdit className="icon" /> */}
                             <FaTrash className="icon" />
-                            <FaEye className="icon" />
+                            {/* <FaEye className="icon" /> */}
                         </div>
                     </div>
                     </div>

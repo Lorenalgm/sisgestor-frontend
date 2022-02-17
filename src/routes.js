@@ -7,8 +7,9 @@ import ExerciciosCreate from './pages/Exercicios/create'
 import ExerciciosEdit from './pages/Exercicios/edit'
 import ProgramasTipos from './pages/ProgramasTipos'
 import ProgramasTiposCreate from './pages/ProgramasTipos/create'
-import Fontes from './pages/Fontes'
-import Acoes from './pages/Acoes'
+import FontesTipos from './pages/FontesTipos'
+import FontesTiposCreate from './pages/FontesTipos/create'
+import AcoesTipos from './pages/AcoesTipos'
 import NaturezasDespesas from './pages/NaturezasDespesas'
 // import NaturezasDespesasCreate from './pages/NaturezasDespesas/create'
 import Instituicoes from './pages/Instituicoes'
@@ -36,10 +37,10 @@ function App(){
                 <Route path="/programas_tipos" element={<ProgramasTipos />} />
                 <Route path="/programas_tipos/criar" element={<ProgramasTiposCreate />} />
                 
-                <Route path="/fontes" element={<Fontes />} />
-                {/* <Route path="/fontes/create" element={<FontesCreate />} /> */}
+                <Route path="/fontes_tipos" element={<FontesTipos />} />
+                <Route path="/fontes_tipos/create" element={<FontesTiposCreate />} />
 
-                <Route path="/acoes" element={<Acoes />} />
+                <Route path="/acoes_tipos" element={<AcoesTipos />} />
                 {/* <Route path="/acoes/create" element={<AcoesCreate />} /> */}
                 
                 <Route path="/naturezas_despesas" element={<NaturezasDespesas />} />

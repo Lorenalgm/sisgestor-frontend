@@ -16,8 +16,8 @@ export default function Menu(){
                             <div className="submenus">
                                 <Link className="submenu" to="/exercicios">Exercícios</Link>
                                 <Link className="submenu" to="/programas_tipos">Programas Tipos</Link>
-                                <Link className="submenu" to="/fontes">Fontes</Link>
-                                <Link className="submenu" to="/acoes">Ações</Link>
+                                <Link className="submenu" to="/fontes_tipos">Fontes Tipos</Link>
+                                <Link className="submenu" to="/acoes_tipos">Ações Tipos</Link>
                                 <Link className="submenu" to="/naturezas_despesas">Natureza de despesa</Link>
                                 <Link className="submenu" to="/instituicoes">Instituições</Link>
                                 <Link className="submenu" to="/unidades_gestoras">Unidades gestoras</Link>

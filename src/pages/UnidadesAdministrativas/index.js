@@ -23,6 +23,14 @@ export default function UnidadesAdministrativas(){
       }
     }, []);
 
+    async function handleDelete(unidade_administrativa) {
+        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir a unidade ${unidade_administrativa.nome}?`);
+    
+        if (isDeleteConfirmed){
+            await api.delete(`/unidades_administrativas/${unidade_administrativa.id}`);
+            setUnidadesAdministrativas(unidades_administrativas.filter(unidadeAdministrativaAntigo => unidadeAdministrativaAntigo.id !== unidade_administrativa.id))
+        }
+    }
     return(
         <div className="unidades-administrativas-container">
             <Menu />
@@ -48,8 +56,9 @@ export default function UnidadesAdministrativas(){
                                 <p>{unidade_administrativa.ugr}</p>
                                 <p>{unidade_administrativa.unidade_gestora}</p>
                                 <div className="actions">
-                                    <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
+                                    {/* <FaEdit className="icon" /> */}
+                                    <FaTrash className="icon" onClick={() => handleDelete(unidade_administrativa)} />
+                                    {/* <FaEye className="icon" /> */}
                                 </div>
                             </div>
                         ))
@@ -62,9 +71,9 @@ export default function UnidadesAdministrativas(){
                         <p>UGR aqui</p>
                         <p>IFAP Santana</p>
                         <div className="actions">
-                            <FaEdit className="icon" />
+                            {/* <FaEdit className="icon" /> */}
                             <FaTrash className="icon" />
-                            <FaEye className="icon" />
+                            {/* <FaEye className="icon" /> */}
                         </div>
                     </div>
                     </div>

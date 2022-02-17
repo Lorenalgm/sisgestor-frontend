@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
-export default function Acoes(){
-    const [acoes, setAcoes] = useState([]);
+export default function AcoesTipos(){
+    const [acoesTipos, setAcoesTipos] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function Acoes(){
         api
           .get(`acoes_tipos`)
           .then((response) => {
-            setAcoes(response.data.data.data);
+            setAcoesTipos(response.data.data.data);
             setLoading(false);
           })
           .catch((err) => console.log(err));
@@ -23,12 +23,21 @@ export default function Acoes(){
       }
     }, []);
 
+    async function handleDelete(acao_tipo) {
+        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir a ação ${acao_tipo.nome}?`);
+    
+        if (isDeleteConfirmed){
+            await api.delete(`/acoes_tipos/${acao_tipo.id}`);
+            setAcoesTipos(acoesTipos.filter(acaoTipoAntigo => acaoTipoAntigo.id !== acao_tipo.id))
+        }
+    }
+
     return(
-        <div className="acoes-container">
+        <div className="acoes-tipos-container">
             <Menu />
-            <div className="acao-container">
-                <div className="acoes-header">
-                    <h1 className="acao-title">Ações</h1>
+            <div className="acao-tipo-container">
+                <div className="acoes-tipos-header">
+                    <h1 className="acao-tipo-title">Ações</h1>
                     <Link className="button" to="login">Criar</Link>
                 </div>
                 <div className="principal">
@@ -39,24 +48,24 @@ export default function Acoes(){
                     </div>
                     <div className="list">
                     {!loading && (
-                        acoes.map((acao, index) => (
-                            <div className="acao-card" key={acao.nome}>
-                                <p>{acao.nome}</p>
-                                <p>{acao.codigo}</p>
+                        acoesTipos.map((acao_tipo, index) => (
+                            <div className="acao-tipo-card" key={acao_tipo.id}>
+                                <p>{acao_tipo.nome}</p>
+                                <p>{acao_tipo.codigo}</p>
                                 <div className="actions">
-                                    <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
+                                    {/* <FaEdit className="icon" /> */}
+                                    <FaTrash className="icon" onClick={() => handleDelete(acao_tipo)} />
                                 </div>
                             </div>
                         ))
                     )}
                     
                     {/* TODO: excluir mock depois */}
-                    <div className="acao-card" key="2022">
+                    <div className="acao-tipo-card" key="2022">
                         <p>Nome do acao</p>
                         <p>0000</p>
                         <div className="actions">
-                            <FaEdit className="icon" />
+                            {/* <FaEdit className="icon" /> */}
                             <FaTrash className="icon" />
                         </div>
                     </div>
