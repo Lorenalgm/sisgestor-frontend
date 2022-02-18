@@ -19,12 +19,12 @@ export default function ExerciciosCreate(){
 
         const data = {
             nome,
-            data_inicio: format(new Date(data_inicio), 'dd-MM-yyyy'),
-            data_fim: format(new Date(data_fim), 'dd-MM-yyyy'),
-            data_inicio_loa: format(new Date(data_inicio_loa), 'dd-MM-yyyy'),
-            data_fim_loa: format(new Date(data_fim_loa), 'dd-MM-yyyy'),
+            data_inicio: format(new Date(data_inicio), 'yyyy-MM-dd'),
+            data_fim: format(new Date(data_fim), 'yyyy-MM-dd'),
+            data_inicio_loa: format(new Date(data_inicio_loa), 'yyyy-MM-dd'),
+            data_fim_loa: format(new Date(data_fim_loa), 'yyyy-MM-dd'),
             aprovado,
-            instituicao_id: 1
+            instituicao_id: 3
         }
 
         try {
