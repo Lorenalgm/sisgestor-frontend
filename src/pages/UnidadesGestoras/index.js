@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit, FaEye } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 export default function UnidadesGestoras(){
     const [unidades_gestoras, setUnidadesGestoras] = useState([]);

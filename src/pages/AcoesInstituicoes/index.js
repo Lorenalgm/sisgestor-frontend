@@ -11,6 +11,7 @@ export default function AcoesInstituicoes(){
 
     useEffect(() => {
       try {
+        setExercicioId(0)
         if(exercicioId > 0){
             api
               .get(`exercicios/${exercicioId}`)

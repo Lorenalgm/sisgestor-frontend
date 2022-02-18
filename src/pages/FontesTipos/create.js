@@ -3,7 +3,6 @@ import './styles-create.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import { useNavigate } from 'react-router-dom';
-import { format } from 'date-fns';
 
 export default function FontesTiposCreate(){
     const [nome, setNome ] = useState('');

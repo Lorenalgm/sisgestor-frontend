@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './styles.css';
 import api from '../../services/api';
-import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
 import BarraInstituicao from '../../components/BarraInstituicao';
 import { FaTrash, FaEdit } from 'react-icons/fa';
