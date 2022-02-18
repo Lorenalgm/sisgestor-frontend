@@ -24,7 +24,7 @@ export default function ExerciciosCreate(){
             data_inicio_loa: format(new Date(data_inicio_loa), 'yyyy-MM-dd'),
             data_fim_loa: format(new Date(data_fim_loa), 'yyyy-MM-dd'),
             aprovado,
-            instituicao_id: 3
+            instituicao_id: 1
         }
 
         try {
