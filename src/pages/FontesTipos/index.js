@@ -38,7 +38,7 @@ export default function Fontes(){
             <div className="fonte-tipo-container">
                 <div className="fontes-tipos-header">
                     <h1 className="fonte-tipo-title">Fontes Tipos</h1>
-                    <Link className="button" to="login">Criar</Link>
+                    <Link className="button" to="/fontes_tipos/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">
