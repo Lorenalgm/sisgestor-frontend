@@ -1,20 +1,20 @@
-.acoes-instituicoes-container .acoes-instituicao-container{
+.fontes-acoes-instituicoes-container .fonte-acao-instituicao-container{
     padding: 2em;
     margin-left: 300px;
 }
 
-.acoes-instituicoes-container .acoes-instituicoes-header{
+.fontes-acoes-instituicoes-container .fontes-acoes-instituicoes-header{
     display: flex;
     justify-content: space-between;
 }
 
-.acoes-instituicoes-container .acoes-instituicao-title{
+.fontes-acoes-instituicoes-container .fonte-acao-instituicao-title{
     font-size: 30px;
 }
 
-.acoes-instituicoes-container .list-header{
+.fontes-acoes-instituicoes-container .list-header{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     font-weight: bold;
     justify-items: center;
     margin-bottom: 1em;
@@ -22,9 +22,9 @@
     padding: 0 1em;
 }
 
-.acoes-instituicoes-container .acoes-instituicao-card{
+.fontes-acoes-instituicoes-container .fonte-acao-instituicao-card{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: var(--card);
     justify-items: center;
     border-radius: .7em;
@@ -32,13 +32,13 @@
     margin-bottom: 1em;
 }
 
-.acoes-instituicoes-container .actions{
+.fontes-acoes-instituicoes-container .actions{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
 }
 
-.acoes-instituicoes-container .icon{
+.fontes-acoes-instituicoes-container .icon{
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;

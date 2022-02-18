@@ -1,0 +1,47 @@
+.acoes-instituicoes-create-container .acao-instituicao-create-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.acoes-instituicoes-create-container .acoes-instituicoes-create-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.acoes-instituicoes-create-container .acao-instituicao-create-title{
+    font-size: 30px;
+}
+
+.acao-instituicao-create-container .acao-instituicao-create-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.acao-instituicao-create-container .acao-instituicao-create-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.acao-instituicao-create-container .acao-instituicao-create-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.acao-instituicao-create-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.acao-instituicao-create-container .check-aprovado input{
+    width: 1.5em;
+}
+
+.acao-instituicao-create-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

@@ -6,14 +6,14 @@ import BarraInstituicao from '../../components/BarraInstituicao';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-export default function FontesInstituicoes(){
+export default function FontesAcoesInstituicoes(){
     const [fontes, setFontes] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       try {
         api
-            .get(`fontes?instituicao_id=1`, {
+            .get(`fontes_acoes?instituicao_id=1`, {
                 headers: {
                     tipo: 'instituicao'
                 }
@@ -30,25 +30,27 @@ export default function FontesInstituicoes(){
     }, []);
 
     return(
-        <div className="fontes-instituicoes-container">
+        <div className="fontes-acoes-instituicoes-container">
             <Menu />
-            <div className="fonte-instituicao-container">
-                <div className="fontes-instituicoes-header">
-                    <h1 className="fonte-instituicao-title">Fontes da instituição</h1>
+            <div className="fonte-acao-instituicao-container">
+                <div className="fontes-acoes-instituicoes-header">
+                    <h1 className="fonte-acao-instituicao-title">Distribuição da instituição</h1>
                     <Link className="button" to="/fontes_instituicoes/criar">Criar</Link>
                 </div>
                 <div className="principal">
-                    <BarraInstituicao ativo='fontes' />
+                    <BarraInstituicao ativo='distribuicao' />
                     <div className="list-header">
-                        <p>Fonte</p>
+                        <p>Ação</p>
+                        <p>Exercício</p>
                         <p>Valor</p>
                         <p>Ação</p>
                     </div>
                     <div className="list">
                     {!loading && (
                         fontes.map((fonte, index) => (
-                            <div className="fonte-instituicao-card" key={fonte.id}>
-                                <p>{fonte.fonte_tipo_id}</p>
+                            <div className="fonte-acao-instituicao-card" key={fonte.id}>
+                                <p>{fonte.acao_id}</p>
+                                <p>{fonte.exercicio_id}</p>
                                 <p>R${fonte.valor}</p>
                                 <div className="actions">
                                     <FaEdit className="icon" />

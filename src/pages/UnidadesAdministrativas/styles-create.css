@@ -39,3 +39,9 @@
 .unidade-administrativa-create-container .check-aprovado input{
     width: 1.5em;
 }
+
+.unidade-administrativa-create-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

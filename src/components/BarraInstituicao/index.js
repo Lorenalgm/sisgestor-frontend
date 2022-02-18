@@ -8,7 +8,7 @@ export default function BarraInstituicao(props){
             <Link className={props.ativo === 'inicial'?'ativo opcao esquerda': 'opcao esquerda'} to="/matrizes_orcamentarias_instituicoes">Inicial</Link>
             <Link className={props.ativo === 'fontes'?'ativo opcao': 'opcao'} to="/fontes_instituicoes">Fontes</Link>
             <Link className={props.ativo === 'acoes'?'ativo opcao': 'opcao'} to="/acoes_instituicoes">Ações</Link>
-            <Link className={props.ativo === 'distribuicao'?'ativo opcao direita': 'opcao direita'} to="/login">Distribuição</Link>
+            <Link className={props.ativo === 'distribuicao'?'ativo opcao direita': 'opcao direita'} to="/fontes_acoes_instituicoes">Distribuição</Link>
         </div>
     )
 }

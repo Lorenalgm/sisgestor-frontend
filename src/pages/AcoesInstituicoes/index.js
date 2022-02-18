@@ -3,62 +3,56 @@ import './styles.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import BarraInstituicao from '../../components/BarraInstituicao';
+import { Link } from 'react-router-dom';
 
 export default function AcoesInstituicoes(){
-    const [exercicios, setExercicios] = useState([]);
+    const [acoes, setAcoes] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [exercicioId, setExercicioId] = useState(0);
+    // TODO: Adicionar filtro de exercício
+    // const [exercicioId, setExercicioId] = useState(0);
 
     useEffect(() => {
       try {
-        setExercicioId(0)
-        if(exercicioId > 0){
-            api
-              .get(`exercicios/${exercicioId}`)
-              .then((response) => {
-                setExercicios(response.data.data.data);
-                setLoading(false);
-              })
-              .catch((err) => console.log(err));
-        }
+        api
+        .get(`acoes?instituicao_id=1`, {
+            headers: {
+                tipo: 'instituicao'
+            }
+        })
+        .then((response) => {
+        console.log(response)
+        setAcoes(response.data.data.data);
+        setLoading(false);
+        })
+        .catch((err) => console.log(err));
       } catch (error) {
         alert(error);
       }
-    }, [exercicioId]);
+    }, []);
 
     return(
-        <div className="matrizes-orcamentarias-instituicoes-container">
+        <div className="acoes-instituicoes-container">
             <Menu />
-            <div className="matriz-orcamentaria-instituicao-container">
-                <div className="matrizes-orcamentarias-instituicoes-header">
-                    <h1 className="matriz-orcamentaria-instituicao-title">Matriz orçamentária</h1>
+            <div className="acoes-instituicao-container">
+                <div className="acoes-instituicoes-header">
+                    <h1 className="acoes-instituicao-title">Matriz orçamentária</h1>
+                    <Link className="button" to="/acoes_instituicoes/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <BarraInstituicao ativo='acoes' />
                     <div className="list-header">
+                        <p>Ação</p>
                         <p>Exercício</p>
-                        <p>Data início</p>
-                        <p>Data fim</p>
-                        <p>Aprovado</p>
                     </div>
                     <div className="list">
                     {!loading && (
-                        exercicios.map((exercicio, index) => (
-                            <div className="matriz-orcamentaria-instituicao-card" key={exercicio.nome}>
-                                <p>{exercicio.data_inicio}</p>
-                                <p>{exercicio.data_fim}</p>
-                                <p>{exercicio.aprovado?'Sim':'Não'}</p>
+                        acoes.map((acao, index) => (
+                            <div className="acoes-instituicao-card" key={acao.id}>
+                                <p>{acao.acao_tipo_id}</p>
+                                <p>{acao.exercicio_id}</p>
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="matriz-orcamentaria-instituicao-card" key="2022">
-                        <p>2022</p>
-                        <p>02/02/2022</p>
-                        <p>02/12/2022</p>
-                        <p>Sim</p>
-                    </div>
                     </div>
                 </div>
             </div>

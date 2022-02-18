@@ -52,8 +52,8 @@ export default function Fontes(){
                         fontesTipos.map((fonte_tipo, index) => (
                             <div className="fonte-tipo-card" key={fonte_tipo.id}>
                                 <p>{fonte_tipo.nome}</p>
-                                <p>{fonte_tipo.grupo_fonte}</p>
-                                <p>{fonte_tipo.especificacao}</p>
+                                <p>{fonte_tipo.grupo_fonte_id}</p>
+                                <p>{fonte_tipo.especificacao_id}</p>
                                 <div className="actions">
                                     {/* <FaEdit className="icon" /> */}
                                     <FaTrash className="icon" onClick={() => handleDelete(fonte_tipo)} />
@@ -61,17 +61,6 @@ export default function Fontes(){
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="fonte-tipo-card" key="2022">
-                        <p>Nome do fonte</p>
-                        <p>Nome do grupo</p>
-                        <p>Nome da fonte</p>
-                        <div className="actions">
-                            {/* <FaEdit className="icon" /> */}
-                            <FaTrash className="icon" />
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

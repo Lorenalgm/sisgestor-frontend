@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles-create.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
@@ -9,7 +9,24 @@ export default function UnidadesAdministrativasCreate(){
     const [sigla, setSigla ] = useState('');
     const [ugr, setUgr ] = useState('');
     const [unidadeGestoraId, setUnidadeGestoraId ] = useState('');
+    const [loading, setLoading ] = useState(true);
+    const [unidadesGestoras, setUnidadesGestoras ] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        try {
+              api
+              .get(`unidades_gestoras`)
+              .then((response) => {
+                setUnidadesGestoras(response.data.data.data);
+                setLoading(false)
+              })
+              .catch((err) => console.log(err));
+          } catch (error) {
+            alert(error);
+          }
+
+    }, [])
 
     async function handleCreateExercicio(e){
         e.preventDefault();
@@ -19,14 +36,14 @@ export default function UnidadesAdministrativasCreate(){
             sigla,
             ugr,
             unidade_gestora_id: unidadeGestoraId,
-            instituicao_id: 1
+            instituicao_id: 3
         }
 
         try {
-            const response = await api.post('exercicios', data);
+            const response = await api.post('unidades_administrativas', data);
             
             if(response){
-                navigate('/exercicios');
+                navigate('/unidades_administrativas');
             }
         } catch (error) {
             console.log(error.response.data.message);
@@ -56,11 +73,14 @@ export default function UnidadesAdministrativasCreate(){
                             <input type="text" name="ugr" value={ugr} onChange={e => setUgr(e.target.value)} placeholder="UGR" />
                         </label> 
 
-                        <label>
-                        Unidade Gestora:
-                        {/* TODO: trocar para select */}
-                            <input type="select" name="unidade_gestora_id" value={unidadeGestoraId} onChange={e => setUnidadeGestoraId(e.target.value)} placeholder="Unidade" />
-                        </label> 
+                        {!loading && (<label htmlFor="unidade_gestora_id">Unidade Gestora:
+                            <select name="unidade_gestora_id" id="unidade_gestora_id" onChange={e => setUnidadeGestoraId(e.target.value)}>
+                                <option key='' value=''>Selecione</option>
+                                {unidadesGestoras.map(unidade_gestora =>(
+                                    <option key={unidade_gestora.id} value={unidade_gestora.id}>{unidade_gestora.nome}</option>
+                                ))}
+                            </select>
+                        </label>)}
                        
                         <button type="submit" className="button">
                             Criar unidade gestora

@@ -23,7 +23,11 @@ import MatrizesOrcamentariasInstituicoes from './pages/MatrizesOrcamentariasInst
 import MatrizesOrcamentariasGestoras from './pages/MatrizesOrcamentariasGestoras'
 import MatrizesOrcamentariasAdministrativas from './pages/MatrizesOrcamentariasAdministrativas'
 import FontesInstituicoes from './pages/FontesInstituicoes'
+import FontesInstituicoesCreate from './pages/FontesInstituicoes/create'
 import AcoesInstituicoes from './pages/AcoesInstituicoes'
+import AcoesInstituicoesCreate from './pages/AcoesInstituicoes/create'
+import FontesAcoesInstituicoes from './pages/FontesAcoesInstituicoes'
+import FontesAcoesInstituicoesCreate from './pages/FontesAcoesInstituicoes/create'
 import Usuarios from './pages/Usuarios'
 
 function App(){
@@ -64,7 +68,10 @@ function App(){
                 {/* Instituições */}
                 <Route path="/matrizes_orcamentarias_instituicoes" element={<MatrizesOrcamentariasInstituicoes />} />
                 <Route path="/fontes_instituicoes" element={<FontesInstituicoes />} />
+                <Route path="/fontes_instituicoes/criar" element={<FontesInstituicoesCreate />} />
                 <Route path="/acoes_instituicoes" element={<AcoesInstituicoes />} />
+                <Route path="/acoes_instituicoes/criar" element={<AcoesInstituicoesCreate />} /><Route path="/fontes_acoes_instituicoes" element={<FontesAcoesInstituicoes />} />
+                <Route path="/fontes_acoes_instituicoes/criar" element={<FontesAcoesInstituicoesCreate />} />
                 
                 {/* Gestoras */}
                 <Route path="/matrizes_orcamentarias_gestoras" element={<MatrizesOrcamentariasGestoras />} />

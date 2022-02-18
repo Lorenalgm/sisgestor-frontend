@@ -29,7 +29,7 @@ export default function UnidadesGestorasCreate(){
             bairro,
             complemento,
             diretor_geral: diretorGeral,
-            instituicao_id: 1
+            instituicao_id: 3
         }
 
         try {
@@ -87,7 +87,7 @@ export default function UnidadesGestorasCreate(){
                         </label> 
                         <label>
                         Diretor geral:
-                            <input type="text" name="diretor_geral" value={uasg} onChange={e => setDiretorGeral(e.target.value)} placeholder="Diretor geral" />
+                            <input type="text" name="diretor_geral" value={diretorGeral} onChange={e => setDiretorGeral(e.target.value)} placeholder="Diretor geral" />
                         </label> 
                         <button type="submit" className="button">
                             Criar unidade gestora

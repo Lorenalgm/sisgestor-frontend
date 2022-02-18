@@ -3,28 +3,6 @@
     margin-left: 300px;
 }
 
-.fontes-instituicoes-container .modal-nova-fonte{
-    background-color: var(--card);
-    border: 1px solid var(--secondary);
-    border-radius: .4em;
-    position: absolute;
-    top: 40%;
-    left: 60%;
-    width: 40em;
-    height: 20em;
-    padding: 3em 2em;
-    display: flex;
-    transform: translate(-60%, -60%);
-}
-
-.fontes-instituicoes-container .modal-nova-fonte-ocultar{
-    display: none;
-}
-
-.fontes-instituicoes-container .modal-nova-fonte-mostrar{
-    display: block;
-}
-
 .fontes-instituicoes-container .fontes-instituicoes-header{
     display: flex;
     justify-content: space-between;
