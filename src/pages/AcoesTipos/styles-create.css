@@ -1,0 +1,41 @@
+.acoes-tipos-create-container .acao-tipo-create-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.acoes-tipos-create-container .acoes-tipos-create-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.acoes-tipos-create-container .acao-tipo-create-title{
+    font-size: 30px;
+}
+
+.acao-tipo-create-container .acao-tipo-create-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.acao-tipo-create-container .acao-tipo-create-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.acao-tipo-create-container .acao-tipo-create-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.acao-tipo-create-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.acao-tipo-create-container .check-aprovado input{
+    width: 1.5em;
+}

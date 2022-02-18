@@ -38,7 +38,7 @@ export default function UnidadesGestoras(){
             <div className="unidade-gestora-container">
                 <div className="unidades-gestoras-header">
                     <h1 className="unidade-gestora-title">Unidades Gestoras</h1>
-                    <Link className="button" to="login">Criar</Link>
+                    <Link className="button" to="/unidades_gestoras/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">
@@ -60,6 +60,7 @@ export default function UnidadesGestoras(){
                     {!loading && (
                         unidades_gestoras.map((unidade_gestora, index) => (
                             <div className="unidade-gestora-card" key={unidade_gestora.id}>
+                                <p>{unidade_gestora.nome}</p>
                                 <p>{unidade_gestora.sigla}</p>
                                 <p>{unidade_gestora.cnpj}</p>
                                 <p>{unidade_gestora.uasg}</p>

@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit, FaEye } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 export default function UnidadesAdministrativas(){
     const [unidades_administrativas, setUnidadesAdministrativas] = useState([]);
@@ -37,7 +37,7 @@ export default function UnidadesAdministrativas(){
             <div className="unidade-administrativa-container">
                 <div className="unidades-administrativas-header">
                     <h1 className="unidade-administrativa-title">Unidades Administrativas</h1>
-                    <Link className="button" to="login">Criar</Link>
+                    <Link className="button" to="/unidades_administrativas/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">

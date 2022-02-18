@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 
 export default function Instituicoes(){
     const [instituicoes, setInstituicoes] = useState([]);
@@ -40,13 +40,13 @@ export default function Instituicoes(){
                         <p>Número</p>
                         <p>Bairro</p>
                         <p>Complemento</p>
-                        <p>Data início</p>
-                        <p>Data fim</p>
+                        <p>Ação</p>
                     </div>
                     <div className="list">
                     {!loading && (
                         instituicoes.map((instituicao, index) => (
                             <div className="instituicao-card" key={instituicao.id}>
+                                <p>{instituicao.nome}</p>
                                 <p>{instituicao.sigla}</p>
                                 <p>{instituicao.cnpj}</p>
                                 <p>{instituicao.uasg}</p>
@@ -54,10 +54,8 @@ export default function Instituicoes(){
                                 <p>{instituicao.numero}</p>
                                 <p>{instituicao.bairro}</p>
                                 <p>{instituicao.complemento}</p>
-                                <p>{instituicao.data_inicio}</p>
-                                <p>{instituicao.data_fim}</p>
                                 <div className="actions">
-                                    <FaEdit className="icon" />
+                                <Link to={'/instituicoes/editar/'+instituicao.id} state={{instituicao: instituicao}}><FaEdit className="icon" /></Link>
                                 </div>
                             </div>
                         ))

@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 export default function Fontes(){
     const [fontesTipos, setFontesTipos] = useState([]);
@@ -37,7 +37,7 @@ export default function Fontes(){
             <Menu />
             <div className="fonte-tipo-container">
                 <div className="fontes-tipos-header">
-                    <h1 className="fonte-tipo-title">Fontes</h1>
+                    <h1 className="fonte-tipo-title">Fontes Tipos</h1>
                     <Link className="button" to="login">Criar</Link>
                 </div>
                 <div className="principal">

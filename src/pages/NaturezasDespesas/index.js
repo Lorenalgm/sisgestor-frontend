@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 export default function NaturezasDespesas(){
     const [naturezas_despesas, setNaturezasDespesas] = useState([]);
@@ -55,7 +55,7 @@ export default function NaturezasDespesas(){
                                 <p>{natureza_despesa.codigo}</p>
                                 <p>{natureza_despesa.tipo}</p>
                                 <div className="actions">
-                                    <FaEdit className="icon" />
+                                    {/* <FaEdit className="icon" /> */}
                                     <FaTrash className="icon" onClick={() => handleDelete(natureza_despesa)} />
                                 </div>
                             </div>

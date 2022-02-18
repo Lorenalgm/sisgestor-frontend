@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 export default function AcoesTipos(){
     const [acoesTipos, setAcoesTipos] = useState([]);
@@ -37,8 +37,8 @@ export default function AcoesTipos(){
             <Menu />
             <div className="acao-tipo-container">
                 <div className="acoes-tipos-header">
-                    <h1 className="acao-tipo-title">Ações</h1>
-                    <Link className="button" to="login">Criar</Link>
+                    <h1 className="acao-tipo-title">Ações Tipos</h1>
+                    <Link className="button" to="/acoes_tipos/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">

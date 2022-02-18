@@ -10,11 +10,15 @@ import ProgramasTiposCreate from './pages/ProgramasTipos/create'
 import FontesTipos from './pages/FontesTipos'
 import FontesTiposCreate from './pages/FontesTipos/create'
 import AcoesTipos from './pages/AcoesTipos'
+import AcoesTiposCreate from './pages/AcoesTipos/create'
 import NaturezasDespesas from './pages/NaturezasDespesas'
-// import NaturezasDespesasCreate from './pages/NaturezasDespesas/create'
+import NaturezasDespesasCreate from './pages/NaturezasDespesas/create'
 import Instituicoes from './pages/Instituicoes'
+import InstituicoesEdit from './pages/Instituicoes/edit'
 import UnidadesGestoras from './pages/UnidadesGestoras'
+import UnidadesGestorasCreate from './pages/UnidadesGestoras/create'
 import UnidadesAdministrativas from './pages/UnidadesAdministrativas'
+import UnidadesAdministrativasCreate from './pages/UnidadesAdministrativas/create';
 import MatrizesOrcamentariasInstituicoes from './pages/MatrizesOrcamentariasInstituicoes'
 import MatrizesOrcamentariasGestoras from './pages/MatrizesOrcamentariasGestoras'
 import MatrizesOrcamentariasAdministrativas from './pages/MatrizesOrcamentariasAdministrativas'
@@ -38,21 +42,22 @@ function App(){
                 <Route path="/programas_tipos/criar" element={<ProgramasTiposCreate />} />
                 
                 <Route path="/fontes_tipos" element={<FontesTipos />} />
-                <Route path="/fontes_tipos/create" element={<FontesTiposCreate />} />
+                <Route path="/fontes_tipos/criar" element={<FontesTiposCreate />} />
 
                 <Route path="/acoes_tipos" element={<AcoesTipos />} />
-                {/* <Route path="/acoes/create" element={<AcoesCreate />} /> */}
+                <Route path="/acoes_tipos/criar" element={<AcoesTiposCreate />} />
                 
                 <Route path="/naturezas_despesas" element={<NaturezasDespesas />} />
-                {/* <Route path="/naturezas_despesas/create" element={<NaturezasDespesasCreate />} /> */}
+                <Route path="/naturezas_despesas/criar" element={<NaturezasDespesasCreate />} />
                 
                 <Route path="/instituicoes" element={<Instituicoes />} />
+                <Route path="/instituicoes/editar/:id" element={<InstituicoesEdit />} />
                 
                 <Route path="/unidades_gestoras" element={<UnidadesGestoras />} />
-                {/* <Route path="/unidades_gestoras/create" element={<UnidadesGestorasCreate />} /> */}
+                <Route path="/unidades_gestoras/criar" element={<UnidadesGestorasCreate />} />
                 
                 <Route path="/unidades_administrativas" element={<UnidadesAdministrativas />} />
-                {/* <Route path="/unidades_administrativas/create" element={<UnidadesAdministrativasCreate />} /> */}
+                <Route path="/unidades_administrativas/criar" element={<UnidadesAdministrativasCreate />} />
                 
                 <Route path="/usuarios" element={<Usuarios />} />
                 
