@@ -24,7 +24,7 @@ export default function ExerciciosEdit(){
             data_inicio_loa: format(new Date(data_inicio_loa), 'dd-MM-yyyy'),
             data_fim_loa: format(new Date(data_fim_loa), 'dd-MM-yyyy'),
             aprovado,
-            instituicao_id: 3
+            instituicao_id: 1
         }
 
         try {

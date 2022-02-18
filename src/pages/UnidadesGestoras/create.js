@@ -29,7 +29,7 @@ export default function UnidadesGestorasCreate(){
             bairro,
             complemento,
             diretor_geral: diretorGeral,
-            instituicao_id: 3
+            instituicao_id: 1
         }
 
         try {

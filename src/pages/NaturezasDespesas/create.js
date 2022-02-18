@@ -17,7 +17,7 @@ export default function NaturezasDespesasCreate(){
             nome,
             codigo,
             tipo,
-            instituicao_id: 3
+            instituicao_id: 1
         }
 
         try {

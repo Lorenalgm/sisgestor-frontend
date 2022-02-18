@@ -19,7 +19,7 @@ export default function UnidadesAdministrativasCreate(){
             sigla,
             ugr,
             unidade_gestora_id: unidadeGestoraId,
-            instituicao_id: 3
+            instituicao_id: 1
         }
 
         try {

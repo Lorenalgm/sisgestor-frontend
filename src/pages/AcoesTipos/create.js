@@ -15,7 +15,7 @@ export default function AcoesTiposCreate(){
         const data = {
             nome,
             codigo,
-            instituicao_id: 3
+            instituicao_id: 1
         }
 
         try {
