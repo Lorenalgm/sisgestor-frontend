@@ -13,11 +13,7 @@ export default function FontesAcoesInstituicoes(){
     useEffect(() => {
       try {
         api
-            .get(`fontes_acoes?instituicao_id=1`, {
-                headers: {
-                    tipo: 'instituicao'
-                }
-            })
+            .get(`fontes_acoes?instituicao_id=1`)
             .then((response) => {
             console.log(response)
             setFontes(response.data.data.data);
@@ -35,11 +31,12 @@ export default function FontesAcoesInstituicoes(){
             <div className="fonte-acao-instituicao-container">
                 <div className="fontes-acoes-instituicoes-header">
                     <h1 className="fonte-acao-instituicao-title">Distribuição da instituição</h1>
-                    <Link className="button" to="/fontes_instituicoes/criar">Criar</Link>
+                    <Link className="button" to="/fontes_acoes_instituicoes/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <BarraInstituicao ativo='distribuicao' />
                     <div className="list-header">
+                        <p>Fonte</p>
                         <p>Ação</p>
                         <p>Exercício</p>
                         <p>Valor</p>
@@ -49,6 +46,7 @@ export default function FontesAcoesInstituicoes(){
                     {!loading && (
                         fontes.map((fonte, index) => (
                             <div className="fonte-acao-instituicao-card" key={fonte.id}>
+                                <p>{fonte.fonte_id}</p>
                                 <p>{fonte.acao_id}</p>
                                 <p>{fonte.exercicio_id}</p>
                                 <p>R${fonte.valor}</p>

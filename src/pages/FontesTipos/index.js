@@ -52,8 +52,8 @@ export default function Fontes(){
                         fontesTipos.map((fonte_tipo, index) => (
                             <div className="fonte-tipo-card" key={fonte_tipo.id}>
                                 <p>{fonte_tipo.nome}</p>
-                                <p>{fonte_tipo.grupo_fonte_id}</p>
-                                <p>{fonte_tipo.especificacao_id}</p>
+                                <p>{fonte_tipo.grupo_fonte.nome}</p>
+                                <p>{fonte_tipo.especificacao.nome}</p>
                                 <div className="actions">
                                     {/* <FaEdit className="icon" /> */}
                                     <FaTrash className="icon" onClick={() => handleDelete(fonte_tipo)} />

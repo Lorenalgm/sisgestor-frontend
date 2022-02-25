@@ -14,7 +14,7 @@
 
 .fontes-acoes-instituicoes-container .list-header{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-weight: bold;
     justify-items: center;
     margin-bottom: 1em;
@@ -24,7 +24,7 @@
 
 .fontes-acoes-instituicoes-container .fonte-acao-instituicao-card{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     background-color: var(--card);
     justify-items: center;
     border-radius: .7em;

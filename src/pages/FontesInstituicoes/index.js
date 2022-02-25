@@ -13,11 +13,7 @@ export default function FontesInstituicoes(){
     useEffect(() => {
       try {
         api
-            .get(`fontes?instituicao_id=1`, {
-                headers: {
-                    tipo: 'instituicao'
-                }
-            })
+            .get(`fontes?instituicao_id=1`)
             .then((response) => {
             console.log(response)
             setFontes(response.data.data.data);

@@ -54,7 +54,7 @@ export default function UnidadesAdministrativas(){
                                 <p>{unidade_administrativa.nome}</p>
                                 <p>{unidade_administrativa.sigla}</p>
                                 <p>{unidade_administrativa.ugr}</p>
-                                <p>{unidade_administrativa.unidade_gestora}</p>
+                                <p>{unidade_administrativa.unidade_gestora.nome}</p>
                                 <div className="actions">
                                     {/* <FaEdit className="icon" /> */}
                                     <FaTrash className="icon" onClick={() => handleDelete(unidade_administrativa)} />
@@ -63,19 +63,6 @@ export default function UnidadesAdministrativas(){
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="unidade-administrativa-card" key="2022">
-                        <p>Nome do unidade administrativa</p>
-                        <p>STN</p>
-                        <p>UGR aqui</p>
-                        <p>IFAP Santana</p>
-                        <div className="actions">
-                            {/* <FaEdit className="icon" /> */}
-                            <FaTrash className="icon" />
-                            {/* <FaEye className="icon" /> */}
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

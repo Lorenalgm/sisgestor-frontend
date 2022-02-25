@@ -6,19 +6,28 @@ import { useNavigate } from 'react-router-dom';
 
 export default function FontesAcoesInstituicoesCreate(){
     const [fontesTipos, setFontesTipos ] = useState([]);
+    const [acoesTipos, setAcoesTipos ] = useState([]);
     const [exercicios, setExercicios ] = useState([]);
     const [loading, setLoading ] = useState(true);
     const [fonteTipoId, setFonteTipoId ] = useState('');
+    const [acaoTipoId, setAcaoTipoId ] = useState('');
     const [exercicioId, setExercicioId ] = useState('');
     const [valor, setValor ] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
         try {
-            api
-              .get(`fontes_tipos`)
+              api
+              .get(`fontes?instituicao_id=1&exercicio_id=1`)
               .then((response) => {
                 setFontesTipos(response.data.data.data);
+              })
+              .catch((err) => console.log(err));
+            
+              api
+              .get(`acoes?instituicao_id=1&exercicio_id=1`)
+              .then((response) => {
+                setAcoesTipos(response.data.data.data);
               })
               .catch((err) => console.log(err));
 
@@ -35,25 +44,25 @@ export default function FontesAcoesInstituicoesCreate(){
 
     }, [])
 
-    async function handleCreateFonteInstituicao(e){
+    async function handleCreateFonteAcaoInstituicao(e){
         e.preventDefault();
 
         const data = {
-            fonte_tipo_id: fonteTipoId,
+            fonte_id: fonteTipoId,
+            acao_id: acaoTipoId,
             exercicio_id: exercicioId,
             valor,
             instituicao_id: 1
         }
 
         try {
-            const response = await api.post('fontes', data);
+            const response = await api.post('fontes_acoes', data);
             
             if(response){
-                navigate('/fontes_instituicoes');
+                navigate('/fontes_acoes_instituicoes');
             }
         } catch (error) {
-            console.log(error.response.data.message);
-            alert('Não foi possível criar a fonte');
+            alert(error.response.data.data);
         }
     }
 
@@ -62,21 +71,35 @@ export default function FontesAcoesInstituicoesCreate(){
             <Menu />
             <div className="fonte-acao-instituicao-create-container">
                 <div className="fontes-acoes-instituicoes-create-header">
-                    <h1 className="fonte-acao-instituicao-create-title">Nova Fonte</h1>
+                    <h1 className="fonte-acao-instituicao-create-title">Nova Distribuição</h1>
                 </div>
                 <div className="principal">
+                {/* fonte_id: fonteTipoId,
+            acao_id: acaoTipoId,
+            exercicio_id: exercicioId,
+            valor, */}
                         {!loading && (
                             
-                            <form className="fonte-acao-instituicao-create-form" onSubmit={e => handleCreateFonteInstituicao(e)}>
+                            <form className="fonte-acao-instituicao-create-form" onSubmit={e => handleCreateFonteAcaoInstituicao(e)}>
                                 
                                 <label htmlFor="fonteTipoId">Fonte tipo:
                                     <select name="fonteTipoId" id="fonteTipoId" onChange={e => setFonteTipoId(e.target.value)}>
                                         <option key='' value=''>Selecione</option>
                                         {fontesTipos.map(fonte =>(
-                                            <option key={fonte.id} value={fonte.id}>{fonte.nome}</option>
+                                            <option key={fonte.id} value={fonte.id}>{fonte.id}</option>
                                         ))}
                                     </select>
                                 </label>
+
+                                <label htmlFor="acaoTipoId">Ação tipo:
+                                    <select name="acaoTipoId" id="acaoTipoId" onChange={e => setAcaoTipoId(e.target.value)}>
+                                        <option key='' value=''>Selecione</option>
+                                        {acoesTipos.map(acao =>(
+                                            <option key={acao.id} value={acao.id}>{acao.id}</option>
+                                        ))}
+                                    </select>
+                                </label>
+
 
                                 <label>
                                 Valor:

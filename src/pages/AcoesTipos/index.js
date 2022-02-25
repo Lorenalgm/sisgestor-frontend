@@ -59,16 +59,6 @@ export default function AcoesTipos(){
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="acao-tipo-card" key="2022">
-                        <p>Nome do acao</p>
-                        <p>0000</p>
-                        <div className="actions">
-                            {/* <FaEdit className="icon" /> */}
-                            <FaTrash className="icon" />
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>

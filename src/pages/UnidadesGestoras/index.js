@@ -14,6 +14,7 @@ export default function UnidadesGestoras(){
         api
           .get(`unidades_gestoras`)
           .then((response) => {
+            console.log(response.data.data.data)
             setUnidadesGestoras(response.data.data.data);
             setLoading(false);
           })
@@ -71,7 +72,7 @@ export default function UnidadesGestoras(){
                                 <p>{unidade_gestora.diretor_geral}</p>
                                 <p>{unidade_gestora.data_inicio}</p>
                                 <p>{unidade_gestora.data_fim}</p>
-                                <p>{unidade_gestora.instituicao}</p>
+                                <p>{unidade_gestora.instituicao.nome}</p>
                                 <div className="actions">
                                     {/* <FaEdit className="icon" /> */}
                                     <FaTrash className="icon" onClick={() => handleDelete(unidade_gestora)} />
@@ -80,26 +81,6 @@ export default function UnidadesGestoras(){
                         ))
                     )}
                     
-                    {/* TODO: excluir mock depois */}
-                    <div className="unidade-gestora-card" key="2022">
-                        <p>Nome do unidade gestora</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <p>0000</p>
-                        <div className="actions">
-                            {/* <FaEdit className="icon" /> */}
-                            <FaTrash className="icon" />
-                            {/* <FaEye className="icon" /> */}
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
