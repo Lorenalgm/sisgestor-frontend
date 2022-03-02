@@ -1,0 +1,48 @@
+.unidades-gestoras-edit-container .unidade-gestora-edit-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.unidades-gestoras-edit-container .unidades-gestoras-edit-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.unidades-gestoras-edit-container .unidade-gestora-edit-title{
+    font-size: 30px;
+}
+
+.unidade-gestora-edit-container .unidade-gestora-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.unidade-gestora-edit-container .unidade-gestora-edit-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.unidade-gestora-edit-container .unidade-gestora-edit-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.unidade-gestora-edit-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.unidade-gestora-edit-container .check-aprovado input{
+    width: 1.5em;
+}
+
+
+.unidade-gestora-edit-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import './styles-create.css';
+import './styles-edit.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-export default function UnidadesGestorasCreate(){
-    const [nome, setNome ] = useState('');
-    const [sigla, setSigla ] = useState('');
-    const [cnpj, setCnpj ] = useState('');
-    const [uasg, setUasg ] = useState('');
-    const [logradouro, setLogradouro ] = useState('');
-    const [numero, setNumero ] = useState('');
-    const [bairro, setBairro ] = useState('');
-    const [complemento, setComplemento ] = useState('');
-    const [diretorGeral, setDiretorGeral ] = useState('');
+export default function UnidadesGestorasEdit(){
+    const unidadeGestora = useLocation().state.unidade_gestora;
+    const [nome, setNome ] = useState(unidadeGestora.nome);
+    const [sigla, setSigla ] = useState(unidadeGestora.sigla);
+    const [cnpj, setCnpj ] = useState(unidadeGestora.cnpj);
+    const [uasg, setUasg ] = useState(unidadeGestora.uasg);
+    const [logradouro, setLogradouro ] = useState(unidadeGestora.logradouro);
+    const [numero, setNumero ] = useState(unidadeGestora.numero);
+    const [bairro, setBairro ] = useState(unidadeGestora.bairro);
+    const [complemento, setComplemento ] = useState(unidadeGestora.complemento);
+    const [diretorGeral, setDiretorGeral ] = useState(unidadeGestora.diretorGeral);
     const navigate = useNavigate();
 
-    async function handleCreateExercicio(e){
+    async function handleEdit(e){
         e.preventDefault();
 
         const data = {
@@ -33,29 +34,29 @@ export default function UnidadesGestorasCreate(){
         }
 
         try {
-            const response = await api.post('unidades_gestoras', data);
+            const response = await api.put(`unidades_gestoras/${unidadeGestora.id}`, data);
             
             if(response){
                 navigate('/unidades_gestoras');
             }
         } catch (error) {
             console.log(error.response.data.message);
-            alert('Não foi possível criar a unidade gestora');
+            alert('Não foi possível editar a unidade gestora');
         }
     }
 
     return(
-        <div className="unidades-gestoras-create-container">
+        <div className="unidades-gestoras-edit-container">
             <Menu />
-            <div className="unidade-gestora-create-container">
-                <div className="unidades-gestoras-create-header">
-                    <h1 className="unidade-gestora-create-title">Nova Unidade Gestora</h1>
+            <div className="unidade-gestora-edit-container">
+                <div className="unidades-gestoras-edit-header">
+                    <h1 className="unidade-gestora-edit-title">Editar Ação tipo</h1>
                 </div>
                 <div className="principal">
-                    <form className="unidade-gestora-create-form" onSubmit={e => handleCreateExercicio(e)}>
+                    <form className="unidade-gestora-edit-form" onSubmit={e => handleEdit(e)}>
                         <label>
                         Nome:
-                            <input type="text" name="nome" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome da unidade" />
+                            <input type="text" name="nome" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome da ação" />
                         </label> 
                         <label>
                         Sigla:
@@ -88,9 +89,10 @@ export default function UnidadesGestorasCreate(){
                         <label>
                         Diretor geral:
                             <input type="text" name="diretor_geral" value={diretorGeral} onChange={e => setDiretorGeral(e.target.value)} placeholder="Diretor geral" />
-                        </label> 
+                        </label>  
+                       
                         <button type="submit" className="button">
-                            Criar unidade gestora
+                            Atualizar unidade gestora
                         </button>
                     </form>
                 </div>

@@ -3,26 +3,34 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+import Pagination from '@material-ui/lab/Pagination';
 
 export default function UnidadesGestoras(){
     const [unidades_gestoras, setUnidadesGestoras] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [page, setPage ] = useState(1);
+    const [totalPages, setTotalPage ] = useState(1);
 
     useEffect(() => {
       try {
         api
-          .get(`unidades_gestoras`)
+          .get(`unidades_gestoras?page=${page}`)
           .then((response) => {
             console.log(response.data.data.data)
             setUnidadesGestoras(response.data.data.data);
+            setTotalPage(response.data.data.last_page);
             setLoading(false);
           })
           .catch((err) => console.log(err));
       } catch (error) {
         alert(error);
       }
-    }, []);
+    }, [page]);
+
+    function handleChange(e, value) {
+        setPage(value);            
+    };
 
     async function handleDelete(unidade_gestora) {
         const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir a unidade ${unidade_gestora.nome}?`);
@@ -74,13 +82,16 @@ export default function UnidadesGestoras(){
                                 <p>{unidade_gestora.data_fim}</p>
                                 <p>{unidade_gestora.instituicao.nome}</p>
                                 <div className="actions">
-                                    {/* <FaEdit className="icon" /> */}
+                                    <Link to={'/unidades_gestoras/editar/'+unidade_gestora.id} state={{unidade_gestora: unidade_gestora}}><FaEdit className="icon" /></Link>
                                     <FaTrash className="icon" onClick={() => handleDelete(unidade_gestora)} />
                                 </div>
                             </div>
                         ))
                     )}
                     
+                    </div>
+                    <div>
+                        <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" />
                     </div>
                 </div>
             </div>
