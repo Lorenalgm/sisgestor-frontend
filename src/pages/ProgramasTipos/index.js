@@ -3,31 +3,39 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+import Pagination from '@material-ui/lab/Pagination';
 
 export default function ProgramasTipos(){
     const [programasTipos, setProgramasTipos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [page, setPage ] = useState(1);
+    const [totalPages, setTotalPage ] = useState(1);
 
     useEffect(() => {
       try {
         api
-          .get(`programas_tipos`)
+          .get(`programas?page=${page}`)
           .then((response) => {
             setProgramasTipos(response.data.data.data);
+            setTotalPage(response.data.data.last_page);
             setLoading(false);
           })
           .catch((err) => console.log(err));
       } catch (error) {
         alert(error);
       }
-    }, []);
+    }, [page]);
+
+    function handleChange(e, value) {
+        setPage(value);            
+    };
 
     async function handleDelete(programa) {
         const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir o programa ${programa.nome}?`);
     
         if (isDeleteConfirmed){
-            await api.delete(`/programas_tipos/${programa.id}`);
+            await api.delete(`/programas/${programa.id}`);
             setProgramasTipos(programasTipos.filter(programaAntigo => programaAntigo.id !== programa.id))
         }
     }
@@ -53,12 +61,15 @@ export default function ProgramasTipos(){
                                 <p>{programa.nome}</p>
                                 <p>{programa.codigo}</p>
                                 <div className="actions">
-                                    {/* <FaEdit className="icon" disabled /> */}
+                                    <Link to={'/programas_tipos/editar/'+programa.id} state={{programa: programa}}><FaEdit className="icon" /></Link>
                                     <FaTrash className="icon" onClick={() => handleDelete(programa)} />
                                 </div>
                             </div>
                         ))
                     )}
+                    </div>
+                    <div>
+                        <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" />
                     </div>
                 </div>
             </div>

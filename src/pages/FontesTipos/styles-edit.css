@@ -1,0 +1,48 @@
+.fontes-tipos-edit-container .fonte-tipo-edit-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.fontes-tipos-edit-container .fontes-tipos-edit-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontes-tipos-edit-container .fonte-tipo-edit-title{
+    font-size: 30px;
+}
+
+.fonte-tipo-edit-container .fonte-tipo-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.fonte-tipo-edit-container .fonte-tipo-edit-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.fonte-tipo-edit-container .fonte-tipo-edit-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.fonte-tipo-edit-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.fonte-tipo-edit-container .check-aprovado input{
+    width: 1.5em;
+}
+
+
+.fonte-tipo-edit-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

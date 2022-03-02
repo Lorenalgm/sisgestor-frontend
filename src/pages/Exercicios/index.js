@@ -4,6 +4,7 @@ import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
 import { FaTrash, FaEdit } from 'react-icons/fa';
+import { format } from 'date-fns';
 
 export default function Exercicios(){
     const [exercicios, setExercicios] = useState([]);
@@ -53,8 +54,8 @@ export default function Exercicios(){
                         exercicios.map((exercicio, index) => (
                             <div className="exercicio-card" key={exercicio.id}>
                                 <p>{exercicio.nome}</p>
-                                <p>{exercicio.data_inicio}</p>
-                                <p>{exercicio.data_fim}</p>
+                                <p>{format(new Date(exercicio.data_inicio), 'dd/MM/yyyy')}</p>
+                                <p>{format(new Date(exercicio.data_fim), 'dd/MM/yyyy')}</p>
                                 <p>{exercicio.aprovado?'Sim':'Não'}</p>
                                 <div className="actions">
                                     <Link to={'/exercicios/editar/'+exercicio.id} state={{exercicio: exercicio}}><FaEdit className="icon" /></Link>

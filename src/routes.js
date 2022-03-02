@@ -7,10 +7,13 @@ import ExerciciosCreate from './pages/Exercicios/create'
 import ExerciciosEdit from './pages/Exercicios/edit'
 import ProgramasTipos from './pages/ProgramasTipos'
 import ProgramasTiposCreate from './pages/ProgramasTipos/create'
+import ProgramasTiposEdit from './pages/ProgramasTipos/edit'
 import FontesTipos from './pages/FontesTipos'
 import FontesTiposCreate from './pages/FontesTipos/create'
+import FontesTiposEdit from './pages/FontesTipos/edit'
 import AcoesTipos from './pages/AcoesTipos'
 import AcoesTiposCreate from './pages/AcoesTipos/create'
+import AcoesTiposEdit from './pages/AcoesTipos/edit'
 import NaturezasDespesas from './pages/NaturezasDespesas'
 import NaturezasDespesasCreate from './pages/NaturezasDespesas/create'
 import Instituicoes from './pages/Instituicoes'
@@ -44,12 +47,15 @@ function App(){
 
                 <Route path="/programas_tipos" element={<ProgramasTipos />} />
                 <Route path="/programas_tipos/criar" element={<ProgramasTiposCreate />} />
+                <Route path="/programas_tipos/editar/:id" element={<ProgramasTiposEdit />} />
                 
                 <Route path="/fontes_tipos" element={<FontesTipos />} />
                 <Route path="/fontes_tipos/criar" element={<FontesTiposCreate />} />
+                <Route path="/fontes_tipos/editar/:id" element={<FontesTiposEdit />} />
 
                 <Route path="/acoes_tipos" element={<AcoesTipos />} />
                 <Route path="/acoes_tipos/criar" element={<AcoesTiposCreate />} />
+                <Route path="/acoes_tipos/editar/:id" element={<AcoesTiposEdit />} />
                 
                 <Route path="/naturezas_despesas" element={<NaturezasDespesas />} />
                 <Route path="/naturezas_despesas/criar" element={<NaturezasDespesasCreate />} />

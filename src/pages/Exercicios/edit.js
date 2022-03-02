@@ -28,7 +28,7 @@ export default function ExerciciosEdit(){
         }
 
         try {
-            const response = await api.put('exercicios', data);
+            const response = await api.put(`exercicios/${exercicio.id}`, data);
             
             if(response){
                 navigate('/exercicios');

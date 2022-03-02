@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import './styles-create.css';
+import './styles-edit.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { format } from 'date-fns';
 
-export default function ProgramasTiposCreate(){
-    const [nome, setNome ] = useState('');
-    const [codigo, setCodigo ] = useState('');
+export default function ProgramasTiposEdit(){
+    const programaTipo = useLocation().state.programa;
+    const [nome, setNome ] = useState(programaTipo.nome);
+    const [codigo, setCodigo ] = useState(programaTipo.codigo);
     const navigate = useNavigate();
-
-    async function handleCreatePrograma(e){
+    
+    async function handleEditProgramaTipo(e){
         e.preventDefault();
 
         const data = {
@@ -19,26 +21,26 @@ export default function ProgramasTiposCreate(){
         }
 
         try {
-            const response = await api.post('programas', data);
+            const response = await api.put(`programas/${programaTipo.id}`, data);
             
             if(response){
                 navigate('/programas_tipos');
             }
         } catch (error) {
             console.log(error.response.data.message);
-            alert('Não foi possível criar o programa');
+            alert('Não foi possível editar o tipo de programa');
         }
     }
 
     return(
-        <div className="programas-tipos-create-container">
+        <div className="programas-tipos-edit-container">
             <Menu />
-            <div className="programa-tipo-create-container">
-                <div className="programas-tipos-create-header">
-                    <h1 className="programa-tipo-create-title">Novo Programa Tipo</h1>
+            <div className="programa-tipo-edit-container">
+                <div className="programas-tipos-edit-header">
+                    <h1 className="programa-tipo-edit-title">Editar Programa</h1>
                 </div>
                 <div className="principal">
-                    <form className="programa-tipo-create-form" onSubmit={e => handleCreatePrograma(e)}>
+                    <form className="programa-tipo-edit-form" onSubmit={e => handleEditProgramaTipo(e)}>
                         <label>
                         Nome:
                             <input type="text" name="nome" value={nome} onChange={e => setNome(e.target.value)} placeholder="Escreva o nome" />
@@ -48,7 +50,7 @@ export default function ProgramasTiposCreate(){
                             <input type="text" name="codigo" value={codigo} onChange={e => setCodigo(e.target.value)} placeholder="Escreva o código" />
                         </label> 
                         <button type="submit" className="button">
-                            Criar programa
+                            Atualizar programa
                         </button>
                     </form>
                 </div>

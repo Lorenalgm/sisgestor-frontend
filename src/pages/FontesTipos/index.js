@@ -3,32 +3,44 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+import Pagination from '@material-ui/lab/Pagination';
 
 export default function Fontes(){
     const [fontesTipos, setFontesTipos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [page, setPage ] = useState(1);
+    const [totalPages, setTotalPage ] = useState(1);
 
     useEffect(() => {
       try {
         api
-          .get(`fontes_tipos`)
+          .get(`fontes_tipos?page=${page}`)
           .then((response) => {
             setFontesTipos(response.data.data.data);
+            setTotalPage(response.data.data.last_page);
             setLoading(false);
           })
           .catch((err) => console.log(err));
       } catch (error) {
         alert(error);
       }
-    }, []);
+    }, [page]);
+
+    function handleChange(e, value) {
+        setPage(value);            
+    };
 
     async function handleDelete(fonte_tipo) {
         const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir a fonte ${fonte_tipo.nome}?`);
     
         if (isDeleteConfirmed){
-            await api.delete(`/fontes_tipos/${fonte_tipo.id}`);
-            setFontesTipos(fontesTipos.filter(fonteTipoAntigo => fonteTipoAntigo.id !== fonte_tipo.id))
+            try {
+                await api.delete(`/fontes_tipos/${fonte_tipo.id}`);
+                setFontesTipos(fontesTipos.filter(fonteTipoAntigo => fonteTipoAntigo.id !== fonte_tipo.id))
+            } catch (error) {
+                alert(error);
+            }
         }
     }
 
@@ -55,12 +67,15 @@ export default function Fontes(){
                                 <p>{fonte_tipo.grupo_fonte.nome}</p>
                                 <p>{fonte_tipo.especificacao.nome}</p>
                                 <div className="actions">
-                                    {/* <FaEdit className="icon" /> */}
+                                    <Link to={'/fontes_tipos/editar/'+fonte_tipo.id} state={{fonte_tipo: fonte_tipo}}><FaEdit className="icon" /></Link>
                                     <FaTrash className="icon" onClick={() => handleDelete(fonte_tipo)} />
                                 </div>
                             </div>
                         ))
                     )}
+                    </div>
+                    <div>
+                        <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" />
                     </div>
                 </div>
             </div>

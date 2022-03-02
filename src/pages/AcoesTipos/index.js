@@ -3,25 +3,33 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+import Pagination from '@material-ui/lab/Pagination';
 
 export default function AcoesTipos(){
     const [acoesTipos, setAcoesTipos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [page, setPage ] = useState(1);
+    const [totalPages, setTotalPage ] = useState(1);
 
     useEffect(() => {
       try {
         api
-          .get(`acoes_tipos`)
+          .get(`acoes_tipos?page=${page}`)
           .then((response) => {
             setAcoesTipos(response.data.data.data);
+            setTotalPage(response.data.data.last_page);
             setLoading(false);
           })
           .catch((err) => console.log(err));
       } catch (error) {
         alert(error);
       }
-    }, []);
+    }, [page]);
+
+    function handleChange(e, value) {
+        setPage(value);            
+    };
 
     async function handleDelete(acao_tipo) {
         const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir a ação ${acao_tipo.nome}?`);
@@ -53,12 +61,15 @@ export default function AcoesTipos(){
                                 <p>{acao_tipo.nome}</p>
                                 <p>{acao_tipo.codigo}</p>
                                 <div className="actions">
-                                    {/* <FaEdit className="icon" /> */}
+                                    <Link to={'/acoes_tipos/editar/'+acao_tipo.id} state={{acao_tipo: acao_tipo}}><FaEdit className="icon" /></Link>
                                     <FaTrash className="icon" onClick={() => handleDelete(acao_tipo)} />
                                 </div>
                             </div>
                         ))
                     )}
+                    </div>
+                    <div>
+                        <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" />
                     </div>
                 </div>
             </div>

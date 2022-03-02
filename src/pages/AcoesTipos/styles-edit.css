@@ -1,0 +1,48 @@
+.acoes-tipos-edit-container .acao-tipo-edit-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.acoes-tipos-edit-container .acoes-tipos-edit-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.acoes-tipos-edit-container .acao-tipo-edit-title{
+    font-size: 30px;
+}
+
+.acao-tipo-edit-container .acao-tipo-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.acao-tipo-edit-container .acao-tipo-edit-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.acao-tipo-edit-container .acao-tipo-edit-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.acao-tipo-edit-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.acao-tipo-edit-container .check-aprovado input{
+    width: 1.5em;
+}
+
+
+.acao-tipo-edit-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
