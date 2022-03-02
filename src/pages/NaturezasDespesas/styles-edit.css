@@ -1,0 +1,48 @@
+.naturezas-despesas-edit-container .natureza-despesa-edit-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.naturezas-despesas-edit-container .naturezas-despesas-edit-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.naturezas-despesas-edit-container .natureza-despesa-edit-title{
+    font-size: 30px;
+}
+
+.natureza-despesa-edit-container .natureza-despesa-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.natureza-despesa-edit-container .natureza-despesa-edit-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.natureza-despesa-edit-container .natureza-despesa-edit-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.natureza-despesa-edit-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.natureza-despesa-edit-container .check-aprovado input{
+    width: 1.5em;
+}
+
+
+.natureza-despesa-edit-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

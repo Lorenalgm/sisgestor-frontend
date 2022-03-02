@@ -16,6 +16,7 @@ import AcoesTiposCreate from './pages/AcoesTipos/create'
 import AcoesTiposEdit from './pages/AcoesTipos/edit'
 import NaturezasDespesas from './pages/NaturezasDespesas'
 import NaturezasDespesasCreate from './pages/NaturezasDespesas/create'
+import NaturezasDespesasEdit from './pages/NaturezasDespesas/edit'
 import Instituicoes from './pages/Instituicoes'
 import InstituicoesEdit from './pages/Instituicoes/edit'
 import UnidadesGestoras from './pages/UnidadesGestoras'
@@ -59,6 +60,7 @@ function App(){
                 
                 <Route path="/naturezas_despesas" element={<NaturezasDespesas />} />
                 <Route path="/naturezas_despesas/criar" element={<NaturezasDespesasCreate />} />
+                <Route path="/naturezas_despesas/editar/:id" element={<NaturezasDespesasEdit />} />
                 
                 <Route path="/instituicoes" element={<Instituicoes />} />
                 <Route path="/instituicoes/editar/:id" element={<InstituicoesEdit />} />
