@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './styles-create.css';
+import './styles-edit.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-export default function UnidadesAdministrativasCreate(){
-    const [nome, setNome ] = useState('');
-    const [sigla, setSigla ] = useState('');
-    const [ugr, setUgr ] = useState('');
-    const [unidadeGestoraId, setUnidadeGestoraId ] = useState('');
+export default function UnidadesAdministrativasEdit(){
+    const unidadeAdministrativa = useLocation().state.unidade_administrativa;
+    const [nome, setNome ] = useState(unidadeAdministrativa.nome);
+    const [sigla, setSigla ] = useState(unidadeAdministrativa.sigla);
+    const [ugr, setUgr ] = useState(unidadeAdministrativa.ugr);
+    const [unidadeGestoraId, setUnidadeGestoraId ] = useState(unidadeAdministrativa.unidade_gestora_id);
     const [loading, setLoading ] = useState(true);
     const [unidadesGestoras, setUnidadesGestoras ] = useState('');
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function UnidadesAdministrativasCreate(){
 
     }, [])
 
-    async function handleCreateUnidadeAdministrativa(e){
+    async function handleEdit(e){
         e.preventDefault();
 
         const data = {
@@ -40,26 +41,26 @@ export default function UnidadesAdministrativasCreate(){
         }
 
         try {
-            const response = await api.post('unidades_administrativas', data);
+            const response = await api.put(`unidades_administrativas/${unidadeAdministrativa.id}`, data);
             
             if(response){
                 navigate('/unidades_administrativas');
             }
         } catch (error) {
             console.log(error.response.data.message);
-            alert('Não foi possível criar a unidade administrativa');
+            alert('Não foi possível editar a unidade administrativa');
         }
     }
 
     return(
-        <div className="unidades-administrativas-create-container">
+        <div className="unidades-administrativas-edit-container">
             <Menu />
-            <div className="unidade-administrativa-create-container">
-                <div className="unidades-administrativas-create-header">
-                    <h1 className="unidade-administrativa-create-title">Nova Unidade Administrativa</h1>
+            <div className="unidade-administrativa-edit-container">
+                <div className="unidades-administrativas-edit-header">
+                    <h1 className="unidade-administrativa-edit-title">Editar Unidade Administrativa</h1>
                 </div>
                 <div className="principal">
-                    <form className="unidade-administrativa-create-form" onSubmit={e => handleCreateUnidadeAdministrativa(e)}>
+                    <form className="unidade-administrativa-edit-form" onSubmit={e => handleEdit(e)}>
                         <label>
                         Nome:
                             <input type="text" name="nome" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome da unidade" />
@@ -77,13 +78,13 @@ export default function UnidadesAdministrativasCreate(){
                             <select name="unidade_gestora_id" id="unidade_gestora_id" onChange={e => setUnidadeGestoraId(e.target.value)}>
                                 <option key='' value=''>Selecione</option>
                                 {unidadesGestoras.map(unidade_gestora =>(
-                                    <option key={unidade_gestora.id} value={unidade_gestora.id}>{unidade_gestora.nome}</option>
+                                    <option key={unidade_gestora.id} value={unidade_gestora.id} selected={unidadeGestoraId == unidade_gestora.id? 'selected': ''}>{unidade_gestora.nome}</option>
                                 ))}
                             </select>
                         </label>)}
                        
                         <button type="submit" className="button">
-                            Criar unidade gestora
+                            Atualizar Unidade administrativa
                         </button>
                     </form>
                 </div>

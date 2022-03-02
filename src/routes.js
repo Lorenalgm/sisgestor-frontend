@@ -24,6 +24,7 @@ import UnidadesGestorasCreate from './pages/UnidadesGestoras/create'
 import UnidadesGestorasEdit from './pages/UnidadesGestoras/edit'
 import UnidadesAdministrativas from './pages/UnidadesAdministrativas'
 import UnidadesAdministrativasCreate from './pages/UnidadesAdministrativas/create';
+import UnidadesAdministrativasEdit from './pages/UnidadesAdministrativas/edit';
 import MatrizesOrcamentariasInstituicoes from './pages/MatrizesOrcamentariasInstituicoes'
 import MatrizesOrcamentariasGestoras from './pages/MatrizesOrcamentariasGestoras'
 import MatrizesOrcamentariasAdministrativas from './pages/MatrizesOrcamentariasAdministrativas'
@@ -72,6 +73,7 @@ function App(){
                 
                 <Route path="/unidades_administrativas" element={<UnidadesAdministrativas />} />
                 <Route path="/unidades_administrativas/criar" element={<UnidadesAdministrativasCreate />} />
+                <Route path="/unidades_administrativas/editar/:id" element={<UnidadesAdministrativasEdit />} />
                 
                 <Route path="/usuarios" element={<Usuarios />} />
                 

@@ -76,7 +76,7 @@ export default function FontesTiposEdit(){
                             <select name="grupo_fonte_id" id="grupo_fonte_id" onChange={e => setGrupoFonteId(e.target.value)}>
                                 <option key='' value=''>Selecione</option>
                                 {gruposFontes.map(grupo_fonte =>(
-                                    <option key={grupo_fonte.id} value={grupo_fonte.id}>{grupo_fonte.nome}</option>
+                                    <option key={grupo_fonte.id} value={grupo_fonte.id} selected={grupo_fonte_id == grupo_fonte.id? 'selected': ''}>{grupo_fonte.nome}</option>
                                 ))}
                             </select>
                         </label>
@@ -85,7 +85,7 @@ export default function FontesTiposEdit(){
                             <select name="especificacao_id" id="especificacao_id" onChange={e => setEspecificacaoId(e.target.value)}>
                                 <option key='' value=''>Selecione</option>
                                 {especificacoes.map(especificacao =>(
-                                    <option key={especificacao.id} value={especificacao.id}>{especificacao.nome}</option>
+                                    <option key={especificacao.id} value={especificacao.id} selected={especificacao_id == especificacao.id? 'selected': ''}>{especificacao.nome}</option>
                                 ))}
                             </select>
                         </label>
