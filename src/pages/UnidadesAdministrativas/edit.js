@@ -78,7 +78,7 @@ export default function UnidadesAdministrativasEdit(){
                             <select name="unidade_gestora_id" id="unidade_gestora_id" onChange={e => setUnidadeGestoraId(e.target.value)}>
                                 <option key='' value=''>Selecione</option>
                                 {unidadesGestoras.map(unidade_gestora =>(
-                                    <option key={unidade_gestora.id} value={unidade_gestora.id} selected={unidadeGestoraId == unidade_gestora.id? 'selected': ''}>{unidade_gestora.nome}</option>
+                                    <option key={unidade_gestora.id} value={unidade_gestora.id} selected={unidadeGestoraId === unidade_gestora.id? 'selected': ''}>{unidade_gestora.nome}</option>
                                 ))}
                             </select>
                         </label>)}

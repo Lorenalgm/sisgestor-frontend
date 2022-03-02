@@ -3,7 +3,6 @@ import './styles-edit.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { format } from 'date-fns';
 
 export default function ProgramasTiposEdit(){
     const programaTipo = useLocation().state.programa;
