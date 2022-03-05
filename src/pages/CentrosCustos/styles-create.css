@@ -1,0 +1,47 @@
+.centros-custos-create-container .centro-custo-create-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.centros-custos-create-container .centros-custos-create-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.centros-custos-create-container .centro-custo-create-title{
+    font-size: 30px;
+}
+
+.centro-custo-create-container .centro-custo-create-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.centro-custo-create-container .centro-custo-create-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.centro-custo-create-container .centro-custo-create-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.centro-custo-create-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.centro-custo-create-container .check-aprovado input{
+    width: 1.5em;
+}
+
+.centro-custo-create-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

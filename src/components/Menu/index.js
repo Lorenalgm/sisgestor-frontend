@@ -22,6 +22,8 @@ export default function Menu(){
                                 <Link className="submenu" to="/instituicoes">Instituições</Link>
                                 <Link className="submenu" to="/unidades_gestoras">Unidades gestoras</Link>
                                 <Link className="submenu" to="/unidades_administrativas">Unidades administrativas</Link>
+                                <Link className="submenu" to="/centros_custos">Centro de Custo</Link>
+                                <Link className="submenu" to="/exercicios">Usuários</Link>
                             </div>
                         </div>
                         <div className="menu-group">

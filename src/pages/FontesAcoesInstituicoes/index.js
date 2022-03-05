@@ -13,7 +13,7 @@ export default function FontesAcoesInstituicoes(){
     useEffect(() => {
       try {
         api
-            .get(`fontes_acoes?instituicao_id=1`)
+            .get(`fontes_acoes?instituicao_id=1&exercicio_id=1`)
             .then((response) => {
             console.log(response)
             setFontes(response.data.data.data);

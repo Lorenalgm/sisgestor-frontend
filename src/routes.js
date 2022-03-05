@@ -35,6 +35,9 @@ import AcoesInstituicoesCreate from './pages/AcoesInstituicoes/create'
 import FontesAcoesInstituicoes from './pages/FontesAcoesInstituicoes'
 import FontesAcoesInstituicoesCreate from './pages/FontesAcoesInstituicoes/create'
 import Usuarios from './pages/Usuarios'
+import CentrosCustos from './pages/CentrosCustos'
+import CentrosCustosCreate from './pages/CentrosCustos/create'
+import CentrosCustosEdit from './pages/CentrosCustos/edit'
 
 function App(){
     return(
@@ -47,6 +50,10 @@ function App(){
                 <Route path="/exercicios" element={<Exercicios />} />
                 <Route path="/exercicios/criar" element={<ExerciciosCreate />} />
                 <Route path="/exercicios/editar/:id" element={<ExerciciosEdit />} />
+
+                <Route path="/centros_custos" element={<CentrosCustos />} />
+                <Route path="/centros_custos/criar" element={<CentrosCustosCreate />} />
+                <Route path="/centros_custos/editar/:id" element={<CentrosCustosEdit />} />
 
                 <Route path="/programas_tipos" element={<ProgramasTipos />} />
                 <Route path="/programas_tipos/criar" element={<ProgramasTiposCreate />} />
