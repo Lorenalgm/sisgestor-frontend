@@ -14,11 +14,7 @@ export default function AcoesInstituicoes(){
     useEffect(() => {
       try {
         api
-        .get(`acoes?instituicao_id=1`, {
-            headers: {
-                tipo: 'instituicao'
-            }
-        })
+        .get(`acoes?instituicao_id=1&exercicio_id=1`)
         .then((response) => {
         console.log(response)
         setAcoes(response.data.data.data);
