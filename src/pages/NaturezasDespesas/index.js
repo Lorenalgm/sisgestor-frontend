@@ -5,19 +5,23 @@ import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import Pagination from '@material-ui/lab/Pagination';
+import IconButton from '@mui/material/IconButton';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function NaturezasDespesas(){
     const [naturezas_despesas, setNaturezasDespesas] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage ] = useState(1);
     const [totalPages, setTotalPage ] = useState(1);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
       try {
         api
           .get(`naturezas_despesas?page=${page}`)
           .then((response) => {
-              console.log(response.data.data.data);
+            console.log(response.data.data.data);
             setNaturezasDespesas(response.data.data.data);
             setTotalPage(response.data.data.last_page);
             setLoading(false);
@@ -51,6 +55,7 @@ export default function NaturezasDespesas(){
                 </div>
                 <div className="principal">
                     <div className="list-header">
+                        <p></p>
                         <p>Nome</p>
                         <p>Código</p>
                         <p>Tipo</p>
@@ -60,13 +65,49 @@ export default function NaturezasDespesas(){
                     {!loading && (
                         naturezas_despesas.map((natureza_despesa, index) => (
                             <div className="natureza-despesa-card" key={natureza_despesa.id}>
-                                <p>{natureza_despesa.nome}</p>
-                                <p>{natureza_despesa.codigo}</p>
-                                <p>{natureza_despesa.tipo}</p>
-                                <div className="actions">
-                                    <Link to={'/naturezas_despesas/editar/'+natureza_despesa.id} state={{natureza_despesa: natureza_despesa}}><FaEdit className="icon" /></Link>
-                                    <FaTrash className="icon" onClick={() => handleDelete(natureza_despesa)} />
+                                <div className="natureza-info">
+                                    <p> 
+                                    {/* natureza_despesa.subnaturezas_despesas.length > 0 &&  */}
+                                        {<IconButton
+                                        aria-label="expand row"
+                                        size="small"
+                                        onClick={() => setOpen(!open)}>
+                                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>}
+                                        
+                                        {natureza_despesa.nome}
+
+                                    </p>
+                                    <p>{natureza_despesa.codigo}</p>
+                                    <p>{natureza_despesa.tipo}</p>
+                                    <div className="actions">
+                                        <Link to={'/naturezas_despesas/editar/'+natureza_despesa.id} state={{natureza_despesa: natureza_despesa}}><FaEdit className="icon" /></Link>
+                                        <FaTrash className="icon" onClick={() => handleDelete(natureza_despesa)} />
+                                    </div>
                                 </div>
+                                {open && <div className="subnaturezas">
+
+                                        <div className="subnatureza-card">
+                                            <p>nomeeeeee</p>
+                                            <p>21434</p>
+                                            <p>2131321</p>
+                                            <div className="actions">
+                                                <FaEdit className="icon" />
+                                                <FaTrash className="icon" />
+                                            </div>
+                                        </div>
+                                    {/* {natureza_despesa.subnaturezas_despesas.length > 0 && natureza_despesa.subnaturezas_despesas.map((subnatureza, index) => (
+                                        <div className="subnatureza-card">
+                                            <p>{subnatureza.nome}</p>
+                                            <p>{subnatureza.codigo}</p>
+                                            <p>{subnatureza.tipo}</p>
+                                            <div className="actions">
+                                            <Link to={'/naturezas_despesas/editar/'+subnatureza.id} state={{subnatureza: subnatureza}}><FaEdit className="icon" /></Link>
+                                                <FaTrash className="icon" onClick={() => handleDelete(subnatureza)} />
+                                            </div>
+                                        </div>
+                                    ))} */}
+                                </div>}
                             </div>
                         ))
                     )}

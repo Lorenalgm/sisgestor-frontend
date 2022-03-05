@@ -14,7 +14,7 @@
 
 .naturezas-despesas-container .list-header{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     font-weight: bold;
     justify-items: center;
     margin-bottom: 1em;
@@ -23,13 +23,18 @@
 }
 
 .naturezas-despesas-container .natureza-despesa-card{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
     background-color: var(--card);
-    justify-items: center;
     border-radius: .7em;
     padding: 2em 1em;
-    margin-bottom: 1em;
+}
+
+.naturezas-despesas-container .natureza-despesa-card .natureza-info{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
 }
 
 .naturezas-despesas-container .actions{
@@ -42,4 +47,10 @@
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;
+}
+
+.naturezas-despesas-container .subnatureza-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
 }
