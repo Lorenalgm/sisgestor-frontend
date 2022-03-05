@@ -3,6 +3,8 @@ import './styles-create.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import { useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 export default function FontesTiposCreate(){
     const [nome, setNome ] = useState('');
@@ -18,14 +20,14 @@ export default function FontesTiposCreate(){
             api
               .get(`grupos_fontes`)
               .then((response) => {
-                setGruposFontes(response.data.data.data);
+                setGruposFontes(response.data.data);
               })
               .catch((err) => console.log(err));
 
               api
               .get(`especificacoes`)
               .then((response) => {
-                setEspecificacoes(response.data.data.data);
+                setEspecificacoes(response.data.data);
                 setLoading(false)
               })
               .catch((err) => console.log(err));
@@ -62,7 +64,7 @@ export default function FontesTiposCreate(){
             <Menu />
             <div className="fonte-tipo-create-container">
                 <div className="fontes-tipos-create-header">
-                    <h1 className="fonte-tipo-create-title">Novo Programa Tipo</h1>
+                    <h1 className="fonte-tipo-create-title">Nova Fonte Tipo</h1>
                 </div>
                 <div className="principal">
                     {!loading && (<form className="fonte-tipo-create-form" onSubmit={e => handleCreatePrograma(e)}>
@@ -71,26 +73,28 @@ export default function FontesTiposCreate(){
                             <input type="text" name="nome" value={nome} onChange={e => setNome(e.target.value)} placeholder="Escreva o nome" />
                         </label> 
 
-                        <label htmlFor="grupo_fonte_id">Grupo Fonte:
-                            <select name="grupo_fonte_id" id="grupo_fonte_id" onChange={e => setGrupoFonteId(e.target.value)}>
-                                <option key='' value=''>Selecione</option>
-                                {gruposFontes.map(grupo_fonte =>(
-                                    <option key={grupo_fonte.id} value={grupo_fonte.id}>{grupo_fonte.nome}</option>
-                                ))}
-                            </select>
-                        </label>
-                       
-                        <label htmlFor="especificacao_id">Especificação:
-                            <select name="especificacao_id" id="especificacao_id" onChange={e => setEspecificacaoId(e.target.value)}>
-                                <option key='' value=''>Selecione</option>
-                                {especificacoes.map(especificacao =>(
-                                    <option key={especificacao.id} value={especificacao.id}>{especificacao.nome}</option>
-                                ))}
-                            </select>
-                        </label>
+                        <Autocomplete
+                        disablePortal
+                        className="select2"
+                        id="grupo_fonte_id"
+                        options={gruposFontes}
+                        sx={{ width: 460 }}
+                        onChange={(e,v) => setGrupoFonteId(v.id)}
+                        renderInput={(params) => <TextField {...params} label="Grupo Fonte" />}
+                        />
 
+                        <Autocomplete
+                        disablePortal
+                        className="select2"
+                        id="especificacao_id"
+                        options={especificacoes}
+                        sx={{ width: 460 }}
+                        onChange={(e,v) => setEspecificacaoId(v.id)}
+                        renderInput={(params) => <TextField {...params} label="Especificação" />}
+                        />
+                       
                         <button type="submit" className="button">
-                            Criar programa
+                            Criar Fonte Tipo
                         </button>
                     </form>)}
                 </div>

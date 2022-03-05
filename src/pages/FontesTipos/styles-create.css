@@ -31,6 +31,12 @@
     height: 3.5em;
 }
 
+.fonte-tipo-create-container .select2{
+    margin-bottom: 1.5em;
+    background-color: white;
+    border-radius: .4em;
+}
+
 .fonte-tipo-create-container .check-aprovado{
     display: flex;
     align-items: center;

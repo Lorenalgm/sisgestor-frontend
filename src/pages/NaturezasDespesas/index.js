@@ -17,6 +17,7 @@ export default function NaturezasDespesas(){
         api
           .get(`naturezas_despesas?page=${page}`)
           .then((response) => {
+              console.log(response.data.data.data);
             setNaturezasDespesas(response.data.data.data);
             setTotalPage(response.data.data.last_page);
             setLoading(false);
