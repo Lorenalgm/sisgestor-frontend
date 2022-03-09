@@ -35,6 +35,7 @@ import AcoesInstituicoesCreate from './pages/AcoesInstituicoes/create'
 import FontesAcoesInstituicoes from './pages/FontesAcoesInstituicoes'
 import FontesAcoesInstituicoesCreate from './pages/FontesAcoesInstituicoes/create'
 import Usuarios from './pages/Usuarios'
+import Relatorios from './pages/Relatorios'
 import CentrosCustos from './pages/CentrosCustos'
 import CentrosCustosCreate from './pages/CentrosCustos/create'
 import CentrosCustosEdit from './pages/CentrosCustos/edit'
@@ -101,6 +102,9 @@ function App(){
                 <Route path="/matrizes_orcamentarias_administrativas" element={<MatrizesOrcamentariasAdministrativas />} />
                 {/* <Route path="/fontes_administrativas" element={<FontesAdministrativas />} /> */}
                 {/* <Route path="/acoes_administrativas" element={<AcoesAdministrativas />} /> */}
+
+                <Route path="/relatorios" element={<Relatorios />} />
+
             </Routes>
         </BrowserRouter>
     )

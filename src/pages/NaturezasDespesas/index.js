@@ -67,8 +67,8 @@ export default function NaturezasDespesas(){
                             <div className="natureza-despesa-card" key={natureza_despesa.id}>
                                 <div className="natureza-info">
                                     <p> 
-                                    {/* natureza_despesa.subnaturezas_despesas.length > 0 &&  */}
-                                        {<IconButton
+                                    {natureza_despesa.subnaturezas_despesas.length > 0 && 
+                                        <IconButton
                                         aria-label="expand row"
                                         size="small"
                                         onClick={() => setOpen(!open)}>
@@ -85,18 +85,8 @@ export default function NaturezasDespesas(){
                                         <FaTrash className="icon" onClick={() => handleDelete(natureza_despesa)} />
                                     </div>
                                 </div>
-                                {open && <div className="subnaturezas">
-
-                                        <div className="subnatureza-card">
-                                            <p>nomeeeeee</p>
-                                            <p>21434</p>
-                                            <p>2131321</p>
-                                            <div className="actions">
-                                                <FaEdit className="icon" />
-                                                <FaTrash className="icon" />
-                                            </div>
-                                        </div>
-                                    {/* {natureza_despesa.subnaturezas_despesas.length > 0 && natureza_despesa.subnaturezas_despesas.map((subnatureza, index) => (
+                                {open && (natureza_despesa.subnaturezas_despesas.length > 0) && <div className="subnaturezas">
+                                    {natureza_despesa.subnaturezas_despesas.map((subnatureza, index) => (
                                         <div className="subnatureza-card">
                                             <p>{subnatureza.nome}</p>
                                             <p>{subnatureza.codigo}</p>
@@ -106,7 +96,7 @@ export default function NaturezasDespesas(){
                                                 <FaTrash className="icon" onClick={() => handleDelete(subnatureza)} />
                                             </div>
                                         </div>
-                                    ))} */}
+                                    ))}
                                 </div>}
                             </div>
                         ))

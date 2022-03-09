@@ -30,6 +30,7 @@ export default function Menu(){
                             <Link className="menu-group-title menu-group-link" to="/matrizes_orcamentarias_instituicoes">Matriz orçamentária</Link>
                             <Link className="menu-group-title menu-group-link" to="/matrizes_orcamentarias_gestoras">Matriz orçamentária gestora</Link>
                             <Link className="menu-group-title menu-group-link" to="/matrizes_orcamentarias_administrativas">Matriz orçamentária administrativa</Link>
+                            <Link className="menu-group-title menu-group-link" to="/relatorios">Relatórios</Link>
                         </div>
                     </div>
                 </div>

@@ -49,6 +49,12 @@
     cursor: pointer;
 }
 
+.natureza-despesa-container .subnaturezas{
+    background-color: #e6e5e773;
+    border-radius: .4em;
+    padding: .4em 0;
+}
+
 .naturezas-despesas-container .subnatureza-card{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
