@@ -43,3 +43,21 @@
     color: var(--primary);
     cursor: pointer;
 }
+
+.fontes-instituicoes-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.fontes-instituicoes-container .acoes{
+    background-color: #e6e5e773;
+    border-radius: .4em;
+    padding: .4em 0;
+}
+
+.fontes-instituicoes-container .acoes-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}

@@ -11,6 +11,9 @@ export default function AcoesInstituicoesCreate(){
     const [acaoTipoId, setAcaoTipoId ] = useState('');
     const [exercicioId, setExercicioId ] = useState('');
     const navigate = useNavigate();
+    const [fontesTipos, setFontesTipos ] = useState([]);
+    const [fonteTipoId, setFonteTipoId ] = useState('');
+    const [valor, setValor ] = useState('');
 
     useEffect(() => {
         try {
@@ -25,6 +28,13 @@ export default function AcoesInstituicoesCreate(){
               .get(`exercicios`)
               .then((response) => {
                 setExercicios(response.data.data.data);
+              })
+              .catch((err) => console.log(err));
+
+              api
+              .get(`fontes?instituicao_id=1&exercicio_id=1`)
+              .then((response) => {
+                setFontesTipos(response.data.data.data);
                 setLoading(false)
               })
               .catch((err) => console.log(err));
@@ -36,22 +46,32 @@ export default function AcoesInstituicoesCreate(){
 
     async function handleCreateAcaoInstituicao(e){
         e.preventDefault();
-
-        const data = {
-            acao_tipo_id: acaoTipoId,
-            exercicio_id: exercicioId,
-            instituicao_id: 1
-        }
-
+        
         try {
+            const data = {
+                acao_tipo_id: acaoTipoId,
+                exercicio_id: exercicioId,
+                instituicao_id: 1
+            }
+
             const response = await api.post('acoes', data);
             
             if(response){
+                const dataFonteAcao = {
+                    fonte_id: fonteTipoId,
+                    acao_id: response.data.data.id,
+                    exercicio_id: exercicioId,
+                    valor,
+                    instituicao_id: 1
+                }
+
+                await api.post('fontes_acoes', dataFonteAcao);
+
                 navigate('/acoes_instituicoes');
             }
+           
         } catch (error) {
-            console.log(error.response.data.message);
-            alert('Não foi possível criar a ação');
+            alert(error.response.data.data?error.response.data.data:'Não foi possível finalizar o procedimento. Tente novamente');
         }
     }
 
@@ -66,15 +86,6 @@ export default function AcoesInstituicoesCreate(){
                         {!loading && (
                             
                             <form className="acao-instituicao-create-form" onSubmit={e => handleCreateAcaoInstituicao(e)}>
-                                <label htmlFor="acaoTipoId">Ação tipo:
-                                    <select name="acaoTipoId" id="acaoTipoId" onChange={e => setAcaoTipoId(e.target.value)}>
-                                        <option key='' value=''>Selecione</option>
-                                        {acoesTipos.map(acao =>(
-                                            <option key={acao.id} value={acao.id}>{acao.nome}</option>
-                                        ))}
-                                    </select>
-                                </label>
-
                                 <label htmlFor="exercicioId">Exercício:
                                 <select name="exercicioId" id="exercicioId" onChange={e => setExercicioId(e.target.value)}>
                                     <option key='' value=''>Selecione</option>
@@ -83,6 +94,52 @@ export default function AcoesInstituicoesCreate(){
                                     ))}
                                 </select>
                                 </label>
+
+                                <label htmlFor="acaoTipoId">Ação tipo:
+                                    <select name="acaoTipoId" id="acaoTipoId" onChange={e => setAcaoTipoId(e.target.value)}>
+                                        <option key='' value=''>Selecione</option>
+                                        {acoesTipos.map(acao =>(
+                                            <option key={acao.id} value={acao.id}>{acao.nome}</option>
+                                        ))}
+                                    </select>
+                                </label>                                
+
+                                <label htmlFor="fonteTipoId">Fonte tipo:
+                                    <select name="fonteTipoId" id="fonteTipoId" onChange={e => setFonteTipoId(e.target.value)}>
+                                        <option key='' value=''>Selecione</option>
+                                        {fontesTipos.map(fonte =>(
+                                            <option key={fonte.id} value={fonte.id}>{fonte.fonte_tipo.nome}</option>
+                                        ))}
+                                    </select>
+                                </label>
+
+                                <label>
+                                Valor:
+                                    <input type="text" name="valor" onChange={e => setValor(e.target.value)} placeholder="Valor da fonte" />
+                                </label> 
+
+                                {/* <FormControl sx={{ m: 1, width: 300 }}>
+                                <InputLabel id="demo-multiple-name-label">Name</InputLabel>
+                                <Select
+                                labelId="demo-multiple-name-label"
+                                id="demo-multiple-name"
+                                multiple
+                                value={personName}
+                                onChange={handleChange}
+                                input={<OutlinedInput label="Name" />}
+                                MenuProps={MenuProps}
+                                >
+                                {names.map((name) => (
+                                    <MenuItem
+                                    key={name}
+                                    value={name}
+                                    style={getStyles(name, personName, theme)}
+                                    >
+                                    {name}
+                                    </MenuItem>
+                                ))}
+                                </Select>
+                            </FormControl> */}
                         
                                 <button type="submit" className="button">
                                     Criar ação

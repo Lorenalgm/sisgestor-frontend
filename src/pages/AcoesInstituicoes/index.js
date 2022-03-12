@@ -16,7 +16,6 @@ export default function AcoesInstituicoes(){
         api
         .get(`acoes?instituicao_id=1&exercicio_id=1`)
         .then((response) => {
-        console.log(response)
         setAcoes(response.data.data.data);
         setLoading(false);
         })
@@ -31,7 +30,7 @@ export default function AcoesInstituicoes(){
             <Menu />
             <div className="acoes-instituicao-container">
                 <div className="acoes-instituicoes-header">
-                    <h1 className="acoes-instituicao-title">Matriz orçamentária</h1>
+                    <h1 className="acoes-instituicao-title">Ações da instituição</h1>
                     <Link className="button" to="/acoes_instituicoes/criar">Criar</Link>
                 </div>
                 <div className="principal">
@@ -44,8 +43,11 @@ export default function AcoesInstituicoes(){
                     {!loading && (
                         acoes.map((acao, index) => (
                             <div className="acoes-instituicao-card" key={acao.id}>
-                                <p>{acao.acao_tipo_id}</p>
-                                <p>{acao.exercicio_id}</p>
+                                <p>{acao.acao_tipo.nome}</p>
+                                <p>{acao.valor_total}</p>
+                                {acao.fontes.map(fonte => (
+                                    <p>{fonte.fonte_tipo.nome}</p>
+                                ))}
                             </div>
                         ))
                     )}

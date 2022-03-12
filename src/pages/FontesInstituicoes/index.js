@@ -5,17 +5,20 @@ import Menu from '../../components/Menu';
 import BarraInstituicao from '../../components/BarraInstituicao';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function FontesInstituicoes(){
     const [fontes, setFontes] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
       try {
         api
             .get(`fontes?instituicao_id=1&exercicio_id=1`)
             .then((response) => {
-            console.log(response)
             setFontes(response.data.data.data);
             setLoading(false);
             })
@@ -43,14 +46,33 @@ export default function FontesInstituicoes(){
                     <div className="list">
                     {!loading && (
                         fontes.map((fonte, index) => (
-                            <div className="fonte-instituicao-card" key={fonte.id}>
-                                <p>{fonte.fonte_tipo_id}</p>
-                                <p>R${fonte.valor}</p>
-                                <div className="actions">
-                                    <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
+                           <div className="fonte-card">
+                                <div className="fonte-instituicao-card" key={fonte.id}>
+                                    <p>
+                                        {fonte.acoes.length > 0 && 
+                                        <IconButton
+                                        aria-label="expand row"
+                                        size="small"
+                                        onClick={() => setOpen(!open)}>
+                                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                        </IconButton>}
+
+                                        {fonte.fonte_tipo.nome}
+                                    </p>
+                                    <p>R${fonte.valor}</p>
+                                    <div className="actions">
+                                        <FaEdit className="icon" />
+                                        <FaTrash className="icon" />
+                                    </div>
                                 </div>
-                            </div>
+                                {open && (fonte.acoes.length > 0) && <div className="acoes">
+                                {fonte.acoes.map((acao, index) => (
+                                    <div className="acoes-card">
+                                        <p>{acao.acao_tipo.nome}</p>
+                                    </div>
+                                ))}
+                                </div>}
+                           </div>
                         ))
                     )}
                     </div>
