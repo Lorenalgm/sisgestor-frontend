@@ -1,0 +1,48 @@
+.dimensoes-edit-container .dimensao-edit-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.dimensoes-edit-container .dimensoes-edit-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dimensoes-edit-container .dimensao-edit-title{
+    font-size: 30px;
+}
+
+.dimensao-edit-container .dimensao-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.dimensao-edit-container .dimensao-edit-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.dimensao-edit-container .dimensao-edit-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.dimensao-edit-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.dimensao-edit-container .check-aprovado input{
+    width: 1.5em;
+}
+
+
+.dimensao-edit-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

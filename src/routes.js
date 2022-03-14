@@ -11,6 +11,15 @@ import ProgramasTiposEdit from './pages/ProgramasTipos/edit'
 import FontesTipos from './pages/FontesTipos'
 import FontesTiposCreate from './pages/FontesTipos/create'
 import FontesTiposEdit from './pages/FontesTipos/edit'
+import Dimensoes from './pages/Dimensoes'
+import DimensoesCreate from './pages/Dimensoes/create'
+import DimensoesEdit from './pages/Dimensoes/edit'
+import Objetivos from './pages/Objetivos'
+import ObjetivosCreate from './pages/Objetivos/create'
+import ObjetivosEdit from './pages/Objetivos/edit'
+import Metas from './pages/Metas'
+import MetasCreate from './pages/Metas/create'
+import MetasEdit from './pages/Metas/edit'
 import AcoesTipos from './pages/AcoesTipos'
 import AcoesTiposCreate from './pages/AcoesTipos/create'
 import AcoesTiposEdit from './pages/AcoesTipos/edit'
@@ -105,6 +114,17 @@ function App(){
 
                 <Route path="/relatorios" element={<Relatorios />} />
 
+                <Route path="/dimensoes" element={<Dimensoes />} />
+                <Route path="/dimensoes/criar" element={<DimensoesCreate />} />
+                <Route path="/dimensoes/editar/:id" element={<DimensoesEdit />} />
+
+                <Route path="/objetivos" element={<Objetivos />} />
+                <Route path="/objetivos/criar" element={<ObjetivosCreate />} />
+                <Route path="/objetivos/editar/:id" element={<ObjetivosEdit />} />
+
+                <Route path="/metas" element={<Metas />} />
+                <Route path="/metas/criar" element={<MetasCreate />} />
+                <Route path="/metas/editar/:id" element={<MetasEdit />} />
             </Routes>
         </BrowserRouter>
     )

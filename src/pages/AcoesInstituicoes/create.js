@@ -3,6 +3,8 @@ import './styles-create.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import { useNavigate } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 export default function AcoesInstituicoesCreate(){
     const [acoesTipos, setAcoesTipos ] = useState([]);
@@ -18,9 +20,10 @@ export default function AcoesInstituicoesCreate(){
     useEffect(() => {
         try {
             api
-              .get(`acoes_tipos`)
+              .get(`acoes_tipos/opcoes`)
               .then((response) => {
-                setAcoesTipos(response.data.data.data);
+                console.log(response)
+                setAcoesTipos(response.data.data);
               })
               .catch((err) => console.log(err));
 
@@ -95,14 +98,15 @@ export default function AcoesInstituicoesCreate(){
                                 </select>
                                 </label>
 
-                                <label htmlFor="acaoTipoId">Ação tipo:
-                                    <select name="acaoTipoId" id="acaoTipoId" onChange={e => setAcaoTipoId(e.target.value)}>
-                                        <option key='' value=''>Selecione</option>
-                                        {acoesTipos.map(acao =>(
-                                            <option key={acao.id} value={acao.id}>{acao.nome}</option>
-                                        ))}
-                                    </select>
-                                </label>                                
+                                <Autocomplete
+                                disablePortal
+                                className="select2"
+                                id="acaoTipoId"
+                                options={acoesTipos}
+                                sx={{ width: 460 }}
+                                onChange={(e,v) => setAcaoTipoId(v.id)}
+                                renderInput={(params) => <TextField {...params} label="Ação tipo" />}
+                                />
 
                                 <label htmlFor="fonteTipoId">Fonte tipo:
                                     <select name="fonteTipoId" id="fonteTipoId" onChange={e => setFonteTipoId(e.target.value)}>

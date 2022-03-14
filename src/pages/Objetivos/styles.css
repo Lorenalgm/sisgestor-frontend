@@ -1,0 +1,45 @@
+.objetivos-container .objetivo-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.objetivos-container .objetivos-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.objetivos-container .objetivo-title{
+    font-size: 30px;
+}
+
+.objetivos-container .list-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.objetivos-container .objetivo-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+}
+
+.objetivos-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.objetivos-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

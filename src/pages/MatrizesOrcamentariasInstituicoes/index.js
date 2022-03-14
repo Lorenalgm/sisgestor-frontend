@@ -28,7 +28,7 @@ export default function MatrizesOrcamentariasInstituicoes(){
             <Menu />
             <div className="matriz-orcamentaria-instituicao-container">
                 <div className="matrizes-orcamentarias-instituicoes-header">
-                    <h1 className="matriz-orcamentaria-instituicao-title">Matriz orçamentária</h1>
+                    <h1 className="matriz-orcamentaria-instituicao-title">Matriz orçamentária instituição</h1>
                 </div>
                 <div className="principal">
                     <BarraInstituicao ativo='inicial' />

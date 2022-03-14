@@ -43,11 +43,20 @@ export default function AcoesInstituicoes(){
                     {!loading && (
                         acoes.map((acao, index) => (
                             <div className="acoes-instituicao-card" key={acao.id}>
-                                <p>{acao.acao_tipo.nome}</p>
-                                <p>{acao.valor_total}</p>
-                                {acao.fontes.map(fonte => (
-                                    <p>{fonte.fonte_tipo.nome}</p>
-                                ))}
+                                <div className="info-acoes">
+                                    <p>{acao.acao_tipo.nome}</p>
+                                    <p>{acao.valor_total}</p>
+                                </div>
+                                <div className="info-fontes">
+                                    {acao.fontes.map(fonte => (
+                                        <div className="card-acao">
+                                            <p>{fonte.fonte_tipo.nome}</p>
+                                            <p>{fonte.valor}</p>
+                                            <p>{fonte.valor_distribuido}</p>
+                                            <p>{fonte.valor_utilizado}</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         ))
                     )}

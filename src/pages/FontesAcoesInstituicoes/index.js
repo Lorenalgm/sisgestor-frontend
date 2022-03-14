@@ -13,7 +13,7 @@ export default function FontesAcoesInstituicoes(){
     useEffect(() => {
       try {
         api
-            .get(`fontes_acoes?instituicao_id=1&exercicio_id=1`)
+            .get(`acoes?instituicao_id=1&exercicio_id=1&unidade_gestora_id=1`)
             .then((response) => {
             console.log(response)
             setFontes(response.data.data.data);
@@ -46,7 +46,7 @@ export default function FontesAcoesInstituicoes(){
                     {!loading && (
                         fontes.map((fonte, index) => (
                             <div className="fonte-acao-instituicao-card" key={fonte.id}>
-                                <p>{fonte.fonte_id}</p>
+                                <p>{fonte.acao_tipo.nome}</p>
                                 <p>{fonte.acao_id}</p>
                                 <p>{fonte.exercicio_id}</p>
                                 <p>R${fonte.valor}</p>

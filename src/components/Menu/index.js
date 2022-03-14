@@ -27,10 +27,21 @@ export default function Menu(){
                             </div>
                         </div>
                         <div className="menu-group">
-                            <Link className="menu-group-title menu-group-link" to="/matrizes_orcamentarias_instituicoes">Matriz orçamentária</Link>
-                            <Link className="menu-group-title menu-group-link" to="/matrizes_orcamentarias_gestoras">Matriz orçamentária gestora</Link>
-                            <Link className="menu-group-title menu-group-link" to="/matrizes_orcamentarias_administrativas">Matriz orçamentária administrativa</Link>
+                            <p className="menu-group-title">Matriz orçamentária</p>
+                            <div className="submenus">
+                            <Link className="submenu" to="/matrizes_orcamentarias_instituicoes">Matriz instituição</Link>
+                            <Link className="submenu menu-group-link" to="/matrizes_orcamentarias_gestoras">Matriz gestora</Link>
+                            <Link className="submenu menu-group-link" to="/matrizes_orcamentarias_administrativas">Matriz administrativa</Link>
+                            </div>
                             <Link className="menu-group-title menu-group-link" to="/relatorios">Relatórios</Link>
+                        </div>
+                    </div>
+                    <p className="menu-title">Planejamento estratégico</p>
+                    <div className="menu">
+                        <div className="menu-group">
+                            <Link className="menu-group-title menu-group-link" to="/dimensoes">Dimensões</Link>
+                            <Link className="menu-group-title menu-group-link" to="/objetivos">Objetivos</Link>
+                            <Link className="menu-group-title menu-group-link" to="/metas">Metas</Link>
                         </div>
                     </div>
                 </div>

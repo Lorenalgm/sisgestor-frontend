@@ -52,8 +52,7 @@ export default function FontesInstituicoesCreate(){
                 navigate('/fontes_instituicoes');
             }
         } catch (error) {
-            console.log(error.response.data.message);
-            alert('Não foi possível criar a fonte');
+            alert(error.response.data.data);
         }
     }
 
@@ -68,6 +67,14 @@ export default function FontesInstituicoesCreate(){
                         {!loading && (
                             
                             <form className="fonte-instituicao-create-form" onSubmit={e => handleCreateFonteInstituicao(e)}>
+                                <label htmlFor="exercicioId">Exercício:
+                                <select name="exercicioId" id="exercicioId" onChange={e => setExercicioId(e.target.value)}>
+                                    <option key='' value=''>Selecione</option>
+                                    {exercicios.map(exercicio =>(
+                                        <option key={exercicio.id} value={exercicio.id}>{exercicio.nome}</option>
+                                    ))}
+                                </select>
+                                </label>
                                 
                                 <label htmlFor="fonteTipoId">Fonte tipo:
                                     <select name="fonteTipoId" id="fonteTipoId" onChange={e => setFonteTipoId(e.target.value)}>
@@ -81,19 +88,10 @@ export default function FontesInstituicoesCreate(){
                                 <label>
                                 Valor:
                                     <input type="text" name="valor" onChange={e => setValor(e.target.value)} placeholder="Valor da fonte" />
-                                </label> 
-
-                                <label htmlFor="exercicioId">Exercício:
-                                <select name="exercicioId" id="exercicioId" onChange={e => setExercicioId(e.target.value)}>
-                                    <option key='' value=''>Selecione</option>
-                                    {exercicios.map(exercicio =>(
-                                        <option key={exercicio.id} value={exercicio.id}>{exercicio.nome}</option>
-                                    ))}
-                                </select>
-                                </label>
+                                </label>                                 
                         
                                 <button type="submit" className="button">
-                                    Criar ação
+                                    Criar fonte
                                 </button>
                             </form>
                         )}
