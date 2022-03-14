@@ -2,20 +2,20 @@ import React, {useEffect, useState} from 'react';
 import './styles.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
-import BarraInstituicao from '../../components/BarraInstituicao';
+import BarraAdministrativa from '../../components/BarraAdministrativa';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export default function Movimentos(){
-    const [movimentos, setMovimentos] = useState([]);
+    const [empenhos, setEmpenhos] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       try {
         api
-            .get(`movimentos?exercicio_id=1`)
+            .get(`empenhos?unidade_administrativa_id=1`)
             .then((response) => {
-                setMovimentos(response.data.data.data);
+                setEmpenhos(response.data.data.data);
                 setLoading(false);
             })
             .catch((err) => console.log(err));
@@ -24,41 +24,41 @@ export default function Movimentos(){
       }
     }, []);
 
-    async function handleDelete(movimento) {
-        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir o movimento ${movimento.descricao}?`);
+    async function handleDelete(empenho) {
+        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir o empenho ${empenho.descricao}?`);
     
         if (isDeleteConfirmed){
-            await api.delete(`/movimentos/${movimento.id}`);
-            setMovimentos(movimentos.filter(movimentoAntigo => movimentoAntigo.id !== movimento.id))
+            await api.delete(`/empenhos/${empenho.id}`);
+            setEmpenhos(empenhos.filter(empenhoAntigo => empenhoAntigo.id !== empenho.id))
         }
     }
 
     return(
-        <div className="movimentos-container">
+        <div className="empenhos-container">
             <Menu />
-            <div className="movimento-container">
-                <div className="movimentos-header">
-                    <h1 className="movimento-title">Movimentos da instituição</h1>
-                    <Link className="button" to="/movimentos/criar">Criar</Link>
+            <div className="empenho-container">
+                <div className="empenhos-header">
+                    <h1 className="empenho-title">Empenhos</h1>
+                    <Link className="button" to="/empenhar/criar">Criar</Link>
                 </div>
                 <div className="principal">
-                    <BarraInstituicao ativo='movimentos' />
+                    <BarraAdministrativa ativo='empenhar' />
                     <div className="list-header">
-                        <p>Movimento</p>
                         <p>Valor</p>
-                        <p>Tipo</p>
+                        <p>Data</p>
+                        <p>Crédito</p>
                         <p>Ação</p>
                     </div>
                     <div className="list">
                     {!loading && (
-                        movimentos.map((movimento, index) => (
-                            <div className="movimento-card" key={movimento.id}>
-                                <p>{movimento.descricao}</p>
-                                <p>R${movimento.valor}</p>
-                                <p>{movimento.tipo}</p>
+                        empenhos.map((empenho, index) => (
+                            <div className="empenho-card" key={empenho.id}>
+                                <p>{empenho.valor_empenhado}</p>
+                                <p>{empenho.data_empenho}</p>
+                                <p>{empenho.credito_disponivel_id}</p>
                                 <div className="actions">
-                                    <Link to={'/movimentos/editar/'+movimento.id} state={{movimento: movimento}}><FaEdit className="icon" /></Link>
-                                    <FaTrash className="icon" onClick={() => handleDelete(movimento)} />
+                                    <Link to={'/empenhar/editar/'+empenho.id} state={{empenho: empenho}}><FaEdit className="icon" /></Link>
+                                    <FaTrash className="icon" onClick={() => handleDelete(empenho)} />
                                 </div>
                             </div>
                         ))

@@ -4,62 +4,56 @@ import api from '../../services/api';
 import Menu from '../../components/Menu';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-export default function MovimentosEdit(){
-    const movimento = useLocation().state.movimento;
-    const [descricao, setDescricao ] = useState(movimento.descricao);
-    const [valor, setValor ] = useState(movimento.valor);
-    const [tipo, setTipo ] = useState(movimento.tipo);
+export default function EmpenharEdit(){
+    const empenho = useLocation().state.empenho;
+    const [valor_empenhado, setValorEmpenhado ] = useState(empenho.valor_empenhado);
+    const [data_empenho, setDataEmpenho ] = useState(empenho.data_empenho);
     const navigate = useNavigate();
 
     async function handleEdit(e){
         e.preventDefault();
 
         const data = {
-            descricao,
-            valor,
-            tipo,
-            exercicio_id: movimento.exercicio_id
+            valor_empenhado,
+            data_empenho,
+            credito_disponivel_id: empenho.credito_disponivel_id,
+            unidade_administrativa_id: empenho.unidade_administrativa_id,
         }
 
         try {
-            const response = await api.put(`movimentos/${movimento.id}`, data);
+            const response = await api.put(`empenhos/${empenho.id}`, data);
             
             if(response){
-                navigate('/movimentos');
+                navigate('/empenhar');
             }
         } catch (error) {
             console.log(error.response.data.message);
-            alert('Não foi possível editar o tipo de movimento');
+            alert('Não foi possível editar o empenho');
         }
     }
 
     return(
-        <div className="movimentos-edit-container">
+        <div className="empenhos-edit-container">
             <Menu />
-            <div className="movimento-edit-container">
-                <div className="movimentos-edit-header">
-                    <h1 className="movimento-edit-title">Editar Movimento</h1>
+            <div className="empenho-edit-container">
+                <div className="empenhos-edit-header">
+                    <h1 className="empenho-edit-title">Editar Movimento</h1>
                 </div>
                 <div className="principal">
-                    <form className="movimento-edit-form" onSubmit={e => handleEdit(e)}>
+                    <form className="empenho-edit-form" onSubmit={e => handleEdit(e)}>
 
                         <label>
                         Valor:
-                            <input type="text" name="valor" value={valor} onChange={e => setValor(e.target.value)} placeholder="Valor" />
+                            <input type="text" name="valor_empenhado" value={valor_empenhado} onChange={e => setValorEmpenhado(e.target.value)} placeholder="Valor" />
                         </label>   
                         
                         <label>
-                        Descrição:
-                            <input type="text" name="descricao" value={descricao} onChange={e => setDescricao(e.target.value)} placeholder="Descrição" />
+                        Data:
+                            <input type="date" name="data_empenho" value={data_empenho}  onChange={e => setDataEmpenho(e.target.value)} placeholder="Data" />
                         </label> 
-
-                        <label>
-                        Tipo:
-                            <input type="text" name="tipo" value={tipo} onChange={e => setTipo(e.target.value)} placeholder="Tipo" />
-                        </label>               
                        
                         <button type="submit" className="button">
-                            Atualizar movimento
+                            Atualizar empenho
                         </button>
                     </form>
                 </div>

@@ -1,47 +1,47 @@
-.movimentos-edit-container .movimento-edit-container{
+.empenhos-edit-container .empenho-edit-container{
     padding: 2em;
     margin-left: 300px;
 }
 
-.movimentos-edit-container .movimentos-edit-header{
+.empenhos-edit-container .empenhos-edit-header{
     display: flex;
     justify-content: space-between;
 }
 
-.movimentos-edit-container .movimento-edit-title{
+.empenhos-edit-container .empenho-edit-title{
     font-size: 30px;
 }
 
-.movimento-edit-container .movimento-edit-form{
+.empenho-edit-container .empenho-edit-form{
     display: flex;
     flex-direction: column;
     margin-top: 3em;
     width: 30%;
 }
 
-.movimento-edit-container .movimento-edit-form label{
+.empenho-edit-container .empenho-edit-form label{
     display: flex;
     flex-direction: column;
     margin-bottom: 1.8em;
 }
 
-.movimento-edit-container .movimento-edit-form input{
+.empenho-edit-container .empenho-edit-form input{
     padding: .6em;
     border-radius: .4em;
     height: 3.5em;
 }
 
-.movimento-edit-container .check-aprovado{
+.empenho-edit-container .check-aprovado{
     display: flex;
     align-items: center;
 }
 
-.movimento-edit-container .check-aprovado input{
+.empenho-edit-container .check-aprovado input{
     width: 1.5em;
 }
 
 
-.movimento-edit-container select{
+.empenho-edit-container select{
     padding: .6em;
     border-radius: .4em;
     height: 3.5em;

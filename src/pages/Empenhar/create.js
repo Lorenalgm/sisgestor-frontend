@@ -4,22 +4,31 @@ import api from '../../services/api';
 import Menu from '../../components/Menu';
 import { useNavigate } from 'react-router-dom';
 
-export default function MovimentosCreate(){
+export default function EmpenharCreate(){
     const [loading, setLoading ] = useState(true);
-    const [exercicios, setExercicios ] = useState([]);
-    const [exercicioId, setExercicioId ] = useState('');
-    const [valor, setValor ] = useState('');
-    const [descricao, setDescricao ] = useState('');
-    const [tipo, setTipo ] = useState('');
+    const [valor_empenhado, setValorEmpenhado ] = useState('');
+    const [data_empenho, setDataEmpenho ] = useState('');
+    const [credito_disponivel_id, setCreditoDisponivelId ] = useState('');
+    const [creditos_disponiveis, setCreditosDisponiveis ] = useState([]);
+    const [unidade_administrativa_id, setUnidadeAdministrativaId ] = useState('');
+    const [unidades_administrativas, setUnidadesAdministrativas ] = useState('');
     const navigate = useNavigate();
+
+
 
     useEffect(() => {
         try {
+              api
+              .get(`creditos_disponiveis`)
+              .then((response) => {
+                setCreditosDisponiveis(response.data.data.data);
+              })
+              .catch((err) => console.log(err));
 
               api
-              .get(`exercicios`)
+              .get(`unidades_administrativas`)
               .then((response) => {
-                setExercicios(response.data.data.data);
+                setUnidadesAdministrativas(response.data.data.data);
                 setLoading(false)
               })
               .catch((err) => console.log(err));
@@ -33,17 +42,17 @@ export default function MovimentosCreate(){
         e.preventDefault();
 
         const data = {
-            valor,
-            descricao,
-            tipo,
-            exercicio_id: exercicioId
+            valor_empenhado,
+            data_empenho,
+            credito_disponivel_id,
+            unidade_administrativa_id
         }
 
         try {
-            const response = await api.post('movimentos', data);
+            const response = await api.post('empenhos', data);
             
             if(response){
-                navigate('/movimentos');
+                navigate('/empenhar');
             }
         } catch (error) {
             alert(error.response.data.data);
@@ -51,42 +60,47 @@ export default function MovimentosCreate(){
     }
 
     return(
-        <div className="movimentos-create-container">
+        <div className="empenhos-create-container">
             <Menu />
-            <div className="movimento-create-container">
-                <div className="movimentos-create-header">
-                    <h1 className="movimento-create-title">Novo Movimento</h1>
+            <div className="empenho-create-container">
+                <div className="empenhos-create-header">
+                    <h1 className="empenho-create-title">Novo Empenho</h1>
                 </div>
                 <div className="principal">
                         {!loading && (
                             
-                            <form className="movimento-create-form" onSubmit={e => handleCreate(e)}>
-                                <label htmlFor="exercicioId">Exercício:
-                                <select name="exercicioId" id="exercicioId" onChange={e => setExercicioId(e.target.value)}>
+                            <form className="empenho-create-form" onSubmit={e => handleCreate(e)}>
+                                {!loading && <><label htmlFor="unidadeAdministrativaId">Unidade Administrativa:
+                                <select name="unidadeAdministrativaId" id="unidadeAdministrativaId" onChange={e => setUnidadeAdministrativaId(e.target.value)}>
                                     <option key='' value=''>Selecione</option>
-                                    {exercicios.map(exercicio =>(
-                                        <option key={exercicio.id} value={exercicio.id}>{exercicio.nome}</option>
+                                    {unidades_administrativas.map(unidade_administrativa =>(
+                                        <option key={unidade_administrativa.id} value={unidade_administrativa.id}>{unidade_administrativa.nome}</option>
                                     ))}
                                 </select>
                                 </label>
 
+                                <label htmlFor="credito_disponivel_id">Crédito Disponível:
+                                <select name="credito_disponivel_id" id="credito_disponivel_id" onChange={e => setCreditoDisponivelId(e.target.value)}>
+                                    <option key='' value=''>Selecione</option>
+                                    {creditos_disponiveis.map(credito_disponivel =>(
+                                        <option key={credito_disponivel.id} value={credito_disponivel.id}>{credito_disponivel.descricao}</option>
+                                    ))}
+                                </select>
+                                </label></>}
+
                                 <label>
                                 Valor:
-                                    <input type="text" name="valor" onChange={e => setValor(e.target.value)} placeholder="Valor" />
+                                    <input type="text" name="valor_empenhado" onChange={e => setValorEmpenhado(e.target.value)} placeholder="Valor" />
                                 </label>   
                                 
                                 <label>
-                                Descrição:
-                                    <input type="text" name="descricao" onChange={e => setDescricao(e.target.value)} placeholder="Descrição" />
+                                Data:
+                                    <input type="date" name="data_empenho" onChange={e => setDataEmpenho(e.target.value)} placeholder="Data" />
                                 </label> 
 
-                                <label>
-                                Tipo:
-                                    <input type="text" name="tipo" onChange={e => setTipo(e.target.value)} placeholder="Tipo" />
-                                </label>                                 
-                        
+                               
                                 <button type="submit" className="button">
-                                    Criar fonte
+                                    Criar empenho
                                 </button>
                             </form>
                         )}
