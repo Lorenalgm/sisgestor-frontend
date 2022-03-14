@@ -4,9 +4,11 @@ import api from '../../services/api';
 import Menu from '../../components/Menu';
 import BarraRelatorios from '../../components/BarraRelatorios';
 
-export default function Relatorios(){
+export default function RelatoriosGestoras(){
+    const [unidadeGestoraId, setUnidadeGestoraId ] = useState('');
     const [relatorioTipo, setRelatorioTipo ] = useState('1');
     const [loading, setLoading ] = useState(true);
+    const [unidadesGestoras, setUnidadesGestoras ] = useState('');
     const [exercicios, setExercicios ] = useState([]);
     const [exercicioId, setExercicioId ] = useState('');
 
@@ -16,6 +18,13 @@ export default function Relatorios(){
               .get(`exercicios`)
               .then((response) => {
                 setExercicios(response.data.data.data);
+              })
+              .catch((err) => console.log(err));
+
+            api
+              .get(`unidades_gestoras`)
+              .then((response) => {
+                setUnidadesGestoras(response.data.data.data);
                 setLoading(false)
               })
               .catch((err) => console.log(err));
@@ -29,9 +38,9 @@ export default function Relatorios(){
         e.preventDefault();
 
         if(relatorioTipo == 2){
-            window.location.href = `https://sigestorapi.herokuapp.com/relatorio_completo/instituicao/1/${exercicioId}`; 
+            window.location.href = `https://sigestorapi.herokuapp.com/relatorio_completo/unidade_gestora/1/${exercicioId}/${unidadeGestoraId}`; 
         }else{
-            window.location.href = `https://sigestorapi.herokuapp.com/relatorio_simplificado/instituicao/1/${exercicioId}`; 
+            window.location.href = `https://sigestorapi.herokuapp.com/relatorio_simplificado/unidade_gestora/1/${exercicioId}/${unidadeGestoraId}`; 
         }
 
     }
@@ -41,12 +50,12 @@ export default function Relatorios(){
             <Menu />
             <div className="relatorio-container">
                 <div className="relatorios-header">
-                    <h1 className="relatorio-title">Relatórios instituição</h1>
+                    <h1 className="relatorio-title">Relatórios gestora</h1>
                 </div>
                 <div className="principal">
-                    <BarraRelatorios ativo='instituicao' />
+                    <BarraRelatorios ativo='gestora' />
                     <div className="list">
-                        <form className="relatorios-create-form" onSubmit={e => handleOpen(e)}>
+                        <form className="fonte-instituicao-create-form" onSubmit={e => handleOpen(e)}>
                                 {!loading && <>
                                 
                                     <label htmlFor="exercicioId">Exercício:
@@ -58,6 +67,14 @@ export default function Relatorios(){
                                         </select>
                                     </label>
 
+                                <label htmlFor="unidade_gestora_id">Unidade Gestora:
+                                    <select name="unidade_gestora_id" id="unidade_gestora_id" onChange={e => setUnidadeGestoraId(e.target.value)}>
+                                        <option key='' value=''>Selecione</option>
+                                        {unidadesGestoras.map(unidade_gestora =>(
+                                            <option key={unidade_gestora.id} value={unidade_gestora.id}>{unidade_gestora.nome}</option>
+                                        ))}
+                                    </select>
+                                </label>
                                 </>}
                                 
                                 <label htmlFor="relatorioTipo">Tipo de relatório:

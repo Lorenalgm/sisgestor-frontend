@@ -45,6 +45,8 @@ import FontesAcoesInstituicoes from './pages/FontesAcoesInstituicoes'
 import FontesAcoesInstituicoesCreate from './pages/FontesAcoesInstituicoes/create'
 import Usuarios from './pages/Usuarios'
 import Relatorios from './pages/Relatorios'
+import RelatoriosGestoras from './pages/RelatoriosGestoras'
+import RelatoriosAdministrativas from './pages/RelatoriosAdministrativas'
 import CentrosCustos from './pages/CentrosCustos'
 import CentrosCustosCreate from './pages/CentrosCustos/create'
 import CentrosCustosEdit from './pages/CentrosCustos/edit'
@@ -113,6 +115,8 @@ function App(){
                 {/* <Route path="/acoes_administrativas" element={<AcoesAdministrativas />} /> */}
 
                 <Route path="/relatorios" element={<Relatorios />} />
+                <Route path="/relatorios_gestoras" element={<RelatoriosGestoras />} />
+                <Route path="/relatorios_administrativas" element={<RelatoriosAdministrativas />} />
 
                 <Route path="/dimensoes" element={<Dimensoes />} />
                 <Route path="/dimensoes/criar" element={<DimensoesCreate />} />
