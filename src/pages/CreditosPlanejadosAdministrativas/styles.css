@@ -1,0 +1,63 @@
+.creditos-planejados-administrativas-container .credito-planejado-administrativa-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.creditos-planejados-administrativas-container .creditos-planejados-administrativas-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.creditos-planejados-administrativas-container .credito-planejado-administrativa-title{
+    font-size: 30px;
+}
+
+.creditos-planejados-administrativas-container .list-header{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.creditos-planejados-administrativas-container .credito-planejado-administrativa-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+}
+
+.creditos-planejados-administrativas-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.creditos-planejados-administrativas-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.creditos-planejados-administrativas-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.creditos-planejados-administrativas-container .acoes{
+    background-color: #e6e5e773;
+    border-radius: .4em;
+    padding: .4em 0;
+}
+
+.creditos-planejados-administrativas-container .acoes-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}

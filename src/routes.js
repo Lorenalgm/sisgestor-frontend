@@ -30,7 +30,10 @@ import Instituicoes from './pages/Instituicoes'
 import InstituicoesEdit from './pages/Instituicoes/edit'
 import Movimentos from './pages/Movimentos'
 import MovimentosCreate from './pages/Movimentos/create'
-// import MovimentosEdit from './pages/Movimentos/edit'
+import MovimentosEdit from './pages/Movimentos/edit'
+import Despesas from './pages/Despesas'
+import DespesasCreate from './pages/Despesas/create'
+import DespesasEdit from './pages/Despesas/edit'
 import LimitesOrcamentarios from './pages/LimitesOrcamentarios'
 import LimitesOrcamentariosCreate from './pages/LimitesOrcamentarios/create'
 // import LimitesOrcamentariosEdit from './pages/LimitesOrcamentarios/edit'
@@ -56,7 +59,19 @@ import RelatoriosAdministrativas from './pages/RelatoriosAdministrativas'
 import CentrosCustos from './pages/CentrosCustos'
 import CentrosCustosCreate from './pages/CentrosCustos/create'
 import CentrosCustosEdit from './pages/CentrosCustos/edit'
+import AcoesAdministrativas from './pages/AcoesAdministrativas';
 
+import CreditosPlanejadosAdministrativas from './pages/CreditosPlanejadosAdministrativas'
+import CreditosPlanejadosAdministrativasCreate from './pages/CreditosPlanejadosAdministrativas/create';
+import CreditosPlanejadosAdministrativasEdit from './pages/CreditosPlanejadosAdministrativas/edit';
+
+import CreditosDisponiveisAdministrativas from './pages/CreditosDisponiveisAdministrativas'
+import CreditosDisponiveisAdministrativasCreate from './pages/CreditosDisponiveisAdministrativas/create';
+import CreditosDisponiveisAdministrativasEdit from './pages/CreditosDisponiveisAdministrativas/edit';
+
+import Empenhar from './pages/Empenhar'
+import EmpenharCreate from './pages/Empenhar/create';
+import EmpenharEdit from './pages/Empenhar/edit';
 function App(){
     return(
         <BrowserRouter>
@@ -111,7 +126,7 @@ function App(){
                 <Route path="/fontes_acoes_instituicoes/criar" element={<FontesAcoesInstituicoesCreate />} />
                 <Route path="/movimentos" element={<Movimentos />} />
                 <Route path="/movimentos/criar" element={<MovimentosCreate />} />
-                {/* <Route path="/movimentos/editar/:id" element={<MovimentosEdit />} /> */}
+                <Route path="/movimentos/editar/:id" element={<MovimentosEdit />} />
                 <Route path="/limites_orcamentarios" element={<LimitesOrcamentarios />} />
                 <Route path="/limites_orcamentarios/criar" element={<LimitesOrcamentariosCreate />} />
                 {/* <Route path="/limites_orcamentarios/editar/:id" element={<LimitesOrcamentariosEdit />} /> */}
@@ -124,7 +139,19 @@ function App(){
                 {/* Administrativas */}
                 <Route path="/matrizes_orcamentarias_administrativas" element={<MatrizesOrcamentariasAdministrativas />} />
                 {/* <Route path="/fontes_administrativas" element={<FontesAdministrativas />} /> */}
-                {/* <Route path="/acoes_administrativas" element={<AcoesAdministrativas />} /> */}
+                <Route path="/acoes_administrativas" element={<AcoesAdministrativas />} />
+                <Route path="/despesas" element={<Despesas />} />
+                <Route path="/despesas/criar" element={<DespesasCreate />} />
+                <Route path="/despesas/editar/:id" element={<DespesasEdit />} />
+                <Route path="/creditos_planejados_administrativas" element={<CreditosPlanejadosAdministrativas />} />
+                <Route path="/creditos_planejados_administrativas/criar" element={<CreditosPlanejadosAdministrativasCreate />} />
+                <Route path="/creditos_planejados_administrativas/editar/:id" element={<CreditosPlanejadosAdministrativasEdit />} />
+                <Route path="/creditos_disponiveis_administrativas" element={<CreditosDisponiveisAdministrativas />} />
+                <Route path="/creditos_disponiveis_administrativas/criar" element={<CreditosDisponiveisAdministrativasCreate />} />
+                <Route path="/creditos_disponiveis_administrativas/editar/:id" element={<CreditosDisponiveisAdministrativasEdit />} />
+                <Route path="/empenhar" element={<Empenhar />} />
+                <Route path="/empenhar/criar" element={<EmpenharCreate />} />
+                <Route path="/empenhar/editar/:id" element={<EmpenharEdit />} />
 
                 <Route path="/relatorios" element={<Relatorios />} />
                 <Route path="/relatorios_gestoras" element={<RelatoriosGestoras />} />

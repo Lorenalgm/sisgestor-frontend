@@ -1,0 +1,63 @@
+.despesas-container .despesa-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.despesas-container .despesas-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.despesas-container .despesa-title{
+    font-size: 30px;
+}
+
+.despesas-container .list-header{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.despesas-container .despesa-card{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+}
+
+.despesas-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.despesas-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.despesas-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.despesas-container .acoes{
+    background-color: #e6e5e773;
+    border-radius: .4em;
+    padding: .4em 0;
+}
+
+.despesas-container .acoes-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}

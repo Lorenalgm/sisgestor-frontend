@@ -1,20 +1,20 @@
-.unidades-administrativas-container .unidade-administrativa-container{
+.matrizes-orcamentarias-administrativas-container .matriz-orcamentaria-administrativa-container{
     padding: 2em;
     margin-left: 300px;
 }
 
-.unidades-administrativas-container .unidades-administrativas-header{
+.matrizes-orcamentarias-administrativas-container .matrizes-orcamentarias-administrativas-header{
     display: flex;
     justify-content: space-between;
 }
 
-.unidades-administrativas-container .unidade-administrativa-title{
+.matrizes-orcamentarias-administrativas-container .matriz-orcamentaria-administrativa-title{
     font-size: 30px;
 }
 
-.unidades-administrativas-container .list-header{
+.matrizes-orcamentarias-administrativas-container .list-header{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     font-weight: bold;
     justify-items: center;
     margin-bottom: 1em;
@@ -22,24 +22,23 @@
     padding: 0 1em;
 }
 
-.unidades-administrativas-container .unidade-administrativa-card{
+.matrizes-orcamentarias-administrativas-container .matriz-orcamentaria-administrativa-card{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: var(--card);
     justify-items: center;
     border-radius: .7em;
-    padding: 2em 0;
-    margin-bottom: 1em;
     padding: 2em 1em;
+    margin-bottom: 1em;
 }
 
-.unidades-administrativas-container .actions{
+.matrizes-orcamentarias-administrativas-container .actions{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
 }
 
-.unidades-administrativas-container .icon{
+.matrizes-orcamentarias-administrativas-container .icon{
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;

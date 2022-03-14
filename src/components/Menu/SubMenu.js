@@ -62,7 +62,7 @@ const SubMenu = ({ item }) => {
             console.log(subnav, 3)
 
           return (
-            <DropdownLink to={item.path} key={index} id={window.location.pathname == item.path ? 'active' : ''} >
+            <DropdownLink to={item.path} key={index} id={window.location.pathname === item.path ? 'active' : ''} >
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
             </DropdownLink>

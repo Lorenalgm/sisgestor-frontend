@@ -1,72 +1,54 @@
 import React, {useEffect, useState} from 'react';
 import './styles.css';
 import api from '../../services/api';
-import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit, FaEye } from 'react-icons/fa';
+import BarraAdministrativa from '../../components/BarraAdministrativa';
 
 export default function MatrizesOrcamentariasAdministrativas(){
-    const [unidades_administrativas, setUnidadesAdministrativas] = useState([]);
+    const [exercicios, setExercicios] = useState([]);
     const [loading, setLoading] = useState(true);
+    // TODO: Adicionar filtro de exercício
+    // const [exercicioId, setExercicioId] = useState(0);
 
     useEffect(() => {
       try {
-        api
-          .get(`unidades_administrativas`)
-          .then((response) => {
-            setUnidadesAdministrativas(response.data.data.data);
+        api.get(`exercicios`).then((response) => {
+            console.log(response.data)
+            setExercicios(response.data.data.data);
             setLoading(false);
-          })
-          .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
       } catch (error) {
         alert(error);
       }
     }, []);
 
     return(
-        <div className="unidades-administrativas-container">
+        <div className="matrizes-orcamentarias-administrativas-container">
             <Menu />
-            <div className="unidade-administrativa-container">
-                <div className="unidades-administrativas-header">
-                    <h1 className="unidade-administrativa-title">Unidades Administrativas</h1>
-                    <Link className="button" to="login">Criar</Link>
+            <div className="matriz-orcamentaria-administrativa-container">
+                <div className="matrizes-orcamentarias-administrativas-header">
+                    <h1 className="matriz-orcamentaria-administrativa-title">Matriz orçamentária administrativa</h1>
                 </div>
                 <div className="principal">
+                    <BarraAdministrativa ativo='inicial' />
                     <div className="list-header">
-                        <p>Nome</p>
-                        <p>Sigla</p>
-                        <p>UGR</p>
-                        <p>Unidade Gestora</p>
-                        <p>Ações</p>
+                        <p>Exercício</p>
+                        <p>Data início</p>
+                        <p>Data fim</p>
+                        <p>Aprovado</p>
                     </div>
                     <div className="list">
                     {!loading && (
-                        unidades_administrativas.map((unidade_administrativa, index) => (
-                            <div className="unidade-administrativa-card" key={unidade_administrativa.id}>
-                                <p>{unidade_administrativa.nome}</p>
-                                <p>{unidade_administrativa.sigla}</p>
-                                <p>{unidade_administrativa.ugr}</p>
-                                <p>{unidade_administrativa.unidade_gestora}</p>
-                                <div className="actions">
-                                    <FaEdit className="icon" />
-                                    <FaTrash className="icon" />
-                                </div>
+                        exercicios.map((exercicio, index) => (
+                            <div className="matriz-orcamentaria-administrativa-card" key={exercicio.nome}>
+                                <p>{exercicio.nome}</p>
+                                <p>{exercicio.data_inicio}</p>
+                                <p>{exercicio.data_fim}</p>
+                                <p>{exercicio.aprovado?'Sim':'Não'}</p>
                             </div>
                         ))
                     )}
-                    
-                    {/* TODO: excluir mock depois */}
-                    <div className="unidade-administrativa-card" key="2022">
-                        <p>Nome do unidade administrativa</p>
-                        <p>STN</p>
-                        <p>UGR aqui</p>
-                        <p>IFAP Santana</p>
-                        <div className="actions">
-                            <FaEdit className="icon" />
-                            <FaTrash className="icon" />
-                            <FaEye className="icon" />
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
