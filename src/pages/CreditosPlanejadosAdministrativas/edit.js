@@ -5,10 +5,9 @@ import Menu from '../../components/Menu';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function MovimentosEdit(){
-    const movimento = useLocation().state.movimento;
-    const [descricao, setDescricao ] = useState(movimento.descricao);
-    const [valor, setValor ] = useState(movimento.valor);
-    const [tipo, setTipo ] = useState(movimento.tipo);
+    const credito_planejado_administrativa = useLocation().state.credito_planejado_administrativa;
+    const [descricao, setDescricao ] = useState(credito_planejado_administrativa.descricao);
+    const [valor_solicitado, setValorSolicitado ] = useState(credito_planejado_administrativa.valor_solicitado);
     const navigate = useNavigate();
 
     async function handleEdit(e){
@@ -16,50 +15,45 @@ export default function MovimentosEdit(){
 
         const data = {
             descricao,
-            valor,
-            tipo,
-            exercicio_id: movimento.exercicio_id
+            valor_solicitado,
+            unidade_administrativa_id: credito_planejado_administrativa.unidade_administrativa_id,
+            despesa_id: credito_planejado_administrativa.despesa_id
         }
 
         try {
-            const response = await api.put(`movimentos/${movimento.id}`, data);
+            const response = await api.put(`creditos_planejados/${credito_planejado_administrativa.id}`, data);
             
             if(response){
-                navigate('/movimentos');
+                navigate('/creditos_planejados_administrativas');
             }
         } catch (error) {
             console.log(error.response.data.message);
-            alert('Não foi possível editar o tipo de movimento');
+            alert('Não foi possível editar o crédito');
         }
     }
 
     return(
-        <div className="movimentos-edit-container">
+        <div className="creditos-planejados-administrativas-edit-container">
             <Menu />
-            <div className="movimento-edit-container">
-                <div className="movimentos-edit-header">
-                    <h1 className="movimento-edit-title">Editar Movimento</h1>
+            <div className="credito-planejado-administrativa-edit-container">
+                <div className="creditos-planejados-administrativas-edit-header">
+                    <h1 className="credito-planejado-administrativa-edit-title">Editar Crédito Planejado</h1>
                 </div>
                 <div className="principal">
-                    <form className="movimento-edit-form" onSubmit={e => handleEdit(e)}>
+                    <form className="credito-planejado-administrativa-edit-form" onSubmit={e => handleEdit(e)}>
 
-                        <label>
-                        Valor:
-                            <input type="text" name="valor" value={valor} onChange={e => setValor(e.target.value)} placeholder="Valor" />
-                        </label>   
-                        
                         <label>
                         Descrição:
                             <input type="text" name="descricao" value={descricao} onChange={e => setDescricao(e.target.value)} placeholder="Descrição" />
-                        </label> 
+                        </label>   
 
                         <label>
-                        Tipo:
-                            <input type="text" name="tipo" value={tipo} onChange={e => setTipo(e.target.value)} placeholder="Tipo" />
-                        </label>               
-                       
+                        Valor Solicitado:
+                            <input type="text" name="valor_solicitado" value={valor_solicitado} onChange={e => setValorSolicitado(e.target.value)} placeholder="Valor solicitado" />
+                        </label>   
+                        
                         <button type="submit" className="button">
-                            Atualizar movimento
+                            Atualizar crédito planejado
                         </button>
                     </form>
                 </div>

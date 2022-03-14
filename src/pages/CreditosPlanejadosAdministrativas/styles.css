@@ -14,7 +14,7 @@
 
 .creditos-planejados-administrativas-container .list-header{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     font-weight: bold;
     justify-items: center;
     margin-bottom: 1em;
@@ -24,7 +24,7 @@
 
 .creditos-planejados-administrativas-container .credito-planejado-administrativa-card{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     background-color: var(--card);
     justify-items: center;
     border-radius: .7em;
