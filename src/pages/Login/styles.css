@@ -57,6 +57,11 @@
     opacity: 90%;
 }
 
+#active {
+    background: #f3f3f3;
+    cursor: pointer;
+  }
+
 @media (max-width: 740px) {
     .hero-image {
         display: none;

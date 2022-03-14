@@ -42,3 +42,8 @@
 .menu-container .submenu:hover{
     color: var(--primary);
 }
+
+.active {
+    background: #f3f3f3;
+    cursor: pointer;
+}
