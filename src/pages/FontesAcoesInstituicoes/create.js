@@ -9,10 +9,10 @@ export default function FontesAcoesInstituicoesCreate(){
     const [unidadeGestoraId, setUnidadeGestoraId ] = useState('');
     const [fontesTipos, setFontesTipos ] = useState([]);
     const [acoesTipos, setAcoesTipos ] = useState([]);
-    const [exercicios, setExercicios ] = useState([]);
     const [loading, setLoading ] = useState(true);
     const [fonteTipoId, setFonteTipoId ] = useState('');
     const [acaoTipoId, setAcaoTipoId ] = useState('');
+    const [exercicios, setExercicios ] = useState([]);
     const [exercicioId, setExercicioId ] = useState('');
     const [valor, setValor ] = useState('');
     const navigate = useNavigate();

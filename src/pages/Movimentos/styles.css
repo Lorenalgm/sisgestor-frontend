@@ -1,0 +1,63 @@
+.movimentos-container .movimento-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.movimentos-container .movimentos-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.movimentos-container .movimento-title{
+    font-size: 30px;
+}
+
+.movimentos-container .list-header{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.movimentos-container .movimento-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+}
+
+.movimentos-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.movimentos-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.movimentos-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.movimentos-container .acoes{
+    background-color: #e6e5e773;
+    border-radius: .4em;
+    padding: .4em 0;
+}
+
+.movimentos-container .acoes-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}
