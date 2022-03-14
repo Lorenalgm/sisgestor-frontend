@@ -3,7 +3,6 @@ import './styles.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import BarraAdministrativa from '../../components/BarraAdministrativa';
-import { Link } from 'react-router-dom';
 
 export default function AcoesAdministrativas(){
     const [acoes, setAcoes] = useState([]);
