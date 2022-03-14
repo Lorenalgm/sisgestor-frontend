@@ -37,7 +37,7 @@ export default function RelatoriosGestoras(){
     async function handleOpen(e){
         e.preventDefault();
 
-        if(relatorioTipo == 2){
+        if(relatorioTipo === 2){
             window.location.href = `https://sigestorapi.herokuapp.com/relatorio_completo/unidade_gestora/1/${exercicioId}/${unidadeGestoraId}`; 
         }else{
             window.location.href = `https://sigestorapi.herokuapp.com/relatorio_simplificado/unidade_gestora/1/${exercicioId}/${unidadeGestoraId}`; 

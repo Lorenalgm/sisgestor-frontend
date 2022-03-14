@@ -28,6 +28,12 @@ import NaturezasDespesasCreate from './pages/NaturezasDespesas/create'
 import NaturezasDespesasEdit from './pages/NaturezasDespesas/edit'
 import Instituicoes from './pages/Instituicoes'
 import InstituicoesEdit from './pages/Instituicoes/edit'
+import Movimentos from './pages/Movimentos'
+import MovimentosCreate from './pages/Movimentos/create'
+// import MovimentosEdit from './pages/Movimentos/edit'
+import LimitesOrcamentarios from './pages/LimitesOrcamentarios'
+import LimitesOrcamentariosCreate from './pages/LimitesOrcamentarios/create'
+// import LimitesOrcamentariosEdit from './pages/LimitesOrcamentarios/edit'
 import UnidadesGestoras from './pages/UnidadesGestoras'
 import UnidadesGestorasCreate from './pages/UnidadesGestoras/create'
 import UnidadesGestorasEdit from './pages/UnidadesGestoras/edit'
@@ -103,6 +109,12 @@ function App(){
                 <Route path="/acoes_instituicoes" element={<AcoesInstituicoes />} />
                 <Route path="/acoes_instituicoes/criar" element={<AcoesInstituicoesCreate />} /><Route path="/fontes_acoes_instituicoes" element={<FontesAcoesInstituicoes />} />
                 <Route path="/fontes_acoes_instituicoes/criar" element={<FontesAcoesInstituicoesCreate />} />
+                <Route path="/movimentos" element={<Movimentos />} />
+                <Route path="/movimentos/criar" element={<MovimentosCreate />} />
+                {/* <Route path="/movimentos/editar/:id" element={<MovimentosEdit />} /> */}
+                <Route path="/limites_orcamentarios" element={<LimitesOrcamentarios />} />
+                <Route path="/limites_orcamentarios/criar" element={<LimitesOrcamentariosCreate />} />
+                {/* <Route path="/limites_orcamentarios/editar/:id" element={<LimitesOrcamentariosEdit />} /> */}
                 
                 {/* Gestoras */}
                 <Route path="/matrizes_orcamentarias_gestoras" element={<MatrizesOrcamentariasGestoras />} />

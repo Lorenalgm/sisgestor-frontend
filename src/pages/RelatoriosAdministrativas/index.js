@@ -47,7 +47,7 @@ export default function RelatoriosAdministrativas(){
     async function handleOpen(e){
         e.preventDefault();
 
-        if(relatorioTipo == 2){
+        if(relatorioTipo === 2){
             window.location.href = `https://sigestorapi.herokuapp.com/relatorio_completo/unidade_administrativa/1/${exercicioId}/${unidadeAdministrativaId}`; 
         }else{
             window.location.href = `https://sigestorapi.herokuapp.com/relatorio_simplificado/unidade_administrativa/1/${exercicioId}/${unidadeAdministrativaId}`; 
