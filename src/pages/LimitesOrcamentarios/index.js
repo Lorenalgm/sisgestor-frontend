@@ -9,17 +9,17 @@ import IconButton from '@mui/material/IconButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-export default function FontesInstituicoes(){
-    const [fontes, setFontes] = useState([]);
+export default function LimitesOrcamentarios(){
+    const [limites, setLimitesOrcamentarios] = useState([]);
     const [loading, setLoading] = useState(true);
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
       try {
         api
-            .get(`fontes?instituicao_id=1&exercicio_id=1`)
+            .get(`limites_orcamentarios`)
             .then((response) => {
-            setFontes(response.data.data.data);
+            setLimitesOrcamentarios(response.data.data.data);
             setLoading(false);
             })
             .catch((err) => console.log(err));
@@ -29,47 +29,38 @@ export default function FontesInstituicoes(){
     }, []);
 
     return(
-        <div className="fontes-instituicoes-container">
+        <div className="limites-orcamentarios-instituicoes-container">
             <Menu />
-            <div className="fonte-instituicao-container">
-                <div className="fontes-instituicoes-header">
-                    <h1 className="fonte-instituicao-title">Limites da instituição</h1>
+            <div className="limite-orcamentario-instituicao-container">
+                <div className="limites-orcamentarios-instituicoes-header">
+                    <h1 className="limite-orcamentario-instituicao-title">Limites da instituição</h1>
                 </div>
                 <div className="principal">
                     <BarraInstituicao ativo='limites_orcamentarios' />
                     <div className="list-header">
-                        <p>Fonte</p>
-                        <p>Valor</p>
+                        <p>Descrição</p>
+                        <p>Valor Solicitado</p>
+                        <p>Valor Disponível</p>
+                        <p>Número do Processo</p>
+                        <p>Despesa</p>
+                        <p>Unidade</p>
                         <p>Ação</p>
                     </div>
                     <div className="list">
                     {!loading && (
-                        fontes.map((fonte, index) => (
-                           <div className="fonte-card">
-                                <div className="fonte-instituicao-card" key={fonte.id}>
-                                    <p>
-                                        {fonte.acoes.length > 0 && 
-                                        <IconButton
-                                        aria-label="expand row"
-                                        size="small"
-                                        onClick={() => setOpen(!open)}>
-                                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                        </IconButton>}
-
-                                        {fonte.fonte_tipo.nome}
-                                    </p>
-                                    <p>R${fonte.valor}</p>
+                        limites.map((limite, index) => (
+                           <div className="limite-orcamentario-card">
+                                <div className="limite-orcamentario-instituicao-card" key={limite.id}>
+                                    <p>{limite.descricao}</p>
+                                    <p>R${limite.valor_solicitado}</p>
+                                    <p>R${limite.valor_disponivel}</p>
+                                    <p>{limite.numero_processo}</p>
+                                    <p>{limite.despesa_id}</p>
+                                    <p>{limite.unidade_administrativa_id}</p>
                                     <div className="actions">
                                         <FaEdit className="icon" />
                                     </div>
                                 </div>
-                                {open && (fonte.acoes.length > 0) && <div className="acoes">
-                                {fonte.acoes.map((acao, index) => (
-                                    <div className="acoes-card">
-                                        <p>{acao.acao_tipo.nome}</p>
-                                    </div>
-                                ))}
-                                </div>}
                            </div>
                         ))
                     )}

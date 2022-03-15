@@ -1,20 +1,20 @@
-.limites-orcamentarios-instituicoes-container .limite-orcamentario-instituicao-container{
+.acoes-gestoras-container .acao-gestora-container{
     padding: 2em;
     margin-left: 300px;
 }
 
-.limites-orcamentarios-instituicoes-container .limites-orcamentarios-instituicoes-header{
+.acoes-gestoras-container .acoes-gestoras-header{
     display: flex;
     justify-content: space-between;
 }
 
-.limites-orcamentarios-instituicoes-container .limite-orcamentario-instituicao-title{
+.acoes-gestoras-container .acao-gestora-title{
     font-size: 30px;
 }
 
-.limites-orcamentarios-instituicoes-container .list-header{
+.acoes-gestoras-container .list-header{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     font-weight: bold;
     justify-items: center;
     margin-bottom: 1em;
@@ -22,9 +22,9 @@
     padding: 0 1em;
 }
 
-.limites-orcamentarios-instituicoes-container .limite-orcamentario-instituicao-card{
+.acoes-gestoras-container .acao-gestora-card{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     background-color: var(--card);
     justify-items: center;
     border-radius: .7em;
@@ -32,31 +32,31 @@
     margin-bottom: 1em;
 }
 
-.limites-orcamentarios-instituicoes-container .actions{
+.acoes-gestoras-container .actions{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
 }
 
-.limites-orcamentarios-instituicoes-container .icon{
+.acoes-gestoras-container .icon{
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;
 }
 
-.limites-orcamentarios-instituicoes-container .icon{
+.acoes-gestoras-container .icon{
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;
 }
 
-.limites-orcamentarios-instituicoes-container .acoes{
+.acoes-gestoras-container .acoes{
     background-color: #e6e5e773;
     border-radius: .4em;
     padding: .4em 0;
 }
 
-.limites-orcamentarios-instituicoes-container .acoes-card{
+.acoes-gestoras-container .acoes-card{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;

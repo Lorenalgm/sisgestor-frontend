@@ -1,0 +1,47 @@
+.despesas-create-container .despesa-create-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.despesas-create-container .despesas-create-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.despesas-create-container .despesa-create-title{
+    font-size: 30px;
+}
+
+.despesa-create-container .despesa-create-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.despesa-create-container .despesa-create-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.despesa-create-container .despesa-create-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.despesa-create-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.despesa-create-container .check-aprovado input{
+    width: 1.5em;
+}
+
+.despesa-create-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

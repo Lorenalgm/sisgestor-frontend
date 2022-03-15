@@ -71,6 +71,13 @@ import CreditosDisponiveisAdministrativasEdit from './pages/CreditosDisponiveisA
 import Empenhar from './pages/Empenhar'
 import EmpenharCreate from './pages/Empenhar/create';
 import EmpenharEdit from './pages/Empenhar/edit';
+
+import MetasOrcamentarias from './pages/MetasOrcamentarias'
+import MetasOrcamentariasCreate from './pages/MetasOrcamentarias/create';
+import MetasOrcamentariasEdit from './pages/MetasOrcamentarias/edit';
+
+import AcoesGestoras from './pages/AcoesGestoras';
+
 function App(){
     return(
         <BrowserRouter>
@@ -132,7 +139,11 @@ function App(){
                 {/* Gestoras */}
                 <Route path="/matrizes_orcamentarias_gestoras" element={<MatrizesOrcamentariasGestoras />} />
                 {/* <Route path="/fontes_gestoras" element={<FontesGestoras />} /> */}
-                {/* <Route path="/acoes_gestoras" element={<AcoesGestoras />} /> */}
+                <Route path="/acoes_gestoras" element={<AcoesGestoras />} />
+
+                <Route path="/metas_orcamentarias" element={<MetasOrcamentarias />} />
+                <Route path="/metas_orcamentarias/criar" element={<MetasOrcamentariasCreate />} />
+                <Route path="/metas_orcamentarias/editar/:id" element={<MetasOrcamentariasEdit />} />
 
                 {/* Administrativas */}
                 <Route path="/matrizes_orcamentarias_administrativas" element={<MatrizesOrcamentariasAdministrativas />} />
