@@ -35,7 +35,6 @@ import Despesas from './pages/Despesas'
 import DespesasCreate from './pages/Despesas/create'
 import DespesasEdit from './pages/Despesas/edit'
 import LimitesOrcamentarios from './pages/LimitesOrcamentarios'
-import LimitesOrcamentariosCreate from './pages/LimitesOrcamentarios/create'
 // import LimitesOrcamentariosEdit from './pages/LimitesOrcamentarios/edit'
 import UnidadesGestoras from './pages/UnidadesGestoras'
 import UnidadesGestorasCreate from './pages/UnidadesGestoras/create'
@@ -128,7 +127,6 @@ function App(){
                 <Route path="/movimentos/criar" element={<MovimentosCreate />} />
                 <Route path="/movimentos/editar/:id" element={<MovimentosEdit />} />
                 <Route path="/limites_orcamentarios" element={<LimitesOrcamentarios />} />
-                <Route path="/limites_orcamentarios/criar" element={<LimitesOrcamentariosCreate />} />
                 {/* <Route path="/limites_orcamentarios/editar/:id" element={<LimitesOrcamentariosEdit />} /> */}
                 
                 {/* Gestoras */}

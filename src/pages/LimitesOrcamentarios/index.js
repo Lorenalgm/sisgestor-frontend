@@ -33,11 +33,10 @@ export default function FontesInstituicoes(){
             <Menu />
             <div className="fonte-instituicao-container">
                 <div className="fontes-instituicoes-header">
-                    <h1 className="fonte-instituicao-title">Fontes da instituição</h1>
-                    <Link className="button" to="/fontes_instituicoes/criar">Criar</Link>
+                    <h1 className="fonte-instituicao-title">Limites da instituição</h1>
                 </div>
                 <div className="principal">
-                    <BarraInstituicao ativo='fontes' />
+                    <BarraInstituicao ativo='limites_orcamentarios' />
                     <div className="list-header">
                         <p>Fonte</p>
                         <p>Valor</p>
@@ -62,7 +61,6 @@ export default function FontesInstituicoes(){
                                     <p>R${fonte.valor}</p>
                                     <div className="actions">
                                         <FaEdit className="icon" />
-                                        <FaTrash className="icon" />
                                     </div>
                                 </div>
                                 {open && (fonte.acoes.length > 0) && <div className="acoes">

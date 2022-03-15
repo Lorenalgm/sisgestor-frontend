@@ -1,46 +1,46 @@
-.movimentos-create-container .movimento-create-container{
+.despesas-create-container .despesa-create-container{
     padding: 2em;
     margin-left: 300px;
 }
 
-.movimentos-create-container .movimentos-create-header{
+.despesas-create-container .despesas-create-header{
     display: flex;
     justify-content: space-between;
 }
 
-.movimentos-create-container .movimento-create-title{
+.despesas-create-container .despesa-create-title{
     font-size: 30px;
 }
 
-.movimento-create-container .movimento-create-form{
+.despesa-create-container .despesa-create-form{
     display: flex;
     flex-direction: column;
     margin-top: 3em;
     width: 30%;
 }
 
-.movimento-create-container .movimento-create-form label{
+.despesa-create-container .despesa-create-form label{
     display: flex;
     flex-direction: column;
     margin-bottom: 1.8em;
 }
 
-.movimento-create-container .movimento-create-form input{
+.despesa-create-container .despesa-create-form input{
     padding: .6em;
     border-radius: .4em;
     height: 3.5em;
 }
 
-.movimento-create-container .check-aprovado{
+.despesa-create-container .check-aprovado{
     display: flex;
     align-items: center;
 }
 
-.movimento-create-container .check-aprovado input{
+.despesa-create-container .check-aprovado input{
     width: 1.5em;
 }
 
-.movimento-create-container select{
+.despesa-create-container select{
     padding: .6em;
     border-radius: .4em;
     height: 3.5em;

@@ -10,7 +10,7 @@ export default function MovimentosCreate(){
     const [exercicioId, setExercicioId ] = useState('');
     const [valor, setValor ] = useState('');
     const [descricao, setDescricao ] = useState('');
-    const [tipo, setTipo ] = useState('');
+    const [tipo, setTipo ] = useState('entrada');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -80,13 +80,15 @@ export default function MovimentosCreate(){
                                     <input type="text" name="descricao" onChange={e => setDescricao(e.target.value)} placeholder="Descrição" />
                                 </label> 
 
-                                <label>
-                                Tipo:
-                                    <input type="text" name="tipo" onChange={e => setTipo(e.target.value)} placeholder="Tipo" />
-                                </label>                                 
+                                <label htmlFor="tipo">Tipo:
+                                <select name="tipo" id="tipo" onChange={e => setTipo(e.target.value)}>
+                                    <option key='entrada' value='entrada'>Entrada</option>
+                                    <option key='bloqueio' value='bloqueio'>Bloqueio</option>
+                                </select>
+                                </label>                              
                         
                                 <button type="submit" className="button">
-                                    Criar fonte
+                                    Criar movimento
                                 </button>
                             </form>
                         )}
