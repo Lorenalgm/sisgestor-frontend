@@ -1,0 +1,48 @@
+.creditos-disponiveis-administrativas-edit-container .credito-disponivel-administrativa-edit-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.creditos-disponiveis-administrativas-edit-container .creditos-disponiveis-administrativas-edit-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.creditos-disponiveis-administrativas-edit-container .credito-disponivel-administrativa-edit-title{
+    font-size: 30px;
+}
+
+.credito-disponivel-administrativa-edit-container .credito-disponivel-administrativa-edit-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.credito-disponivel-administrativa-edit-container .credito-disponivel-administrativa-edit-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.credito-disponivel-administrativa-edit-container .credito-disponivel-administrativa-edit-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.credito-disponivel-administrativa-edit-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.credito-disponivel-administrativa-edit-container .check-aprovado input{
+    width: 1.5em;
+}
+
+
+.credito-disponivel-administrativa-edit-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

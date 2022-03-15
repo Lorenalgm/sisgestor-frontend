@@ -64,9 +64,17 @@ import CreditosPlanejadosAdministrativas from './pages/CreditosPlanejadosAdminis
 import CreditosPlanejadosAdministrativasCreate from './pages/CreditosPlanejadosAdministrativas/create';
 import CreditosPlanejadosAdministrativasEdit from './pages/CreditosPlanejadosAdministrativas/edit';
 
+import CreditosPlanejadosGestoras from './pages/CreditosPlanejadosGestoras'
+import CreditosPlanejadosGestorasEdit from './pages/CreditosPlanejadosGestoras/edit';
+
 import CreditosDisponiveisAdministrativas from './pages/CreditosDisponiveisAdministrativas'
 import CreditosDisponiveisAdministrativasCreate from './pages/CreditosDisponiveisAdministrativas/create';
 import CreditosDisponiveisAdministrativasEdit from './pages/CreditosDisponiveisAdministrativas/edit';
+
+
+import CreditosDisponiveisGestoras from './pages/CreditosDisponiveisGestoras'
+import CreditosDisponiveisGestorasEdit from './pages/CreditosDisponiveisGestoras/edit';
+
 
 import Empenhar from './pages/Empenhar'
 import EmpenharCreate from './pages/Empenhar/create';
@@ -144,6 +152,11 @@ function App(){
                 <Route path="/metas_orcamentarias" element={<MetasOrcamentarias />} />
                 <Route path="/metas_orcamentarias/criar" element={<MetasOrcamentariasCreate />} />
                 <Route path="/metas_orcamentarias/editar/:id" element={<MetasOrcamentariasEdit />} />
+
+                <Route path="/creditos_planejados_gestoras" element={<CreditosPlanejadosGestoras />} />
+                <Route path="/creditos_planejados_gestoras/editar/:id" element={<CreditosPlanejadosGestorasEdit />} />
+                <Route path="/creditos_disponiveis_gestoras" element={<CreditosDisponiveisGestoras />} />
+                <Route path="/creditos_disponiveis_gestoras/editar/:id" element={<CreditosDisponiveisGestorasEdit />} />
 
                 {/* Administrativas */}
                 <Route path="/matrizes_orcamentarias_administrativas" element={<MatrizesOrcamentariasAdministrativas />} />
