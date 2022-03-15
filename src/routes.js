@@ -84,7 +84,14 @@ import MetasOrcamentarias from './pages/MetasOrcamentarias'
 import MetasOrcamentariasCreate from './pages/MetasOrcamentarias/create';
 import MetasOrcamentariasEdit from './pages/MetasOrcamentarias/edit';
 
+import LimitesOrcamentariosGestoras from './pages/LimitesOrcamentariosGestoras'
+import LimitesOrcamentariosGestorasCreate from './pages/LimitesOrcamentariosGestoras/create'
+import LimitesOrcamentariosGestorasEdit from './pages/LimitesOrcamentariosGestoras/edit'
+
 import AcoesGestoras from './pages/AcoesGestoras';
+
+import FontesAcoesGestoras from './pages/FontesAcoesGestoras'
+import FontesAcoesGestorasCreate from './pages/FontesAcoesGestoras/create'
 
 function App(){
     return(
@@ -136,7 +143,8 @@ function App(){
                 <Route path="/fontes_instituicoes" element={<FontesInstituicoes />} />
                 <Route path="/fontes_instituicoes/criar" element={<FontesInstituicoesCreate />} />
                 <Route path="/acoes_instituicoes" element={<AcoesInstituicoes />} />
-                <Route path="/acoes_instituicoes/criar" element={<AcoesInstituicoesCreate />} /><Route path="/fontes_acoes_instituicoes" element={<FontesAcoesInstituicoes />} />
+                <Route path="/acoes_instituicoes/criar" element={<AcoesInstituicoesCreate />} />
+                <Route path="/fontes_acoes_instituicoes" element={<FontesAcoesInstituicoes />} />
                 <Route path="/fontes_acoes_instituicoes/criar" element={<FontesAcoesInstituicoesCreate />} />
                 <Route path="/movimentos" element={<Movimentos />} />
                 <Route path="/movimentos/criar" element={<MovimentosCreate />} />
@@ -157,6 +165,13 @@ function App(){
                 <Route path="/creditos_planejados_gestoras/editar/:id" element={<CreditosPlanejadosGestorasEdit />} />
                 <Route path="/creditos_disponiveis_gestoras" element={<CreditosDisponiveisGestoras />} />
                 <Route path="/creditos_disponiveis_gestoras/editar/:id" element={<CreditosDisponiveisGestorasEdit />} />
+
+                <Route path="/limites_orcamentarios_gestoras" element={<LimitesOrcamentariosGestoras />} />
+                <Route path="/limites_orcamentarios_gestoras/criar" element={<LimitesOrcamentariosGestorasCreate />} />
+                <Route path="/limites_orcamentarios_gestoras/editar/:id" element={<LimitesOrcamentariosGestorasEdit />} />
+
+                <Route path="/fontes_acoes_gestoras" element={<FontesAcoesGestoras />} />
+                <Route path="/fontes_acoes_gestoras/criar" element={<FontesAcoesGestorasCreate />} />
 
                 {/* Administrativas */}
                 <Route path="/matrizes_orcamentarias_administrativas" element={<MatrizesOrcamentariasAdministrativas />} />

@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import BarraGestora from '../../components/BarraGestora';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export default function CreditosPlanejadosAdministrativas(){
@@ -23,15 +23,6 @@ export default function CreditosPlanejadosAdministrativas(){
         alert(error);
       }
     }, []);
-
-    async function handleDelete(credito_planejado_administrativa) {
-        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir o credito_planejado_administrativa ${credito_planejado_administrativa.descricao}?`);
-    
-        if (isDeleteConfirmed){
-            await api.delete(`/creditos_planejados/${credito_planejado_administrativa.id}`);
-            setCreditosPlanejadosAdministrativas(creditos_planejados_administrativas.filter(creditoPlanejadoAdministrativoAntigo => creditoPlanejadoAdministrativoAntigo.id !== credito_planejado_administrativa.id))
-        }
-    }
 
     return(
         <div className="creditos-planejados-administrativas-container">

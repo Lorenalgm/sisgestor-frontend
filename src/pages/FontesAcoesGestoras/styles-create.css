@@ -1,0 +1,47 @@
+.fontes-acoes-instituicoes-create-container .fonte-acao-instituicao-create-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.fontes-acoes-instituicoes-create-container .fontes-acoes-instituicoes-create-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontes-acoes-instituicoes-create-container .fonte-acao-instituicao-create-title{
+    font-size: 30px;
+}
+
+.fonte-acao-instituicao-create-container .fonte-acao-instituicao-create-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 30%;
+}
+
+.fonte-acao-instituicao-create-container .fonte-acao-instituicao-create-form label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8em;
+}
+
+.fonte-acao-instituicao-create-container .fonte-acao-instituicao-create-form input{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}
+
+.fonte-acao-instituicao-create-container .check-aprovado{
+    display: flex;
+    align-items: center;
+}
+
+.fonte-acao-instituicao-create-container .check-aprovado input{
+    width: 1.5em;
+}
+
+.fonte-acao-instituicao-create-container select{
+    padding: .6em;
+    border-radius: .4em;
+    height: 3.5em;
+}

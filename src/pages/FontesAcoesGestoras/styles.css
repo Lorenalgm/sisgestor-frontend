@@ -1,0 +1,45 @@
+.fontes-acoes-instituicoes-container .fonte-acao-instituicao-container{
+    padding: 2em;
+    margin-left: 300px;
+}
+
+.fontes-acoes-instituicoes-container .fontes-acoes-instituicoes-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontes-acoes-instituicoes-container .fonte-acao-instituicao-title{
+    font-size: 30px;
+}
+
+.fontes-acoes-instituicoes-container .list-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    font-weight: bold;
+    justify-items: center;
+    margin-bottom: 1em;
+    margin-top: 5em;
+    padding: 0 1em;
+}
+
+.fontes-acoes-instituicoes-container .fonte-acao-instituicao-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: var(--card);
+    justify-items: center;
+    border-radius: .7em;
+    padding: 2em 1em;
+    margin-bottom: 1em;
+}
+
+.fontes-acoes-instituicoes-container .actions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.fontes-acoes-instituicoes-container .icon{
+    font-size: 25px;
+    color: var(--primary);
+    cursor: pointer;
+}

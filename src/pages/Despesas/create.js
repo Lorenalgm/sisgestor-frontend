@@ -21,7 +21,7 @@ export default function DespesaCreate(){
     const [centro_custo_id, setCentroCustoId ] = useState('');
     const [naturezas_despesas, setNaturezasDespesas ] = useState([]);
     const [natureza_despesa_id, setNaturezaDespesaId ] = useState('');
-    const [subnatureza_despesa_id, setSubnaturezaDespesaId ] = useState('');
+    // const [subnatureza_despesa_id, setSubnaturezaDespesaId ] = useState('');
     const [unidades_administrativas, setUnidadesAdministrativas ] = useState([]);
     const [unidade_administrativa_id, setUnidadeAdministrativaId ] = useState(1);
     
@@ -84,7 +84,7 @@ export default function DespesaCreate(){
             acao_id,
             centro_custo_id,
             natureza_despesa_id,
-            subnatureza_despesa_id,
+            // subnatureza_despesa_id,
             unidade_administrativa_id,
             exercicio_id: exercicioId
         }

@@ -3,16 +3,11 @@ import './styles.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import BarraInstituicao from '../../components/BarraInstituicao';
-import { FaTrash, FaEdit } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { FaEdit } from 'react-icons/fa';
 
 export default function LimitesOrcamentarios(){
     const [limites, setLimitesOrcamentarios] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [open, setOpen] = useState(false);
 
     useEffect(() => {
       try {

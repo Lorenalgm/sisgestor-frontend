@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import Menu from '../../components/Menu';
 import BarraGestora from '../../components/BarraGestora';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export default function CreditosDisponiveisAdministrativas(){
@@ -23,15 +23,6 @@ export default function CreditosDisponiveisAdministrativas(){
         alert(error);
       }
     }, []);
-
-    async function handleDelete(credito_disponivel_administrativa) {
-        const isDeleteConfirmed = window.confirm(`Tem certeza que deseja excluir o credito_disponivel_administrativa ${credito_disponivel_administrativa.descricao}?`);
-    
-        if (isDeleteConfirmed){
-            await api.delete(`/creditos_disponiveis/${credito_disponivel_administrativa.id}`);
-            setCreditosDisponiveisAdministrativas(creditos_disponiveis_administrativas.filter(creditoPlanejadoAdministrativoAntigo => creditoPlanejadoAdministrativoAntigo.id !== credito_disponivel_administrativa.id))
-        }
-    }
 
     return(
         <div className="creditos-disponiveis-administrativas-container">
