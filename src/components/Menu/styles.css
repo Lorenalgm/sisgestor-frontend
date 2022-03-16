@@ -1,6 +1,6 @@
 .menu-container{
-    background-color: var(--card);
-    color: var(--secondary);
+    background-color: #77274F;
+    color: var(--card);
     position: fixed;
     height: 100vh;
     padding: 2em 1em;
@@ -21,11 +21,11 @@
 
 .menu-container .menu-group-title{
     margin-bottom: .7em;
-    color: var(--secondary)
+    color: var(--card)
 }
 
 .menu-container .menu-group-link:hover{
-    color: var(--primary)
+    color: var(--background)
 }
 
 .menu-container .submenus{
@@ -35,12 +35,12 @@
 }
 
 .menu-container .submenu{
-    color: var(--secondary);
+    color: var(--card);
     margin-bottom: .7em;
 }
 
 .menu-container .submenu:hover{
-    color: var(--primary);
+    color: var(--background);
 }
 
 .active {
