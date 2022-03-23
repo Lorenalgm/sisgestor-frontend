@@ -50,16 +50,16 @@ export default function ProgramasTipos(){
                 </div>
                 <div className="principal">
                     <div className="list-header">
-                        <p>Nome</p>
                         <p>Código</p>
+                        <p>Nome</p>
                         <p>Ação</p>
                     </div>
                     <div className="list">
                     {!loading && (
                         programasTipos.map((programa, index) => (
                             <div className="programa-tipo-card" key={programa.id}>
-                                <p>{programa.nome}</p>
                                 <p>{programa.codigo}</p>
+                                <p>{programa.nome}</p>
                                 <div className="actions">
                                     <Link to={'/programas_tipos/editar/'+programa.id} state={{programa: programa}}><FaEdit className="icon" /></Link>
                                     <FaTrash className="icon" onClick={() => handleDelete(programa)} />

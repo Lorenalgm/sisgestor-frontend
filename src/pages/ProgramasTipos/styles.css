@@ -12,23 +12,32 @@
     font-size: 30px;
 }
 
+.programa-tipo-container .principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .programas-tipos-container .list-header{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: .5fr 2fr 1fr;
     font-weight: bold;
-    justify-items: center;
     margin-bottom: 1em;
     margin-top: 5em;
-    padding: 0 1em;
+    padding: 0 2em;
+    width: 90%;
+}
+
+.programas-tipos-container .list{
+    width: 90%;
 }
 
 .programas-tipos-container .programa-tipo-card{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: .5fr 2fr 1fr;
     background-color: var(--card);
-    justify-items: center;
     border-radius: .7em;
-    padding: 2em 1em;
+    padding: 2em 2em;
     margin-bottom: 1em;
 }
 
@@ -36,6 +45,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
+    width: 2em;
 }
 
 .programas-tipos-container .icon{

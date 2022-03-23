@@ -21,8 +21,6 @@ export default function ExerciciosCreate(){
             nome,
             data_inicio: format(new Date(data_inicio), 'yyyy-MM-dd'),
             data_fim: format(new Date(data_fim), 'yyyy-MM-dd'),
-            data_inicio_loa: format(new Date(data_inicio_loa), 'yyyy-MM-dd'),
-            data_fim_loa: format(new Date(data_fim_loa), 'yyyy-MM-dd'),
             aprovado,
             instituicao_id: 1
         }
@@ -60,14 +58,6 @@ export default function ExerciciosCreate(){
                         Data final:
                             <input type="date" name="data_fim" value={data_fim} onChange={e => setDataFim(e.target.value)} placeholder="Ex: 01/12/2022" />
                         </label> 
-                        <label>
-                        Data de início loa:
-                            <input type="date" name="data_inicio_loa" value={data_inicio_loa} onChange={e => setDataInicioLoa(e.target.value)} placeholder="Ex: 01/06/2021" />
-                        </label> 
-                        <label>
-                        Data final loa:
-                            <input type="date" name="data_fim_loa" value={data_fim_loa} onChange={e => setDataFimLoa(e.target.value)} placeholder="Ex: 01/12/2022" />
-                        </label>
                         <div className="check-aprovado">
                             Aprovado?&nbsp;&nbsp;
                             <input type="checkbox"  name="aprovado" value={aprovado} onChange={e => setAprovado(e.target.checked)} placeholder="Sim" /> 

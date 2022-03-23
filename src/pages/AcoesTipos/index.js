@@ -50,16 +50,20 @@ export default function AcoesTipos(){
                 </div>
                 <div className="principal">
                     <div className="list-header">
-                        <p>Nome</p>
                         <p>Código</p>
+                        <p>Nome</p>
+                        <p>Custeio</p>
+                        <p>Investimento</p>
                         <p>Ação</p>
                     </div>
                     <div className="list">
                     {!loading && (
                         acoesTipos.map((acao_tipo, index) => (
                             <div className="acao-tipo-card" key={acao_tipo.id}>
-                                <p>{acao_tipo.nome}</p>
                                 <p>{acao_tipo.codigo}</p>
+                                <p>{acao_tipo.nome}</p>
+                                <p>{acao_tipo.custeio?'Sim':'Não'}</p>
+                                <p>{acao_tipo.investimento?'Sim':'Não'}</p>
                                 <div className="actions">
                                     <Link to={'/acoes_tipos/editar/'+acao_tipo.id} state={{acao_tipo: acao_tipo}}><FaEdit className="icon" /></Link>
                                     <FaTrash className="icon" onClick={() => handleDelete(acao_tipo)} />

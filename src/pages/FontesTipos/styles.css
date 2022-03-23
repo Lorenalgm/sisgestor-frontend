@@ -14,21 +14,21 @@
 
 .fontes-tipos-container .list-header{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: .5fr 1fr 1fr 1fr 1fr;
     font-weight: bold;
-    justify-items: center;
     margin-bottom: 1em;
     margin-top: 5em;
-    padding: 0 1em;
+    padding: 0 2em;
+    grid-gap: 2em;
 }
 
 .fontes-tipos-container .fonte-tipo-card{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: .5fr 1fr 1fr 1fr 1fr;
+    grid-gap: 2em;
     background-color: var(--card);
-    justify-items: center;
     border-radius: .7em;
-    padding: 2em 1em;
+    padding: 2em;
     margin-bottom: 1em;
 }
 
@@ -36,6 +36,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
+    width: 5em;
 }
 
 .fontes-tipos-container .icon{

@@ -17,6 +17,7 @@ export default function Fontes(){
         api
           .get(`fontes_tipos?page=${page}`)
           .then((response) => {
+            console.log(response.data.data)
             setFontesTipos(response.data.data.data);
             setTotalPage(response.data.data.last_page);
             setLoading(false);
@@ -54,6 +55,7 @@ export default function Fontes(){
                 </div>
                 <div className="principal">
                     <div className="list-header">
+                        <p>Código</p>
                         <p>Nome</p>
                         <p>Grupo</p>
                         <p>Especificação</p>
@@ -63,6 +65,7 @@ export default function Fontes(){
                     {!loading && (
                         fontesTipos.map((fonte_tipo, index) => (
                             <div className="fonte-tipo-card" key={fonte_tipo.id}>
+                                <p>{fonte_tipo.codigo}</p>
                                 <p>{fonte_tipo.nome}</p>
                                 <p>{fonte_tipo.grupo_fonte.nome}</p>
                                 <p>{fonte_tipo.especificacao.nome}</p>
