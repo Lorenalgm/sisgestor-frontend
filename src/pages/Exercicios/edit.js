@@ -10,8 +10,6 @@ export default function ExerciciosEdit(){
     const [nome, setNome ] = useState(exercicio.nome);
     const [data_inicio, setDataInicio ] = useState(exercicio.data_inicio);
     const [data_fim, setDataFim ] = useState(exercicio.data_fim);
-    const [data_inicio_loa, setDataInicioLoa] = useState(exercicio.data_inicio_loa);
-    const [data_fim_loa, setDataFimLoa ] = useState(exercicio.data_fim_loa);
     const [aprovado, setAprovado ] = useState(exercicio.aprovado);
     const navigate = useNavigate();
     async function handleEditExercicio(e){
@@ -60,7 +58,7 @@ export default function ExerciciosEdit(){
                         </label> 
                         <div className="check-aprovado">
                             Aprovado?&nbsp;&nbsp;
-                            <input type="checkbox"  name="aprovado" value={aprovado} onChange={e => setAprovado(e.target.checked)} placeholder="Sim" checked={aprovado == true?'checked':''} /> 
+                            <input type="checkbox"  name="aprovado" value={aprovado} onChange={e => setAprovado(e.target.checked)} placeholder="Sim" checked={aprovado?'checked':''} /> 
                         </div>
                         <button type="submit" className="button">
                             Atualizar exercício

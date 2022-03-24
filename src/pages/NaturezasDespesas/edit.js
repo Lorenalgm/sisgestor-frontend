@@ -9,6 +9,7 @@ export default function NaturezasDespesasEdit(){
     const [nome, setNome ] = useState(naturezaDespesa.nome);
     const [codigo, setCodigo ] = useState(naturezaDespesa.codigo);
     const [tipo, setTipo ] = useState(naturezaDespesa.tipo);
+    const [fav, setFavorito ] = useState(naturezaDespesa.fav);
     const navigate = useNavigate();
 
     async function handleEdit(e){
@@ -18,6 +19,7 @@ export default function NaturezasDespesasEdit(){
             nome,
             codigo,
             tipo,
+            fav,
             instituicao_id: 1
         }
 
@@ -54,7 +56,10 @@ export default function NaturezasDespesasEdit(){
                         Tipo:
                             <input type="text" name="tipo" value={tipo} onChange={e => setTipo(e.target.value)} placeholder="Tipo" />
                         </label> 
-                       
+                        <div className="check-aprovado">
+                            Favorito?&nbsp;&nbsp;
+                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" checked={fav?'checked':''} /> 
+                        </div>
                         <button type="submit" className="button">
                             Atualizar natureza de despesa
                         </button>

@@ -11,11 +11,12 @@ export default function UnidadesGestoras(){
     const [loading, setLoading] = useState(true);
     const [page, setPage ] = useState(1);
     const [totalPages, setTotalPage ] = useState(1);
+    const [searchNome, setSearchNome ] = useState('');
 
     useEffect(() => {
       try {
         api
-          .get(`unidades_gestoras?page=${page}`)
+          .get(`unidades_gestoras?page=${page}&termo=${searchNome}`)
           .then((response) => {
             console.log(response.data.data.data)
             setUnidadesGestoras(response.data.data.data);
@@ -26,7 +27,7 @@ export default function UnidadesGestoras(){
       } catch (error) {
         alert(error);
       }
-    }, [page]);
+    }, [page, searchNome]);
 
     function handleChange(e, value) {
         setPage(value);            
@@ -50,6 +51,9 @@ export default function UnidadesGestoras(){
                     <Link className="button" to="/unidades_gestoras/criar">Criar</Link>
                 </div>
                 <div className="principal">
+                    <div className="filters">
+                        <input type="text" name="search" placeholder="Pesquise uma unidade" onChange={e => setSearchNome(e.target.value)} />
+                    </div>
                     <div className="list-header">
                         <p>Nome</p>
                         <p>Sigla</p>

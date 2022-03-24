@@ -12,6 +12,7 @@ export default function NaturezasDespesasCreate(){
     const [natureza_despesa_id, setNaturezaDespesaId ] = useState('');
     const [naturezas_despesas, setNaturezasDespesas ] = useState('');
     const [loading, setLoading ] = useState(true);
+    const [fav, setFavorito ] = useState(false);
     const navigate = useNavigate();
 
     async function handleCreateNaturezaDespesa(e){
@@ -22,6 +23,7 @@ export default function NaturezasDespesasCreate(){
                 nome,
                 codigo,
                 natureza_despesa_id,
+                fav,
                 instituicao_id: 1
             }
     
@@ -32,7 +34,6 @@ export default function NaturezasDespesasCreate(){
                     navigate('/naturezas_despesas');
                 }
             } catch (error) {
-                console.log(error.response.data.message);
                 alert('Não foi possível criar a natureza de despesa');
             }
         }else{
@@ -40,6 +41,7 @@ export default function NaturezasDespesasCreate(){
                 nome,
                 codigo,
                 tipo,
+                fav,
                 instituicao_id: 1
             }
     
@@ -50,7 +52,6 @@ export default function NaturezasDespesasCreate(){
                     navigate('/naturezas_despesas');
                 }
             } catch (error) {
-                console.log(error.response.data.message);
                 alert('Não foi possível criar a natureza de despesa');
             }
         }
@@ -93,6 +94,10 @@ export default function NaturezasDespesasCreate(){
                         Tipo:
                             <input type="text" name="tipo" value={tipo} onChange={e => setTipo(e.target.value)} placeholder="Tipo" />
                         </label> 
+                        <div className="check-aprovado">
+                            Favorito?&nbsp;&nbsp;
+                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" /> 
+                        </div>
                         <div className="check-aprovado">
                             Possui uma despesa mãe?&nbsp;&nbsp;
                             <input type="checkbox"  name="subnatureza" value={subnatureza} onChange={e => setSubnatureza(e.target.checked)} placeholder="Sim" /> 

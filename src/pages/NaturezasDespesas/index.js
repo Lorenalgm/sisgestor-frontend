@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaStar } from 'react-icons/fa';
 import Pagination from '@material-ui/lab/Pagination';
 import IconButton from '@mui/material/IconButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -15,11 +15,12 @@ export default function NaturezasDespesas(){
     const [page, setPage ] = useState(1);
     const [totalPages, setTotalPage ] = useState(1);
     const [open, setOpen] = useState(false);
+    const [searchNome, setSearchNome ] = useState('');
 
     useEffect(() => {
       try {
         api
-          .get(`naturezas_despesas?page=${page}`)
+          .get(`naturezas_despesas?page=${page}&termo=${searchNome}`)
           .then((response) => {
             setNaturezasDespesas(response.data.data.data);
             setTotalPage(response.data.data.last_page);
@@ -29,7 +30,7 @@ export default function NaturezasDespesas(){
       } catch (error) {
         alert(error);
       }
-    }, [page]);
+    }, [page, searchNome]);
 
     function handleChange(e, value) {
         setPage(value);            
@@ -53,6 +54,9 @@ export default function NaturezasDespesas(){
                     <Link className="button" to="/naturezas_despesas/criar">Criar</Link>
                 </div>
                 <div className="principal">
+                    <div className="filters">
+                        <input type="text" name="search" placeholder="Pesquise uma natureza" onChange={e => setSearchNome(e.target.value)} />
+                    </div>
                     <div className="list-header">
                         <p>Elemento de despesa</p>
                         <p>Natureza</p>
@@ -81,6 +85,7 @@ export default function NaturezasDespesas(){
                                     <div className="actions">
                                         <Link to={'/naturezas_despesas/editar/'+natureza_despesa.id} state={{natureza_despesa: natureza_despesa}}><FaEdit className="icon" /></Link>
                                         <FaTrash className="icon" onClick={() => handleDelete(natureza_despesa)} />
+                                        {natureza_despesa.fav?<FaStar className="icon fav" />:''}
                                     </div>
                                 </div>
                                 {open && (natureza_despesa.subnaturezas_despesas.length > 0) && <div className="subnaturezas">

@@ -51,7 +51,7 @@ export default function AcoesTipos(){
                 </div>
                 <div className="principal">
                     <div className="filters">
-                        <input type="text" name="search" placeholder="Pesquise um programa" onChange={e => setSearchNome(e.target.value)} />
+                        <input type="text" name="search" placeholder="Pesquise uma ação" onChange={e => setSearchNome(e.target.value)} />
                     </div>
                     <div className="list-header">
                         <p>Código</p>

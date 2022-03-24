@@ -52,7 +52,7 @@ export default function ProgramasTiposEdit(){
                         </label>
                         <div className="check-aprovado">
                             Favorito?&nbsp;&nbsp;
-                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" checked={fav == true?'checked':''} /> 
+                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" checked={fav?'checked':''} /> 
                         </div>
                         <button type="submit" className="button">
                             Atualizar programa
