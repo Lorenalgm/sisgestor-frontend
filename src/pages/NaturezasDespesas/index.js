@@ -21,7 +21,6 @@ export default function NaturezasDespesas(){
         api
           .get(`naturezas_despesas?page=${page}`)
           .then((response) => {
-            console.log(response.data.data.data);
             setNaturezasDespesas(response.data.data.data);
             setTotalPage(response.data.data.last_page);
             setLoading(false);
@@ -55,10 +54,9 @@ export default function NaturezasDespesas(){
                 </div>
                 <div className="principal">
                     <div className="list-header">
-                        <p></p>
-                        <p>Nome</p>
-                        <p>Código</p>
-                        <p>Tipo</p>
+                        <p>Elemento de despesa</p>
+                        <p>Natureza</p>
+                        <p>Tipo de desoesa</p>
                         <p>Ação</p>
                     </div>
                     <div className="list">
@@ -66,6 +64,7 @@ export default function NaturezasDespesas(){
                         naturezas_despesas.map((natureza_despesa, index) => (
                             <div className="natureza-despesa-card" key={natureza_despesa.id}>
                                 <div className="natureza-info">
+                                    <p>{natureza_despesa.codigo}</p>
                                     <p> 
                                     {natureza_despesa.subnaturezas_despesas.length > 0 && 
                                         <IconButton
@@ -78,7 +77,6 @@ export default function NaturezasDespesas(){
                                         {natureza_despesa.nome}
 
                                     </p>
-                                    <p>{natureza_despesa.codigo}</p>
                                     <p>{natureza_despesa.tipo}</p>
                                     <div className="actions">
                                         <Link to={'/naturezas_despesas/editar/'+natureza_despesa.id} state={{natureza_despesa: natureza_despesa}}><FaEdit className="icon" /></Link>

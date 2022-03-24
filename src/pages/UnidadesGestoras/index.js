@@ -59,9 +59,6 @@ export default function UnidadesGestoras(){
                         <p>Número</p>
                         <p>Bairro</p>
                         <p>Complemento</p>
-                        <p>Diretor Geral</p>
-                        <p>Data início</p>
-                        <p>Data fim</p>
                         <p>Instituição</p>
                         <p>Ações</p>
                     </div>
@@ -77,9 +74,6 @@ export default function UnidadesGestoras(){
                                 <p>{unidade_gestora.numero}</p>
                                 <p>{unidade_gestora.bairro}</p>
                                 <p>{unidade_gestora.complemento}</p>
-                                <p>{unidade_gestora.diretor_geral}</p>
-                                <p>{unidade_gestora.data_inicio}</p>
-                                <p>{unidade_gestora.data_fim}</p>
                                 <p>{unidade_gestora.instituicao.nome}</p>
                                 <div className="actions">
                                     <Link to={'/unidades_gestoras/editar/'+unidade_gestora.id} state={{unidade_gestora: unidade_gestora}}><FaEdit className="icon" /></Link>

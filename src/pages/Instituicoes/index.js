@@ -29,6 +29,7 @@ export default function Instituicoes(){
             <div className="instituicao-container">
                 <div className="instituicoes-header">
                     <h1 className="instituicao-title">Instituicoes</h1>
+                    <Link className="button" to="/instituicoes/criar">Criar</Link>
                 </div>
                 <div className="principal">
                     <div className="list-header">

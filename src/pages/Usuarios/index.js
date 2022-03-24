@@ -17,6 +17,7 @@ export default function Usuarios(){
         api
           .get(`usuarios?page=${page}`)
           .then((response) => {
+              console.log(response)
             setUsuarios(response.data.data.data);
             setTotalPage(response.data.data.last_page);
             setLoading(false);

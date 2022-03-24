@@ -14,9 +14,10 @@
 
 .unidades-gestoras-container .list-header{
     display: grid;
-    grid-template-columns: repeat(13, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     font-weight: bold;
     justify-items: center;
+    grid-gap: 1em;
     margin-bottom: 1em;
     margin-top: 5em;
     padding: 0 1em;
@@ -24,11 +25,12 @@
 
 .unidades-gestoras-container .unidade-gestora-card{
     display: grid;
-    grid-template-columns: repeat(13, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     background-color: var(--card);
     justify-items: center;
     border-radius: .7em;
     padding: 2em 1em;
+    grid-gap: 1em;
     margin-bottom: 1em;
 }
 
