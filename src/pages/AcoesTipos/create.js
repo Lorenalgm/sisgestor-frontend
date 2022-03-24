@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function AcoesTiposCreate(){
     const [nome, setNome ] = useState('');
     const [codigo, setCodigo ] = useState('');
+    const [fav, setFavorito ] = useState(false);
     const navigate = useNavigate();
 
     async function handleCreateAcoesTipos(e){
@@ -15,6 +16,7 @@ export default function AcoesTiposCreate(){
         const data = {
             nome,
             codigo,
+            fav,
             instituicao_id: 1
         }
 
@@ -47,6 +49,10 @@ export default function AcoesTiposCreate(){
                         Código:
                             <input type="text" name="codigo" value={codigo} onChange={e => setCodigo(e.target.value)} placeholder="Código da ação" />
                         </label> 
+                        <div className="check-aprovado">
+                            Favorito?&nbsp;&nbsp;
+                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" /> 
+                        </div>
                        
                         <button type="submit" className="button">
                             Criar ação tipo

@@ -3,7 +3,7 @@ import './styles.css';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaStar } from 'react-icons/fa';
 import Pagination from '@material-ui/lab/Pagination';
 
 export default function AcoesTipos(){
@@ -11,11 +11,12 @@ export default function AcoesTipos(){
     const [loading, setLoading] = useState(true);
     const [page, setPage ] = useState(1);
     const [totalPages, setTotalPage ] = useState(1);
+    const [searchNome, setSearchNome ] = useState('');
 
     useEffect(() => {
       try {
         api
-          .get(`acoes_tipos?page=${page}`)
+          .get(`acoes_tipos?page=${page}&termo=${searchNome}`)
           .then((response) => {
             setAcoesTipos(response.data.data.data);
             setTotalPage(response.data.data.last_page);
@@ -25,7 +26,7 @@ export default function AcoesTipos(){
       } catch (error) {
         alert(error);
       }
-    }, [page]);
+    }, [page, searchNome]);
 
     function handleChange(e, value) {
         setPage(value);            
@@ -49,6 +50,9 @@ export default function AcoesTipos(){
                     <Link className="button" to="/acoes_tipos/criar">Criar</Link>
                 </div>
                 <div className="principal">
+                    <div className="filters">
+                        <input type="text" name="search" placeholder="Pesquise um programa" onChange={e => setSearchNome(e.target.value)} />
+                    </div>
                     <div className="list-header">
                         <p>Código</p>
                         <p>Nome</p>
@@ -67,6 +71,7 @@ export default function AcoesTipos(){
                                 <div className="actions">
                                     <Link to={'/acoes_tipos/editar/'+acao_tipo.id} state={{acao_tipo: acao_tipo}}><FaEdit className="icon" /></Link>
                                     <FaTrash className="icon" onClick={() => handleDelete(acao_tipo)} />
+                                    {acao_tipo.fav?<FaStar className="icon fav" />:''}
                                 </div>
                             </div>
                         ))

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ProgramasTiposCreate(){
     const [nome, setNome ] = useState('');
     const [codigo, setCodigo ] = useState('');
+    const [fav, setFavorito ] = useState(false);
     const navigate = useNavigate();
 
     async function handleCreatePrograma(e){
@@ -15,6 +16,7 @@ export default function ProgramasTiposCreate(){
         const data = {
             nome,
             codigo,
+            fav,
             instituicao_id: 1
         }
 
@@ -46,7 +48,11 @@ export default function ProgramasTiposCreate(){
                         <label>
                         Código:
                             <input type="text" name="codigo" value={codigo} onChange={e => setCodigo(e.target.value)} placeholder="Escreva o código" />
-                        </label> 
+                        </label>
+                        <div className="check-aprovado">
+                            Favorito?&nbsp;&nbsp;
+                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" /> 
+                        </div>
                         <button type="submit" className="button">
                             Criar programa
                         </button>

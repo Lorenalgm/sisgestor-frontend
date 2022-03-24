@@ -17,7 +17,7 @@
     grid-template-columns: .5fr 2fr .5fr .5fr 1fr;
     font-weight: bold;
     margin-bottom: 1em;
-    margin-top: 5em;
+    margin-top: 4em;
     padding: 0 2em;
     grid-gap: 2em;
 }
@@ -34,7 +34,7 @@
 
 .acoes-tipos-container .actions{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
     width: 5em;
 }
@@ -43,4 +43,21 @@
     font-size: 25px;
     color: var(--primary);
     cursor: pointer;
+}
+
+.acoes-tipos-container .fav{
+    cursor: text;
+    color: var(--text);
+}
+
+.acoes-tipos-container .filters{
+    margin-top: 2em;
+    width: 90%;
+}
+
+.acoes-tipos-container input{
+    height: 3.4em;
+    font-size: 16px;
+    padding: .5em;
+    border-radius: 4px;
 }

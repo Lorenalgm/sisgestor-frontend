@@ -8,6 +8,7 @@ export default function ProgramasTiposEdit(){
     const programaTipo = useLocation().state.programa;
     const [nome, setNome ] = useState(programaTipo.nome);
     const [codigo, setCodigo ] = useState(programaTipo.codigo);
+    const [fav, setFavorito ] = useState(programaTipo.fav);
     const navigate = useNavigate();
     
     async function handleEditProgramaTipo(e){
@@ -16,6 +17,7 @@ export default function ProgramasTiposEdit(){
         const data = {
             nome,
             codigo,
+            fav,
             instituicao_id: 1
         }
 
@@ -47,7 +49,11 @@ export default function ProgramasTiposEdit(){
                         <label>
                         Código:
                             <input type="text" name="codigo" value={codigo} onChange={e => setCodigo(e.target.value)} placeholder="Escreva o código" />
-                        </label> 
+                        </label>
+                        <div className="check-aprovado">
+                            Favorito?&nbsp;&nbsp;
+                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" checked={fav == true?'checked':''} /> 
+                        </div>
                         <button type="submit" className="button">
                             Atualizar programa
                         </button>

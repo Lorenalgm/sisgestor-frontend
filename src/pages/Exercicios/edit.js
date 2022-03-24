@@ -60,7 +60,7 @@ export default function ExerciciosEdit(){
                         </label> 
                         <div className="check-aprovado">
                             Aprovado?&nbsp;&nbsp;
-                            <input type="checkbox"  name="aprovado" value={aprovado} onChange={e => setAprovado(e.target.checked)} placeholder="Sim" /> 
+                            <input type="checkbox"  name="aprovado" value={aprovado} onChange={e => setAprovado(e.target.checked)} placeholder="Sim" checked={aprovado == true?'checked':''} /> 
                         </div>
                         <button type="submit" className="button">
                             Atualizar exercício

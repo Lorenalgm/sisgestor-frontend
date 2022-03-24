@@ -8,6 +8,7 @@ export default function AcoesTiposEdit(){
     const acaoTipo = useLocation().state.acao_tipo;
     const [nome, setNome ] = useState(acaoTipo.nome);
     const [codigo, setCodigo ] = useState(acaoTipo.codigo);
+    const [fav, setFavorito ] = useState(acaoTipo.fav);
     const navigate = useNavigate();
 
     async function handleEdit(e){
@@ -16,6 +17,7 @@ export default function AcoesTiposEdit(){
         const data = {
             nome,
             codigo,
+            fav,
             instituicao_id: 1
         }
 
@@ -48,7 +50,10 @@ export default function AcoesTiposEdit(){
                         Código:
                             <input type="text" name="codigo" value={codigo} onChange={e => setCodigo(e.target.value)} placeholder="Código da ação" />
                         </label> 
-                       
+                        <div className="check-aprovado">
+                            Favorito?&nbsp;&nbsp;
+                            <input type="checkbox"  name="fav" value={fav} onChange={e => setFavorito(e.target.checked)} placeholder="Sim" checked={fav == true?'checked':''} /> 
+                        </div>
                         <button type="submit" className="button">
                             Atualizar ação
                         </button>
